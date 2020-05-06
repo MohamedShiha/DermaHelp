@@ -10,7 +10,7 @@ import UIKit
 
 extension UIFont {
     
-    class func roundedSystemFont(ofSize fontSize: CGFloat, weight: UIFont.Weight) -> UIFont {
+    class func roundedSystemFont(ofSize fontSize: CGFloat, weight: UIFont.Weight = .regular) -> UIFont {
         
         let descriptor = UIFont.systemFont(ofSize: fontSize, weight: weight).fontDescriptor
         guard let roundedDescriptor = descriptor.withDesign(.rounded) else {
