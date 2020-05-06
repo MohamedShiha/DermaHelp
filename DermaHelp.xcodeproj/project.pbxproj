@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */; };
+		53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */; };
+		53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C833245FAB0B0044C9AD /* Main.storyboard */; };
+		53C0C837245FAB0C0044C9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C836245FAB0C0044C9AD /* Assets.xcassets */; };
+		53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */; };
+		53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */; };
+		ED42FC759E00C678BA23BB48 /* Pods_DermaHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		53C0C82A245FAB0B0044C9AD /* DermaHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermaHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		53C0C834245FAB0B0044C9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53C0C836245FAB0C0044C9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53C0C839245FAB0C0044C9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53C0C83B245FAB0C0044C9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DermaHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.release.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.release.xcconfig"; sourceTree = "<group>"; };
+		AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.debug.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53C0C827245FAB0B0044C9AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED42FC759E00C678BA23BB48 /* Pods_DermaHelp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CE826EB29A9EBCFC0656471 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53C0C821245FAB0A0044C9AD = {
+			isa = PBXGroup;
+			children = (
+				53C0C82C245FAB0B0044C9AD /* DermaHelp */,
+				53C0C82B245FAB0B0044C9AD /* Products */,
+				BD905DF6464979233BF21FCA /* Pods */,
+				3CE826EB29A9EBCFC0656471 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		53C0C82B245FAB0B0044C9AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53C0C82A245FAB0B0044C9AD /* DermaHelp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53C0C82C245FAB0B0044C9AD /* DermaHelp */ = {
+			isa = PBXGroup;
+			children = (
+				53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */,
+				53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */,
+				53FECBAC245FD42200E706D0 /* Extensions */,
+				53FECB8B245FC61C00E706D0 /* Design */,
+				53FECB8A245FC61300E706D0 /* Supporting Files */,
+			);
+			path = DermaHelp;
+			sourceTree = "<group>";
+		};
+		53FECB8A245FC61300E706D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				53C0C836245FAB0C0044C9AD /* Assets.xcassets */,
+				53C0C83B245FAB0C0044C9AD /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53FECB8B245FC61C00E706D0 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				53C0C833245FAB0B0044C9AD /* Main.storyboard */,
+				53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		53FECBAC245FD42200E706D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD905DF6464979233BF21FCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */,
+				979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53C0C829245FAB0B0044C9AD /* DermaHelp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53C0C83E245FAB0C0044C9AD /* Build configuration list for PBXNativeTarget "DermaHelp" */;
+			buildPhases = (
+				1B145065B365CFFD8EA47DC3 /* [CP] Check Pods Manifest.lock */,
+				53C0C826245FAB0B0044C9AD /* Sources */,
+				53C0C827245FAB0B0044C9AD /* Frameworks */,
+				53C0C828245FAB0B0044C9AD /* Resources */,
+				8CF96919881B3C71FD48C7CC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DermaHelp;
+			productName = DermaHelp;
+			productReference = 53C0C82A245FAB0B0044C9AD /* DermaHelp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53C0C822245FAB0A0044C9AD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Mohamed Shiha";
+				TargetAttributes = {
+					53C0C829245FAB0B0044C9AD = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 53C0C825245FAB0A0044C9AD /* Build configuration list for PBXProject "DermaHelp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53C0C821245FAB0A0044C9AD;
+			productRefGroup = 53C0C82B245FAB0B0044C9AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53C0C829245FAB0B0044C9AD /* DermaHelp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53C0C828245FAB0B0044C9AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */,
+				53C0C837245FAB0C0044C9AD /* Assets.xcassets in Resources */,
+				53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B145065B365CFFD8EA47DC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DermaHelp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CF96919881B3C71FD48C7CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53C0C826245FAB0B0044C9AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */,
+				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
+				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		53C0C833245FAB0B0044C9AD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C0C834245FAB0B0044C9AD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53C0C839245FAB0C0044C9AD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53C0C83C245FAB0C0044C9AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		53C0C83D245FAB0C0044C9AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53C0C83F245FAB0C0044C9AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = EG8J6YGWW7;
+				INFOPLIST_FILE = "DermaHelp/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedshiha.projects.DermaHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		53C0C840245FAB0C0044C9AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = EG8J6YGWW7;
+				INFOPLIST_FILE = "DermaHelp/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedshiha.projects.DermaHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53C0C825245FAB0A0044C9AD /* Build configuration list for PBXProject "DermaHelp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C0C83C245FAB0C0044C9AD /* Debug */,
+				53C0C83D245FAB0C0044C9AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53C0C83E245FAB0C0044C9AD /* Build configuration list for PBXNativeTarget "DermaHelp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53C0C83F245FAB0C0044C9AD /* Debug */,
+				53C0C840245FAB0C0044C9AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53C0C822245FAB0A0044C9AD /* Project object */;
+}
