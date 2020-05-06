@@ -23,4 +23,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
+    
+    func embedInNavigationController(hiddenNavBar: Bool = true) -> UINavigationController {
+        let navVC = UINavigationController(rootViewController: self)
+        navVC.navigationBar.isHidden = hiddenNavBar
+        return navVC
+    }
 }
