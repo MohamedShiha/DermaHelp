@@ -114,7 +114,7 @@ class LoginFormVC: ViewController, LayoutController {
     @objc
     private func didTapLoginButton() {
         // TODO: Login functionality and navigate to assessments
-        print("Login")
+        print("Login.")
     }
     
     @objc
