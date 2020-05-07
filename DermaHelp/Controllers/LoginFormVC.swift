@@ -9,16 +9,12 @@
 import UIKit
 import EZConstraints
 
-protocol LoginMethodPresenterDelegate: class {
-    func presentAlternative()
-}
-
 class LoginFormVC: ViewController, LayoutController {
     
     // MARK: Views
     
     private lazy var headingLabel = Label(text: "Welcome Back", font: .roundedSystemFont(ofSize: 32, weight: .heavy), color: .mainTint)
-    private lazy var subHeadingLabel = Label(text: "We have been waiting for you", font: .roundedSystemFont(ofSize: 22, weight: .bold), color: .secondaryBlackLabel)
+    private lazy var subHeadingLabel = Label(text: "We have been waiting for you", font: .roundedSystemFont(ofSize: 20, weight: .bold), color: .secondaryBlackLabel)
     private lazy var googleButton = GoogleButton()
     private lazy var separator = UISeparator()
     private lazy var emailTextField = TextField(placeholder: "Email address", type: .email)
@@ -114,13 +110,13 @@ class LoginFormVC: ViewController, LayoutController {
     @objc
     private func didTapLoginButton() {
         // TODO: Login functionality and navigate to assessments
-        print("Login")
+        print("Login.")
     }
     
     @objc
     private func didTapSignUpButton() {
         dismiss(animated: true) {
-            self.presentingDelegate?.presentAlternative()
+            self.presentingDelegate?.presentSignUp()
         }
     }
 }

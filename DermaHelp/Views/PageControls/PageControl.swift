@@ -11,7 +11,7 @@ import UIKit
 
 class PageControl: UIPageControl {
 
-    init(numberOfPages: Int, currentPageTint: UIColor? = .black, indicatorTint: UIColor? = .lightGray) {
+    init(numberOfPages: Int, currentPageTint: UIColor? = .label, indicatorTint: UIColor? = .lightGray) {
         super.init(frame: .zero)
         self.numberOfPages = numberOfPages
         currentPageIndicatorTintColor = currentPageTint
