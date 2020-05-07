@@ -45,7 +45,7 @@ class TextField: UITextField {
     
     private func setupAppearance() {
         borderStyle = .none
-        textColor = .black
+        textColor = .label
         backgroundColor = .white
         attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     }

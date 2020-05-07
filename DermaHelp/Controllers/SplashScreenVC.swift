@@ -23,7 +23,7 @@ class SplashScreenVC: ViewController, LayoutController {
     private lazy var logoLabel = Label(text: "Derma Help", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
     private lazy var featuresCollectionView = FeaturesCollectionView()
     lazy var pageControl = PageControl(numberOfPages: Features.list.count)
-    private lazy var loginButton = FormButton(title: "Login", titleColor: .black, backColor: .lightFill)
+    private lazy var loginButton = FormButton(title: "Login", titleColor: .label, backColor: .lightFill)
     private lazy var signUpButton = FormButton(title: "Sign Up", titleColor: .white, backColor: .mainTint)
     
     // MARK: View Controller lifecycle
