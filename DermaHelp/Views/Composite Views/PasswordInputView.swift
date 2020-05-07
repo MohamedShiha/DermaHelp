@@ -11,9 +11,10 @@ import UIKit
 class PasswordInputView: UIView, LayoutController {
     
     private lazy var showButton = Button(title: "show", font: .roundedSystemFont(ofSize: 15),titleColor: .mainTint)
-    lazy var textField = TextField(placeholder: "Password", type: .password)
+    let textField: TextField
     
-    init() {
+    init(placeholder: String = "Password") {
+        textField = TextField(placeholder: placeholder, type: .password)
         super.init(frame: .zero)
         setupViews()
         setupLayout()
@@ -23,6 +24,7 @@ class PasswordInputView: UIView, LayoutController {
     }
     
     required init?(coder: NSCoder) {
+        textField = TextField(placeholder: "Password", type: .password)
         super.init(coder: coder)
     }
     

@@ -18,7 +18,7 @@ class Label: UILabel {
         }
     }
     
-    init(text: String? = nil, font: UIFont! = .roundedSystemFont(ofSize: UIFont.labelFontSize, weight: .regular), color: UIColor! = .black, alignment: NSTextAlignment = .natural, numberOfLines: Int = 1) {
+    init(text: String? = nil, font: UIFont! = .roundedSystemFont(ofSize: UIFont.labelFontSize, weight: .regular), color: UIColor! = .label, alignment: NSTextAlignment = .natural, numberOfLines: Int = 1) {
         super.init(frame: .zero)
         self.text = text
         self.font = font

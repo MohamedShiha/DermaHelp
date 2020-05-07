@@ -11,6 +11,8 @@
 		532EE1012462E83A00A705D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1002462E83A00A705D4 /* TextField.swift */; };
 		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
 		532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1052463113600A705D4 /* PasswordInputView.swift */; };
+		536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC424646B9F00392234 /* SignUpFormVC.swift */; };
+		536ECDC724646BB900392234 /* SignUpPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC624646BB900392234 /* SignUpPreview.swift */; };
 		53901BBC2462BAB600336820 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BA92462BAB600336820 /* Features.swift */; };
 		53901BBD2462BAB600336820 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAB2462BAB600336820 /* ViewController.swift */; };
 		53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAC2462BAB600336820 /* SplashScreenVC.swift */; };
@@ -38,6 +40,8 @@
 		532EE1002462E83A00A705D4 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		532EE1052463113600A705D4 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
+		536ECDC424646B9F00392234 /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
+		536ECDC624646BB900392234 /* SignUpPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPreview.swift; sourceTree = "<group>"; };
 		53901BA92462BAB600336820 /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		53901BAB2462BAB600336820 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53901BAC2462BAB600336820 /* SplashScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				53901BAB2462BAB600336820 /* ViewController.swift */,
 				53901BAC2462BAB600336820 /* SplashScreenVC.swift */,
 				53901BCA2462BE7100336820 /* LoginFormVC.swift */,
+				536ECDC424646B9F00392234 /* SignUpFormVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			children = (
 				53901BBB2462BAB600336820 /* SplashScreenPreview.swift */,
 				532C2613246431FE008065B7 /* LoginFormPreview.swift */,
+				536ECDC624646BB900392234 /* SignUpPreview.swift */,
 			);
 			path = Previews;
 			sourceTree = "<group>";
@@ -390,8 +396,10 @@
 				53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */,
 				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
 				53901BC12462BAB600336820 /* Button.swift in Sources */,
+				536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */,
 				53901BC52462BAB600336820 /* SplashScreenPreview.swift in Sources */,
 				53901BC32462BAB600336820 /* PageControl.swift in Sources */,
+				536ECDC724646BB900392234 /* SignUpPreview.swift in Sources */,
 				53901BCD2462C07F00336820 /* UISeparator.swift in Sources */,
 				53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */,
 				53901BC22462BAB600336820 /* Label.swift in Sources */,
