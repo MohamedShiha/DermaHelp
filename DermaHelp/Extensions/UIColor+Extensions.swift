@@ -21,4 +21,16 @@ extension UIColor {
     static var lightFill: UIColor {
         return UIColor(displayP3Red: 120/255, green: 120/255, blue: 128/255, alpha: 0.2)
     }
+    
+    static var secondaryBlackLabel: UIColor {
+        return UIColor(displayP3Red: 60/255, green: 60/255, blue: 67/255, alpha: 0.6)
+    }
+    
+    static var separator: UIColor {
+        return UIColor(displayP3Red: 198/255, green: 198/255, blue: 200/255, alpha: 0.7)
+    }
+    
+    static func black(_ black: CGFloat, alpha a: CGFloat) -> UIColor {
+        return UIColor(displayP3Red: black, green: black, blue: black, alpha: a)
+    }
 }
