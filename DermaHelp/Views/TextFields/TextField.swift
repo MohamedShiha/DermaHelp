@@ -13,7 +13,7 @@ class TextField: UITextField {
 
     private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     
-    init(placeholder: String?, type: TextFieldType) {
+    init(placeholder: String?, type: InputType) {
         super.init(frame: .zero)
         self.placeholder = placeholder
         setupAppearance()
@@ -56,7 +56,7 @@ class TextField: UITextField {
         layer.shadowRadius = 6
     }
 
-    private func setupTextView(type: TextFieldType) {
+    private func setupTextView(type: InputType) {
         switch type {
         case .name, .nickname, .firstname, .lastname:
             setupTextFieldContent(type: .name)
@@ -85,14 +85,14 @@ class TextField: UITextField {
         self.keyboardType = keyboardType
         isSecureTextEntry = isMasked
     }
-}
 
-enum TextFieldType {
-    case name, nickname, firstname, lastname
-    case location, country, city
-    case email
-    case newPassword
-    case password
-    case phoneNumber, countryCode
-    case unspecified
+    enum InputType {
+        case name, nickname, firstname, lastname
+        case location, country, city
+        case email
+        case newPassword
+        case password
+        case phoneNumber, countryCode
+        case unspecified
+    }
 }

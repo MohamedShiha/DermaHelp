@@ -9,6 +9,11 @@
 import UIKit
 import EZConstraints
 
+protocol LoginMethodPresenterDelegate: class {
+    func presentSignUp()
+    func presentLogin()
+}
+
 class SplashScreenVC: ViewController, LayoutController {
 
     // MARK: Views
@@ -91,8 +96,9 @@ class SplashScreenVC: ViewController, LayoutController {
     
     @objc
     private func didTapSignUpButton() {
-        // TODO: Present Sign up
-//        present(, animated: true, completion: nil)
+        let vc = SignUpFormVC()
+        vc.presentingDelegate = self
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -103,8 +109,11 @@ extension SplashScreenVC: ScrollingDelegate {
 }
 
 extension SplashScreenVC: LoginMethodPresenterDelegate {
-    func presentAlternative() {
-        // TODO: Present Sign up
-//        present(, animated: true, completion: nil)
+    func presentSignUp() {
+        present(SignUpFormVC(), animated: true, completion: nil)
+    }
+    
+    func presentLogin() {
+        present(LoginFormVC(), animated: true, completion: nil)
     }
 }

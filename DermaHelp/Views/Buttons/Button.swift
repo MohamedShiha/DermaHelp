@@ -18,7 +18,7 @@ class Button: UIButton {
         }
     }
     
-    init(title: String, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .white) {
+    init(title: String, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         titleLabel?.font = font
