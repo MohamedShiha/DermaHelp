@@ -11,7 +11,7 @@ import UIKit
 class FormButton: Button {
 
     init(title: String, titleColor: UIColor?, backColor: UIColor) {
-        super.init(title: title, font: .roundedSystemFont(ofSize: UIFont.buttonFontSize, weight: .semibold), titleColor: titleColor, backColor: backColor)
+        super.init(title: title, font: .roundedSystemFont(ofSize: UIFont.buttonFontSize, weight: .bold), titleColor: titleColor, backColor: backColor)
     }
     
     required init?(coder: NSCoder) {

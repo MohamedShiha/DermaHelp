@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532C2613246431FE008065B7 /* LoginFormPreview.swift */; };
+		532EE1012462E83A00A705D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1002462E83A00A705D4 /* TextField.swift */; };
+		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
+		532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1052463113600A705D4 /* PasswordInputView.swift */; };
 		53901BBC2462BAB600336820 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BA92462BAB600336820 /* Features.swift */; };
 		53901BBD2462BAB600336820 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAB2462BAB600336820 /* ViewController.swift */; };
 		53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAC2462BAB600336820 /* SplashScreenVC.swift */; };
@@ -18,6 +22,8 @@
 		53901BC42462BAB600336820 /* FeaturesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BB92462BAB600336820 /* FeaturesCollectionView.swift */; };
 		53901BC52462BAB600336820 /* SplashScreenPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BBB2462BAB600336820 /* SplashScreenPreview.swift */; };
 		53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BC62462BAC800336820 /* UIColor+Extensions.swift */; };
+		53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BCA2462BE7100336820 /* LoginFormVC.swift */; };
+		53901BCD2462C07F00336820 /* UISeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BCC2462C07F00336820 /* UISeparator.swift */; };
 		53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */; };
 		53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */; };
 		53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C833245FAB0B0044C9AD /* Main.storyboard */; };
@@ -28,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		532C2613246431FE008065B7 /* LoginFormPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPreview.swift; sourceTree = "<group>"; };
+		532EE1002462E83A00A705D4 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
+		532EE1052463113600A705D4 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		53901BA92462BAB600336820 /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		53901BAB2462BAB600336820 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53901BAC2462BAB600336820 /* SplashScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
@@ -39,6 +49,8 @@
 		53901BB92462BAB600336820 /* FeaturesCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturesCollectionView.swift; sourceTree = "<group>"; };
 		53901BBB2462BAB600336820 /* SplashScreenPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenPreview.swift; sourceTree = "<group>"; };
 		53901BC62462BAC800336820 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		53901BCA2462BE7100336820 /* LoginFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormVC.swift; sourceTree = "<group>"; };
+		53901BCC2462C07F00336820 /* UISeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISeparator.swift; sourceTree = "<group>"; };
 		53C0C82A245FAB0B0044C9AD /* DermaHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermaHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +84,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		532EE0FF2462E81400A705D4 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				532EE1002462E83A00A705D4 /* TextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		532EE104246310FA00A705D4 /* Composite Views */ = {
+			isa = PBXGroup;
+			children = (
+				532EE1052463113600A705D4 /* PasswordInputView.swift */,
+			);
+			path = "Composite Views";
+			sourceTree = "<group>";
+		};
 		53901BA82462BAB600336820 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +113,7 @@
 			children = (
 				53901BAB2462BAB600336820 /* ViewController.swift */,
 				53901BAC2462BAB600336820 /* SplashScreenVC.swift */,
+				53901BCA2462BE7100336820 /* LoginFormVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -92,8 +121,11 @@
 		53901BAD2462BAB600336820 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				53901BCC2462C07F00336820 /* UISeparator.swift */,
+				532EE104246310FA00A705D4 /* Composite Views */,
 				53901BB12462BAB600336820 /* Buttons */,
 				53901BB42462BAB600336820 /* Labels */,
+				532EE0FF2462E81400A705D4 /* TextFields */,
 				53901BB62462BAB600336820 /* PageControls */,
 				53901BB82462BAB600336820 /* CollectionViews */,
 				53901BAE2462BAB600336820 /* Cells */,
@@ -120,8 +152,9 @@
 		53901BB12462BAB600336820 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				53901BB22462BAB600336820 /* FormButton.swift */,
 				53901BB32462BAB600336820 /* Button.swift */,
+				53901BB22462BAB600336820 /* FormButton.swift */,
+				532EE1022462EAA300A705D4 /* GoogleButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -154,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				53901BBB2462BAB600336820 /* SplashScreenPreview.swift */,
+				532C2613246431FE008065B7 /* LoginFormPreview.swift */,
 			);
 			path = Previews;
 			sourceTree = "<group>";
@@ -343,19 +377,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
 				53901BC02462BAB600336820 /* FormButton.swift in Sources */,
+				532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */,
 				53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */,
 				53901BC42462BAB600336820 /* FeaturesCollectionView.swift in Sources */,
+				532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */,
+				532EE1012462E83A00A705D4 /* TextField.swift in Sources */,
 				53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */,
 				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
 				53901BC12462BAB600336820 /* Button.swift in Sources */,
 				53901BC52462BAB600336820 /* SplashScreenPreview.swift in Sources */,
 				53901BC32462BAB600336820 /* PageControl.swift in Sources */,
+				53901BCD2462C07F00336820 /* UISeparator.swift in Sources */,
 				53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */,
 				53901BC22462BAB600336820 /* Label.swift in Sources */,
+				53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */,
 				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

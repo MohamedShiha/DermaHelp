@@ -27,6 +27,7 @@ class SplashScreenVC: ViewController, LayoutController {
         super.viewDidLoad()
         setupViews()
         setupLayout()
+        setupActions()
         featuresCollectionView.scrollingDelegate = self
     }
     
@@ -34,7 +35,7 @@ class SplashScreenVC: ViewController, LayoutController {
         // Constraint can be added safely because Portrait rotation mode
         // is the only rotation mode enabled, unless, it is necessary to change the value
         // of a global constraint variable to avoid adding conflicting constraints every
-        // time safe area insets change
+        // time safe area insets change.
         logoImageView.layTopToSafeArea(constant: 32)
         loginButton.layBottomToSafeArea(constant: 24)
     }
@@ -69,16 +70,41 @@ class SplashScreenVC: ViewController, LayoutController {
         pageControl.alignCenterHorizontally(with: featuresCollectionView, constant: 0)
         pageControl.alignBottom(with: featuresCollectionView, constant: -4)
         
-        loginButton.heightAnchor(.equal, constant: 40)
+        loginButton.heightAnchor(.equal, constant: 44)
         
         signUpButton.layRight(to: loginButton, constant: 8)
         signUpButton.alignBottom(with: loginButton, constant: 0)
         signUpButton.sizeAnchor(with: loginButton)
+    }
+    
+    private func setupActions() {
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
+    }
+    
+    @objc
+    private func didTapLoginButton() {
+        let vc = LoginFormVC()
+        vc.presentingDelegate = self
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc
+    private func didTapSignUpButton() {
+        // TODO: Present Sign up
+//        present(, animated: true, completion: nil)
     }
 }
 
 extension SplashScreenVC: ScrollingDelegate {
     func didScroll() {
         pageControl.currentPage = featuresCollectionView.indexPathsForVisibleItems.first?.row ?? 0
+    }
+}
+
+extension SplashScreenVC: LoginMethodPresenterDelegate {
+    func presentAlternative() {
+        // TODO: Present Sign up
+//        present(, animated: true, completion: nil)
     }
 }

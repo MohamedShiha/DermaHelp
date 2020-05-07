@@ -11,7 +11,6 @@ import SwiftUI
 struct SplashScreenPreview : PreviewProvider, UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<SplashScreenPreview>) -> SplashScreenVC {
-
         return SplashScreenVC()
     }
     
