@@ -11,7 +11,7 @@ import UIKit
 class GoogleButton: FormButton {
 
     init() {
-        super.init(title: "Continue with Google", titleColor: .black(0.1, alpha: 0.6), backColor: .lightFill)
+        super.init(title: "Continue with Google", titleColor: .black(0.1, alpha: 0.6), backColor: .systemFill)
         setImage(UIImage(named: "Google"), for: .normal)
         imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 32)
         adjustsImageWhenHighlighted = false
