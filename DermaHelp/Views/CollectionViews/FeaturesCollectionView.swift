@@ -14,14 +14,18 @@ protocol ScrollingDelegate {
 
 class FeaturesCollectionView: UICollectionView {
     
+    // MARK: Properties
+    
     private let cellId = "feature"
     var scrollingDelegate: ScrollingDelegate?
+    
+    // MARK: Initializers
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
-        backgroundColor = .secondaryLightBackground
+        backgroundColor = .secondarySystemBackground
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         isPagingEnabled = true
@@ -39,6 +43,8 @@ class FeaturesCollectionView: UICollectionView {
         layer.cornerRadius = 16
     }
 }
+
+// MARK: Delegates
 
 extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -63,6 +69,8 @@ extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewData
         return 0
     }
 }
+
+// MARK: Scrolling Delegate
 
 extension FeaturesCollectionView {    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
