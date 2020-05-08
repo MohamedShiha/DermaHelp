@@ -11,7 +11,11 @@ import EZConstraints
 
 class TextField: UITextField {
 
+    // MARK: Properties
+    
     private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+    
+    // MARK: Initializers
     
     init(placeholder: String?, type: InputType) {
         super.init(frame: .zero)
@@ -25,11 +29,7 @@ class TextField: UITextField {
         super.init(coder: coder)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 8
-        layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 8, width: frame.width, height: frame.height - 4)).cgPath
-    }
+    // MARK: Padding
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: UIEdgeInsets(top: padding.top, left: padding.left, bottom: padding.bottom, right: padding.right))
@@ -41,6 +41,14 @@ class TextField: UITextField {
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: UIEdgeInsets(top: padding.top, left: padding.left, bottom: padding.bottom, right: padding.right))
+    }
+    
+    // MARK: Appearance
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 8
+        layer.shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 8, width: frame.width, height: frame.height - 4)).cgPath
     }
     
     private func setupAppearance() {
@@ -55,6 +63,8 @@ class TextField: UITextField {
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 6
     }
+    
+    // MARK: Input type
 
     private func setupTextView(type: InputType) {
         switch type {
