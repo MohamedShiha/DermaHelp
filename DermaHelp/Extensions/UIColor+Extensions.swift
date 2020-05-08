@@ -14,14 +14,6 @@ extension UIColor {
         return UIColor(displayP3Red: 209/255, green: 47/255, blue: 65/255, alpha: 1)
     }
     
-    static var secondaryLightBackground: UIColor {
-        return UIColor(displayP3Red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
-    }
-    
-    static var lightFill: UIColor {
-        return UIColor(displayP3Red: 120/255, green: 120/255, blue: 128/255, alpha: 0.2)
-    }
-    
     static var label: UIColor {
         return UIColor(displayP3Red: 5/255, green: 12/255, blue: 28/255, alpha: 1)
     }
