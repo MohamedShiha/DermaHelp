@@ -112,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				532EE1052463113600A705D4 /* PasswordInputView.swift */,
-				5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */,
 				5394533D2466100300D8ED65 /* FeaturesView.swift */,
+				5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */,
 			);
 			path = "Composite Views";
 			sourceTree = "<group>";
@@ -133,8 +133,8 @@
 				53901BAC2462BAB600336820 /* SplashScreenVC.swift */,
 				53901BCA2462BE7100336820 /* LoginFormVC.swift */,
 				536ECDC424646B9F00392234 /* SignUpFormVC.swift */,
-				5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */,
 				5394533624660FD900D8ED65 /* TabController.swift */,
+				5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
