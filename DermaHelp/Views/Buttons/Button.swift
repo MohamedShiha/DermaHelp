@@ -31,7 +31,7 @@ class Button: UIButton {
         sizeToFit()
     }
     
-    init(image: UIImage?, configuration: UIImage.SymbolConfiguration, tint: UIColor? = .mainTint, backColor: UIColor = .systemFill) {
+    init(image: UIImage?, configuration: UIImage.SymbolConfiguration = .unspecified, tint: UIColor? = .mainTint, backColor: UIColor = .systemFill) {
         super.init(frame: .zero)
         setImage(image, for: .normal)
         adjustsImageWhenHighlighted = false
