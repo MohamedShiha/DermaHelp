@@ -16,7 +16,6 @@ class FeaturesCollectionView: UICollectionView {
     
     // MARK: Properties
     
-    private let cellId = "feature"
     var scrollingDelegate: ScrollingDelegate?
     
     // MARK: Initializers
@@ -29,18 +28,13 @@ class FeaturesCollectionView: UICollectionView {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         isPagingEnabled = true
-        register(FeatureCell.self, forCellWithReuseIdentifier: cellId)
+        register(FeatureCell.self, forCellWithReuseIdentifier: FeatureCell.cellId)
         delegate = self
         dataSource = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 16
     }
 }
 
@@ -53,11 +47,8 @@ extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeatureCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCell.cellId, for: indexPath) as! FeatureCell
         cell.feature = Features.list[indexPath.row]
-        
         return cell
     }
     
