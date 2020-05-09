@@ -14,7 +14,8 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Views
     
     private lazy var headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 28, weight: .bold), color: .mainTint)
-    private lazy var addButton = AddButton()    
+    private lazy var addButton = AddButton()
+    private lazy var assessmentsTableView = AssessmentsTableView()
     
     // MARK: Properties
     
@@ -27,6 +28,9 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupViews()
         setupLayout()
         setupActions()
+        assessmentsTableView.delegate = self
+        assessmentsTableView.dataSource = self
+        setTableViewStatus()
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -36,7 +40,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
-        view.addSubViews([headingLabel, addButton])
+        view.addSubViews([headingLabel, addButton, assessmentsTableView])
     }
     
     func setupLayout() {
@@ -45,10 +49,16 @@ class MyAssessmentsVC: ViewController, LayoutController {
         addButton.layRightInSuperView(constant: 16)
         addButton.alignCenterVertically(with: headingLabel, constant: 0)
         addButton.squareSizeWith(sideLengthOf: 36)
+        assessmentsTableView.layBelow(headingLabel, constant: 16)
+        assessmentsTableView.edgesToSuperView(including: [.left, .bottom, .right])
     }
     
     private func setupActions() {
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+    }
+    
+    private func setTableViewStatus() {
+//        assessmentsTableView.backgroundView?.isHidden = Assessments.count > 0 ? true : false
     }
     
     // MARK: Actions
@@ -58,5 +68,24 @@ class MyAssessmentsVC: ViewController, LayoutController {
         // TODO: Present photo importing options
         print("Add")
 //        present(, animated: true, completion: nil)
+    }
+}
+
+// MARK: TableView Delegates
+
+extension MyAssessmentsVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: AssessmentCell.cellId, for: indexPath) as! AssessmentCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 208
     }
 }
