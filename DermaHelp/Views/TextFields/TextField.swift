@@ -62,6 +62,8 @@ class TextField: UITextField {
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 6
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
     
     // MARK: Input type
