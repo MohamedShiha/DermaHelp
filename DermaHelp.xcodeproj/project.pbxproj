@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A052466196D00F1DC31 /* AssessmentsTableView.swift */; };
+		53241A092466199C00F1DC31 /* AssessmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A082466199C00F1DC31 /* AssessmentCell.swift */; };
+		53241A0C24661A8E00F1DC31 /* StatusSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A0B24661A8E00F1DC31 /* StatusSlider.swift */; };
+		53241A3024662BD200F1DC31 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A2F24662BD200F1DC31 /* StatusView.swift */; };
+		53241A32246640E300F1DC31 /* StatusScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A31246640E300F1DC31 /* StatusScaleView.swift */; };
+		53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A332466446E00F1DC31 /* AssessmentView.swift */; };
+		53241A362466467000F1DC31 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A352466467000F1DC31 /* MenuButton.swift */; };
 		532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532C2613246431FE008065B7 /* LoginFormPreview.swift */; };
 		532EE1012462E83A00A705D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1002462E83A00A705D4 /* TextField.swift */; };
 		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
@@ -42,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53241A052466196D00F1DC31 /* AssessmentsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentsTableView.swift; sourceTree = "<group>"; };
+		53241A082466199C00F1DC31 /* AssessmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentCell.swift; sourceTree = "<group>"; };
+		53241A0B24661A8E00F1DC31 /* StatusSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSlider.swift; sourceTree = "<group>"; };
+		53241A2F24662BD200F1DC31 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		53241A31246640E300F1DC31 /* StatusScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScaleView.swift; sourceTree = "<group>"; };
+		53241A332466446E00F1DC31 /* AssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentView.swift; sourceTree = "<group>"; };
+		53241A352466467000F1DC31 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		532C2613246431FE008065B7 /* LoginFormPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPreview.swift; sourceTree = "<group>"; };
 		532EE1002462E83A00A705D4 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
@@ -100,6 +114,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		53241A042466194600F1DC31 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				53241A052466196D00F1DC31 /* AssessmentsTableView.swift */,
+			);
+			path = TableViews;
+			sourceTree = "<group>";
+		};
+		53241A072466197400F1DC31 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				53241A082466199C00F1DC31 /* AssessmentCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		53241A0A24661A6100F1DC31 /* Sliders */ = {
+			isa = PBXGroup;
+			children = (
+				53241A0B24661A8E00F1DC31 /* StatusSlider.swift */,
+			);
+			path = Sliders;
+			sourceTree = "<group>";
+		};
 		532EE0FF2462E81400A705D4 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +152,9 @@
 				532EE1052463113600A705D4 /* PasswordInputView.swift */,
 				5394533D2466100300D8ED65 /* FeaturesView.swift */,
 				5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */,
+				53241A2F24662BD200F1DC31 /* StatusView.swift */,
+				53241A31246640E300F1DC31 /* StatusScaleView.swift */,
+				53241A332466446E00F1DC31 /* AssessmentView.swift */,
 			);
 			path = "Composite Views";
 			sourceTree = "<group>";
@@ -147,7 +188,9 @@
 				53901BB12462BAB600336820 /* Buttons */,
 				53901BB42462BAB600336820 /* Labels */,
 				532EE0FF2462E81400A705D4 /* TextFields */,
+				53241A0A24661A6100F1DC31 /* Sliders */,
 				53901BB62462BAB600336820 /* PageControls */,
+				53241A042466194600F1DC31 /* TableViews */,
 				53901BB82462BAB600336820 /* CollectionViews */,
 				53901BAE2462BAB600336820 /* Cells */,
 			);
@@ -157,6 +200,7 @@
 		53901BAE2462BAB600336820 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				53241A072466197400F1DC31 /* TableViewCells */,
 				53901BAF2462BAB600336820 /* CollectionViewCells */,
 			);
 			path = Cells;
@@ -177,6 +221,7 @@
 				53901BB22462BAB600336820 /* FormButton.swift */,
 				532EE1022462EAA300A705D4 /* GoogleButton.swift */,
 				539453402466101500D8ED65 /* AddButton.swift */,
+				53241A352466467000F1DC31 /* MenuButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -401,7 +446,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */,
 				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
+				53241A362466467000F1DC31 /* MenuButton.swift in Sources */,
+				53241A3024662BD200F1DC31 /* StatusView.swift in Sources */,
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
@@ -415,12 +463,16 @@
 				53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */,
 				5394533824660FD900D8ED65 /* TabController.swift in Sources */,
 				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
+				53241A0C24661A8E00F1DC31 /* StatusSlider.swift in Sources */,
 				53901BC12462BAB600336820 /* Button.swift in Sources */,
+				53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */,
 				539453412466101500D8ED65 /* AddButton.swift in Sources */,
 				536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */,
+				53241A32246640E300F1DC31 /* StatusScaleView.swift in Sources */,
 				53901BC52462BAB600336820 /* SplashScreenPreview.swift in Sources */,
 				5394533F2466100300D8ED65 /* FeaturesView.swift in Sources */,
 				5394533924660FD900D8ED65 /* MyAssessmentsVC.swift in Sources */,
+				53241A092466199C00F1DC31 /* AssessmentCell.swift in Sources */,
 				53901BC32462BAB600336820 /* PageControl.swift in Sources */,
 				536ECDC724646BB900392234 /* SignUpPreview.swift in Sources */,
 				53901BCD2462C07F00336820 /* UISeparator.swift in Sources */,
