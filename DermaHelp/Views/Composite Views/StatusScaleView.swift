@@ -13,9 +13,15 @@ class StatusScaleView: UIView, LayoutController {
     // MARK: Views
     
     private lazy var label = Label()
-    lazy var scaleSlider = StatusSlider()
+    private lazy var scaleSlider = StatusSlider()
     
     // MARK: Properties
+    
+    var rate: Float = 0 {
+        didSet {
+            scaleSlider.value = rate
+        }
+    }
     
     // MARK: Initializers
     
