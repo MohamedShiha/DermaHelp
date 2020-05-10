@@ -13,17 +13,29 @@ class AssessmentView: UIView, LayoutController {
 
     // MARK: Views
     
-    private lazy var organNameLabel = Label(text: "Right Leg", font: .roundedSystemFont(ofSize: 19, weight: .bold))
+    private lazy var organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
     private lazy var statusView = StatusView()
     private lazy var riskStatusScale = StatusScaleView(metricsLabel: "Risk")
     private lazy var nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
     private lazy var melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
     private lazy var colorStatusScale = StatusScaleView(metricsLabel: "Color")
-    private lazy var dateLabel = Label(text: "21/2/2020", color: .secondaryLabel)
+    private lazy var dateLabel = Label(color: .secondaryLabel)
     private lazy var menuButton = MenuButton()
-    
+    lazy var getHelpButton = GetHelpButton()
     
     // MARK: Properties
+    
+    var assessmentViewModel: AssessmentViewModel! {
+        didSet {
+            organNameLabel.text = assessmentViewModel.organ
+            statusView.status = assessmentViewModel.status
+            dateLabel.text = assessmentViewModel.date.formatted
+            riskStatusScale.rate = assessmentViewModel.riskRate
+            nevusStatusScale.rate = assessmentViewModel.nevusRate
+            melanomaStatusScale.rate = assessmentViewModel.melanomaRate
+            colorStatusScale.rate = assessmentViewModel.colorRate
+        }
+    }
     
     // MARK: Initializers
     
@@ -34,7 +46,7 @@ class AssessmentView: UIView, LayoutController {
         setupViews()
         setupLayout()
         dropShadow()
-        statusView.status = .low
+        setupLongPressGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -53,7 +65,7 @@ class AssessmentView: UIView, LayoutController {
         addSubViews([
             organNameLabel, statusView, dateLabel, menuButton,
             riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale
+            colorStatusScale, getHelpButton
         ])
     }
 
@@ -77,6 +89,10 @@ class AssessmentView: UIView, LayoutController {
         nevusStatusScale.layBelow(riskStatusScale, constant: 8)
         melanomaStatusScale.layBelow(nevusStatusScale, constant: 8)
         colorStatusScale.layBelow(melanomaStatusScale, constant: 8)
+        
+        getHelpButton.layRightInSuperView(constant: 16)
+        getHelpButton.layRight(to: colorStatusScale, constant: 16)
+        getHelpButton.alignCenterVertically(with: colorStatusScale, constant: 0)
     }
     
     private func dropShadow() {
@@ -85,5 +101,35 @@ class AssessmentView: UIView, LayoutController {
         layer.shadowRadius = 6
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
+    }
+    
+    private func setupLongPressGesture() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
+        longPress.minimumPressDuration = 0.9
+        addGestureRecognizer(longPress)
+    }
+    
+    @objc
+    private func handleLongPress(recognizer: UILongPressGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            scaleDown()
+        case .ended:
+            scaleToDefault()
+        default:
+            break
+        }
+    }
+    
+    private func scaleDown() {
+        UIView.animate(withDuration: 0.3) {
+            self.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
+        }
+    }
+    
+    private func scaleToDefault() {
+        UIView.animate(withDuration: 0.3) {
+            self.transform = CGAffineTransform.identity
+        }
     }
 }
