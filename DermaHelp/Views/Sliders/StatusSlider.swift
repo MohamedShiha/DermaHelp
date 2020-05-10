@@ -22,7 +22,6 @@ class StatusSlider: UISlider {
         super.init(frame: .zero)
         isUserInteractionEnabled = false
         setThumbImage(UIImage(), for: .normal)
-        value = 0.25
     }
     
     required init?(coder: NSCoder) {
