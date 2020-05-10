@@ -10,6 +10,8 @@ import UIKit
 
 class FeatureCell: UICollectionViewCell, LayoutController {
     
+    // MARK: Views
+    
     private lazy var featureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .black
@@ -17,12 +19,17 @@ class FeatureCell: UICollectionViewCell, LayoutController {
     }()
     private lazy var featureLabel = Label(font: .roundedSystemFont(ofSize: 22, weight: .semibold))
     
+    // MARK: Properties
+    
     var feature: (image: UIImage?, name: String)! {
         didSet {
             featureLabel.text = feature.name
             featureImageView.image = feature.image
         }
     }
+    static let cellId = "feature"
+    
+    // MARK: Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +40,8 @@ class FeatureCell: UICollectionViewCell, LayoutController {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    // MARK: Setup UI
     
     func setupViews() {
         contentView.addSubViews([featureImageView, featureLabel])

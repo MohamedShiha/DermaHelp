@@ -6,7 +6,7 @@
 //  Copyright © 2020 Mohamed Shiha. All rights reserved.
 //
 
-import UIKit
+import class UIKit.UIImage
 
 // This is a fixed list of the features displayed in the splash screen
 
