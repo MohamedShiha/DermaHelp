@@ -18,6 +18,18 @@ class AssessmentCell: UITableViewCell, LayoutController {
     // MARK: Properties
     
     static let cellId = "assessments"
+    var assessmentViewModel: AssessmentViewModel! {
+        didSet {
+            assessmentView.organNameLabel.text = assessmentViewModel.organ
+            assessmentView.statusView.status = assessmentViewModel.status
+            assessmentView.dateLabel.text = assessmentViewModel.date.formatted
+            assessmentView.riskStatusScale.rate = assessmentViewModel.riskRate
+            assessmentView.nevusStatusScale.rate = assessmentViewModel.nevusRate
+            assessmentView.melanomaStatusScale.rate = assessmentViewModel.melanomaRate
+            assessmentView.colorStatusScale.rate = assessmentViewModel.colorRate
+            assessmentView.getHelpButton.isHidden = assessmentViewModel.status == .hazardous
+        }
+    }
     
     // MARK: Initializers
     
