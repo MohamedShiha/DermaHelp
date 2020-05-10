@@ -20,6 +20,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Properties
     
     weak var topConstraint: EZConstraint!
+    var assessments = Assessments()
     
     // MARK: View controller lifecycle
     
@@ -28,7 +29,6 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupViews()
         setupLayout()
         setupActions()
-        assessmentsTableView.delegate = self
         assessmentsTableView.dataSource = self
         setTableViewStatus()
     }
@@ -58,7 +58,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
     }
     
     private func setTableViewStatus() {
-//        assessmentsTableView.backgroundView?.isHidden = Assessments.count > 0 ? true : false
+        assessmentsTableView.backgroundView?.isHidden = assessments.count > 0 ? true : false
     }
     
     // MARK: Actions
@@ -76,16 +76,12 @@ class MyAssessmentsVC: ViewController, LayoutController {
 extension MyAssessmentsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return assessments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssessmentCell.cellId, for: indexPath) as! AssessmentCell
-        
+        cell.assessmentViewModel = assessments[indexPath.row]
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 208
     }
 }
