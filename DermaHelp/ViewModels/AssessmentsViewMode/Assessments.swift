@@ -21,4 +21,6 @@ struct Assessments {
     var count: Int {
         return modelViews.count
     }
+    
+    // TODO: Request Firebase to fetch assessments
 }
