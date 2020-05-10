@@ -14,6 +14,11 @@
 		53241A32246640E300F1DC31 /* StatusScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A31246640E300F1DC31 /* StatusScaleView.swift */; };
 		53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A332466446E00F1DC31 /* AssessmentView.swift */; };
 		53241A362466467000F1DC31 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A352466467000F1DC31 /* MenuButton.swift */; };
+		53266ADC2467B05A0023B13D /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266ADB2467B05A0023B13D /* Assessment.swift */; };
+		53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266ADD2467B5790023B13D /* UIView+Extensions.swift */; };
+		53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE12467B8D20023B13D /* GetHelpButton.swift */; };
+		53266AE42467BDCB0023B13D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE32467BDCB0023B13D /* Date+Extension.swift */; };
+		53266AE72467DE9C0023B13D /* AssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE62467DE9C0023B13D /* AssessmentViewModel.swift */; };
 		532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532C2613246431FE008065B7 /* LoginFormPreview.swift */; };
 		532EE1012462E83A00A705D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1002462E83A00A705D4 /* TextField.swift */; };
 		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
@@ -44,6 +49,7 @@
 		53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C833245FAB0B0044C9AD /* Main.storyboard */; };
 		53C0C837245FAB0C0044C9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C836245FAB0C0044C9AD /* Assets.xcassets */; };
 		53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */; };
+		53F82CCE24680463006E38E8 /* Assessments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F82CCD24680463006E38E8 /* Assessments.swift */; };
 		53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */; };
 		ED42FC759E00C678BA23BB48 /* Pods_DermaHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +62,11 @@
 		53241A31246640E300F1DC31 /* StatusScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusScaleView.swift; sourceTree = "<group>"; };
 		53241A332466446E00F1DC31 /* AssessmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentView.swift; sourceTree = "<group>"; };
 		53241A352466467000F1DC31 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		53266ADB2467B05A0023B13D /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
+		53266ADD2467B5790023B13D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		53266AE12467B8D20023B13D /* GetHelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHelpButton.swift; sourceTree = "<group>"; };
+		53266AE32467BDCB0023B13D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		53266AE62467DE9C0023B13D /* AssessmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentViewModel.swift; sourceTree = "<group>"; };
 		532C2613246431FE008065B7 /* LoginFormPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPreview.swift; sourceTree = "<group>"; };
 		532EE1002462E83A00A705D4 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
@@ -88,6 +99,7 @@
 		53C0C836245FAB0C0044C9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53C0C839245FAB0C0044C9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53C0C83B245FAB0C0044C9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F82CCD24680463006E38E8 /* Assessments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessments.swift; sourceTree = "<group>"; };
 		53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DermaHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.release.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +150,14 @@
 			path = Sliders;
 			sourceTree = "<group>";
 		};
+		53266AE52467DE850023B13D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				53F82CCC24680439006E38E8 /* AssessmentsViewMode */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		532EE0FF2462E81400A705D4 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				53901BA92462BAB600336820 /* Features.swift */,
+				53266ADB2467B05A0023B13D /* Assessment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +243,7 @@
 				532EE1022462EAA300A705D4 /* GoogleButton.swift */,
 				539453402466101500D8ED65 /* AddButton.swift */,
 				53241A352466467000F1DC31 /* MenuButton.swift */,
+				53266AE12467B8D20023B13D /* GetHelpButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -284,6 +306,7 @@
 			children = (
 				53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */,
 				53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */,
+				53266AE52467DE850023B13D /* ViewModels */,
 				53901BA82462BAB600336820 /* Model */,
 				53901BAD2462BAB600336820 /* Views */,
 				53901BAA2462BAB600336820 /* Controllers */,
@@ -293,6 +316,15 @@
 				53FECB8A245FC61300E706D0 /* Supporting Files */,
 			);
 			path = DermaHelp;
+			sourceTree = "<group>";
+		};
+		53F82CCC24680439006E38E8 /* AssessmentsViewMode */ = {
+			isa = PBXGroup;
+			children = (
+				53266AE62467DE9C0023B13D /* AssessmentViewModel.swift */,
+				53F82CCD24680463006E38E8 /* Assessments.swift */,
+			);
+			path = AssessmentsViewMode;
 			sourceTree = "<group>";
 		};
 		53FECB8A245FC61300E706D0 /* Supporting Files */ = {
@@ -318,6 +350,8 @@
 			children = (
 				53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */,
 				53901BC62462BAC800336820 /* UIColor+Extensions.swift */,
+				53266ADD2467B5790023B13D /* UIView+Extensions.swift */,
+				53266AE32467BDCB0023B13D /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -448,10 +482,13 @@
 			files = (
 				53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */,
 				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
+				53266AE42467BDCB0023B13D /* Date+Extension.swift in Sources */,
 				53241A362466467000F1DC31 /* MenuButton.swift in Sources */,
 				53241A3024662BD200F1DC31 /* StatusView.swift in Sources */,
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
+				53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
+				53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
 				5394533E2466100300D8ED65 /* EmptyAssessmentsView.swift in Sources */,
 				53901BC02462BAB600336820 /* FormButton.swift in Sources */,
@@ -468,6 +505,7 @@
 				53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */,
 				539453412466101500D8ED65 /* AddButton.swift in Sources */,
 				536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */,
+				53F82CCE24680463006E38E8 /* Assessments.swift in Sources */,
 				53241A32246640E300F1DC31 /* StatusScaleView.swift in Sources */,
 				53901BC52462BAB600336820 /* SplashScreenPreview.swift in Sources */,
 				5394533F2466100300D8ED65 /* FeaturesView.swift in Sources */,
@@ -479,7 +517,9 @@
 				53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */,
 				53901BC22462BAB600336820 /* Label.swift in Sources */,
 				53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */,
+				53266ADC2467B05A0023B13D /* Assessment.swift in Sources */,
 				5394533B24660FEE00D8ED65 /* MyAssessmentsPreview.swift in Sources */,
+				53266AE72467DE9C0023B13D /* AssessmentViewModel.swift in Sources */,
 				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
