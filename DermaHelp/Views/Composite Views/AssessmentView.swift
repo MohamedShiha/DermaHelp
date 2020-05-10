@@ -13,29 +13,15 @@ class AssessmentView: UIView, LayoutController {
 
     // MARK: Views
     
-    private lazy var organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
-    private lazy var statusView = StatusView()
-    private lazy var riskStatusScale = StatusScaleView(metricsLabel: "Risk")
-    private lazy var nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
-    private lazy var melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
-    private lazy var colorStatusScale = StatusScaleView(metricsLabel: "Color")
-    private lazy var dateLabel = Label(color: .secondaryLabel)
-    private lazy var menuButton = MenuButton()
+    lazy var organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
+    lazy var statusView = StatusView()
+    lazy var riskStatusScale = StatusScaleView(metricsLabel: "Risk")
+    lazy var nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
+    lazy var melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
+    lazy var colorStatusScale = StatusScaleView(metricsLabel: "Color")
+    lazy var dateLabel = Label(color: .secondaryLabel)
+    lazy var menuButton = MenuButton()
     lazy var getHelpButton = GetHelpButton()
-    
-    // MARK: Properties
-    
-    var assessmentViewModel: AssessmentViewModel! {
-        didSet {
-            organNameLabel.text = assessmentViewModel.organ
-            statusView.status = assessmentViewModel.status
-            dateLabel.text = assessmentViewModel.date.formatted
-            riskStatusScale.rate = assessmentViewModel.riskRate
-            nevusStatusScale.rate = assessmentViewModel.nevusRate
-            melanomaStatusScale.rate = assessmentViewModel.melanomaRate
-            colorStatusScale.rate = assessmentViewModel.colorRate
-        }
-    }
     
     // MARK: Initializers
     
