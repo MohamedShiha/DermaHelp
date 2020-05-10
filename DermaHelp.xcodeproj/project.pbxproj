@@ -138,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				53241A082466199C00F1DC31 /* AssessmentCell.swift */,
+				53F82CCF24681896006E38E8 /* New Group */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -325,6 +326,13 @@
 				53F82CCD24680463006E38E8 /* Assessments.swift */,
 			);
 			path = AssessmentsViewMode;
+			sourceTree = "<group>";
+		};
+		53F82CCF24681896006E38E8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		53FECB8A245FC61300E706D0 /* Supporting Files */ = {
