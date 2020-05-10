@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum AssessmentStatus {
-    case low
-    case medium
-    case hazardous
-}
-
 class StatusView: UIView, LayoutController {
 
     // MARK: Views
@@ -23,7 +17,7 @@ class StatusView: UIView, LayoutController {
     
     // MARK: Properties
     
-    var status: AssessmentStatus = .low {
+    var status: Assessment.Status = .low {
         didSet {
             setAppearance(by: status)
         }
@@ -60,7 +54,7 @@ class StatusView: UIView, LayoutController {
         label.edgesToSuperView(including: [.top, .right, .bottom])
     }
     
-    private func setAppearance(by status: AssessmentStatus) {
+    private func setAppearance(by status: Assessment.Status) {
         var color = UIColor.clear
         var text = ""
         switch status {
