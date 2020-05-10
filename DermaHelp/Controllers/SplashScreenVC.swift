@@ -14,6 +14,10 @@ protocol LoginMethodPresenterDelegate: class {
     func presentLogin()
 }
 
+protocol MainScenePresenterDelegate: class {
+    func presentMyAssessments()
+}
+
 class SplashScreenVC: ViewController, LayoutController {
 
     // MARK: Views
@@ -21,9 +25,8 @@ class SplashScreenVC: ViewController, LayoutController {
     private lazy var logoImageView = UIImageView(image: UIImage(named: "Logo"))
     private lazy var solidLogoImageView = UIImageView(image: UIImage(named: "Solid-logo"))
     private lazy var logoLabel = Label(text: "Derma Help", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
-    private lazy var featuresCollectionView = FeaturesCollectionView()
-    lazy var pageControl = PageControl(numberOfPages: Features.list.count)
-    private lazy var loginButton = FormButton(title: "Login", titleColor: .label, backColor: .lightFill)
+    private lazy var featuresView = FeaturesView()
+    private lazy var loginButton = FormButton(title: "Login", titleColor: .label, backColor: .systemFill)
     private lazy var signUpButton = FormButton(title: "Sign Up", titleColor: .white, backColor: .mainTint)
     
     // MARK: View Controller lifecycle
@@ -33,7 +36,6 @@ class SplashScreenVC: ViewController, LayoutController {
         setupViews()
         setupLayout()
         setupActions()
-        featuresCollectionView.scrollingDelegate = self
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -50,15 +52,15 @@ class SplashScreenVC: ViewController, LayoutController {
     func setupViews() {
         view.addSubViews([
             logoImageView, solidLogoImageView, logoLabel,
-            featuresCollectionView, pageControl, loginButton, signUpButton
+            featuresView, loginButton, signUpButton
         ])
     }
     
     func setupLayout() {
         
         [logoImageView, solidLogoImageView].aspectRatio(multiplier: 1)
-        [featuresCollectionView, signUpButton].layRightInSuperView(constant: 24)
-        [solidLogoImageView, featuresCollectionView, loginButton].layLeftInSuperView(constant: 24)
+        [featuresView, signUpButton].layRightInSuperView(constant: 24)
+        [solidLogoImageView, featuresView, loginButton].layLeftInSuperView(constant: 24)
         
         logoImageView.aspectRatio(by: view, multiplier: 0.4)
         logoImageView.layRightInSuperView(multiplier: 1.025, constant: -60)
@@ -69,12 +71,9 @@ class SplashScreenVC: ViewController, LayoutController {
         logoLabel.layLeftInSuperView(constant: 24)
         logoLabel.layBelow(solidLogoImageView, constant: 8)
 
-        featuresCollectionView.layAbove(loginButton, multiplier: 0.98, constant: 48)
-        featuresCollectionView.heightAnchor(with: view, multiplier: 0.12)
+        featuresView.layAbove(loginButton, multiplier: 0.98, constant: 48)
+        featuresView.heightAnchor(with: view, multiplier: 0.12)
 
-        pageControl.alignCenterHorizontally(with: featuresCollectionView, constant: 0)
-        pageControl.alignBottom(with: featuresCollectionView, constant: -4)
-        
         loginButton.heightAnchor(.equal, constant: 44)
         
         signUpButton.layRight(to: loginButton, constant: 8)
@@ -91,6 +90,7 @@ class SplashScreenVC: ViewController, LayoutController {
     private func didTapLoginButton() {
         let vc = LoginFormVC()
         vc.presentingDelegate = self
+        vc.assessmentsPresenterDelegate = self
         present(vc, animated: true, completion: nil)
     }
     
@@ -98,13 +98,8 @@ class SplashScreenVC: ViewController, LayoutController {
     private func didTapSignUpButton() {
         let vc = SignUpFormVC()
         vc.presentingDelegate = self
+        vc.assessmentsPresenterDelegate = self
         present(vc, animated: true, completion: nil)
-    }
-}
-
-extension SplashScreenVC: ScrollingDelegate {
-    func didScroll() {
-        pageControl.currentPage = featuresCollectionView.indexPathsForVisibleItems.first?.row ?? 0
     }
 }
 
@@ -115,5 +110,11 @@ extension SplashScreenVC: LoginMethodPresenterDelegate {
     
     func presentLogin() {
         present(LoginFormVC(), animated: true, completion: nil)
+    }
+}
+
+extension SplashScreenVC: MainScenePresenterDelegate {
+    func presentMyAssessments() {
+        navigationController?.setViewControllers([TabController()], animated: true)
     }
 }

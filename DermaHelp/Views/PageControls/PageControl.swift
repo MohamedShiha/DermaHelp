@@ -16,6 +16,7 @@ class PageControl: UIPageControl {
         self.numberOfPages = numberOfPages
         currentPageIndicatorTintColor = currentPageTint
         pageIndicatorTintColor = indicatorTint
+        isEnabled = false
     }
     
     required init?(coder: NSCoder) {

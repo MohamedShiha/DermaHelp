@@ -28,6 +28,7 @@ class SignUpFormVC: ViewController, LayoutController {
     // MARK: Properties
     
     weak var presentingDelegate: LoginMethodPresenterDelegate?
+    weak var assessmentsPresenterDelegate: MainScenePresenterDelegate?
     
     // MARK: View controller lifecycle
     
@@ -110,8 +111,9 @@ class SignUpFormVC: ViewController, LayoutController {
     
     @objc
     private func didTapSignUpButton() {
-        // TODO: Sign up functionality and navigate to assessments
-        print("Sign up.")
+        dismiss(animated: true) {
+            self.assessmentsPresenterDelegate?.presentMyAssessments()
+        }
     }
     
     @objc

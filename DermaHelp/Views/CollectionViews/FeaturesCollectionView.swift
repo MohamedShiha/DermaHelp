@@ -14,18 +14,21 @@ protocol ScrollingDelegate {
 
 class FeaturesCollectionView: UICollectionView {
     
-    private let cellId = "feature"
+    // MARK: Properties
+    
     var scrollingDelegate: ScrollingDelegate?
+    
+    // MARK: Initializers
     
     init() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         super.init(frame: .zero, collectionViewLayout: layout)
-        backgroundColor = .secondaryLightBackground
+        backgroundColor = .secondarySystemBackground
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         isPagingEnabled = true
-        register(FeatureCell.self, forCellWithReuseIdentifier: cellId)
+        register(FeatureCell.self, forCellWithReuseIdentifier: FeatureCell.cellId)
         delegate = self
         dataSource = self
     }
@@ -33,12 +36,9 @@ class FeaturesCollectionView: UICollectionView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 16
-    }
 }
+
+// MARK: Delegates
 
 extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -47,11 +47,8 @@ extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeatureCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCell.cellId, for: indexPath) as! FeatureCell
         cell.feature = Features.list[indexPath.row]
-        
         return cell
     }
     
@@ -63,6 +60,8 @@ extension FeaturesCollectionView: UICollectionViewDelegate, UICollectionViewData
         return 0
     }
 }
+
+// MARK: Scrolling Delegate
 
 extension FeaturesCollectionView {    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
