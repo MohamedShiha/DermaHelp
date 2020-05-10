@@ -16,9 +16,10 @@ class StatusView: UIView, LayoutController {
     private lazy var circle = UIView()
     
     // MARK: Properties
-    
+
     var status: Assessment.Status = .low {
         didSet {
+            label.text = status.rawValue
             setAppearance(by: status)
         }
     }
@@ -56,20 +57,15 @@ class StatusView: UIView, LayoutController {
     
     private func setAppearance(by status: Assessment.Status) {
         var color = UIColor.clear
-        var text = ""
         switch status {
         case .low:
-            text = "Low"
             color = .systemGreen
         case .medium:
-            text = "Medium"
             color = .systemYellow
         case .hazardous:
-            text = "Hazardous"
             color = .systemRed
         }
-        label.text = text
-        label.textColor = color
+        label.backgroundColor = color
         circle.backgroundColor = color
     }
 }
