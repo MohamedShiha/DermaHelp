@@ -18,6 +18,7 @@ class AssessmentsTableView: UITableView, LayoutController {
         separatorStyle = .none
         allowsSelection = false
         register(AssessmentCell.self, forCellReuseIdentifier: AssessmentCell.cellId)
+        delegate = self
         setupViews()
         setupLayout()
     }
@@ -35,5 +36,13 @@ class AssessmentsTableView: UITableView, LayoutController {
         backgroundView?.center(offset: CGPoint(x: 0, y: -40))
         backgroundView?.aspectRatio(multiplier: 1)
         backgroundView?.widthAnchor(with: self, multiplier: 0.9)
+    }
+}
+
+// MARK: TableView Delegate
+
+extension AssessmentsTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 208
     }
 }
