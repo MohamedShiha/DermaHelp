@@ -11,7 +11,7 @@ import UIKit
 class AddButton: Button {
 
     init() {
-        super.init(image: UIImage(systemName: "plus"), configuration: .init(pointSize: 16, weight: .bold, scale: .large))
+        super.init(image: UIImage(systemName: "plus"), configuration: .init(pointSize: 18, weight: .bold, scale: .medium))
     }
     
     required init?(coder: NSCoder) {
@@ -21,5 +21,11 @@ class AddButton: Button {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
+    }
+    
+    func animateRotation()  {
+        UIView.animate(withDuration: 0.2) {
+            self.transform = CGAffineTransform.identity.rotated(by: .pi / 4)
+        }
     }
 }

@@ -13,7 +13,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
 
     // MARK: Views
     
-    private lazy var headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 28, weight: .bold), color: .mainTint)
+    private lazy var headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
     private lazy var addButton = AddButton()
     private lazy var assessmentsTableView = AssessmentsTableView()
     
@@ -48,7 +48,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
         headingLabel.layLeftInSuperView(constant: 16)
         addButton.layRightInSuperView(constant: 16)
         addButton.alignCenterVertically(with: headingLabel, constant: 0)
-        addButton.squareSizeWith(sideLengthOf: 36)
+        addButton.squareSizeWith(sideLengthOf: 30)
         assessmentsTableView.layBelow(headingLabel, constant: 16)
         assessmentsTableView.edgesToSuperView(including: [.left, .bottom, .right])
     }
@@ -65,9 +65,9 @@ class MyAssessmentsVC: ViewController, LayoutController {
     
     @objc
     private func didTapAddButton() {
-        // TODO: Present photo importing options
-        print("Add")
-//        present(, animated: true, completion: nil)
+        let vc = BeginAssessmentVC()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
 }
 
