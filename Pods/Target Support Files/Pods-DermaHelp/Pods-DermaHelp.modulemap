@@ -1,6 +1,0 @@
-framework module Pods_DermaHelp {
-  umbrella header "Pods-DermaHelp-umbrella.h"
-
-  export *
-  module * { export * }
-}
