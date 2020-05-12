@@ -35,7 +35,7 @@ class PasswordInputView: UIView, LayoutController {
     func setupLayout() {
         textField.edgesToSuperView()
         showButton.centerVertically()
-        showButton.layRightInSuperView(constant: 12)
+        showButton.layRightInSuperView(constant: 40)
     }
     
     @objc
