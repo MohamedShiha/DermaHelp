@@ -46,6 +46,6 @@ class ManualView: UIView, LayoutController {
         titleLabel.edgesToSuperView(including: [.top, .left, .right], insets: .top(8) + .left(16) + .right(12))
         manualLabel.layBelow(titleLabel, constant: 8)
         manualLabel.alignLeft(with: titleLabel, constant: 0)
-        manualLabel.edgesToSuperView(including: [.bottom, .right], insets: .bottom(16) + .right(10))
+        manualLabel.edgesToSuperView(including: [.bottom, .right], insets: .bottom(16) + .right(12))
     }
 }
