@@ -23,10 +23,15 @@ class TextField: UITextField {
         setupAppearance()
         dropShadow()
         setupTextView(type: type)
+        clearButtonMode = .whileEditing
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
+        return super.clearButtonRect(forBounds: CGRect(x: -8, y: bounds.origin.y, width: bounds.width, height: bounds.height))
     }
     
     // MARK: Padding
@@ -42,6 +47,7 @@ class TextField: UITextField {
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: UIEdgeInsets(top: padding.top, left: padding.left, bottom: padding.bottom, right: padding.right))
     }
+    
     
     // MARK: Appearance
     

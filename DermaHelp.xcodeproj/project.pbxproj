@@ -23,6 +23,10 @@
 		532EE1012462E83A00A705D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1002462E83A00A705D4 /* TextField.swift */; };
 		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
 		532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1052463113600A705D4 /* PasswordInputView.swift */; };
+		533A6DA824697015002038ED /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA724697015002038ED /* ProfileLabel.swift */; };
+		533A6DAA24697C94002038ED /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA924697C94002038ED /* UIImage+Extension.swift */; };
+		533A6DAC24698C80002038ED /* EditingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DAB24698C80002038ED /* EditingInfoView.swift */; };
+		533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DAD24699114002038ED /* GenderSegmentedControl.swift */; };
 		536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC424646B9F00392234 /* SignUpFormVC.swift */; };
 		536ECDC724646BB900392234 /* SignUpPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC624646BB900392234 /* SignUpPreview.swift */; };
 		53901BBC2462BAB600336820 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BA92462BAB600336820 /* Features.swift */; };
@@ -38,12 +42,20 @@
 		53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BC62462BAC800336820 /* UIColor+Extensions.swift */; };
 		53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BCA2462BE7100336820 /* LoginFormVC.swift */; };
 		53901BCD2462C07F00336820 /* UISeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BCC2462C07F00336820 /* UISeparator.swift */; };
+		5393316424695953006A8ACC /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393316324695953006A8ACC /* ProfileVC.swift */; };
+		5393316624695ABD006A8ACC /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393316524695ABD006A8ACC /* ProfileImageView.swift */; };
+		5393316824695B35006A8ACC /* ProfilePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393316724695B35006A8ACC /* ProfilePreview.swift */; };
 		5394533824660FD900D8ED65 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533624660FD900D8ED65 /* TabController.swift */; };
 		5394533924660FD900D8ED65 /* MyAssessmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */; };
 		5394533B24660FEE00D8ED65 /* MyAssessmentsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533A24660FEE00D8ED65 /* MyAssessmentsPreview.swift */; };
 		5394533E2466100300D8ED65 /* EmptyAssessmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */; };
 		5394533F2466100300D8ED65 /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533D2466100300D8ED65 /* FeaturesView.swift */; };
 		539453412466101500D8ED65 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539453402466101500D8ED65 /* AddButton.swift */; };
+		539CD1E4246841D5001E94E5 /* BeginAssessmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */; };
+		539CD1E6246841E8001E94E5 /* BeginAssessmentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E5246841E8001E94E5 /* BeginAssessmentPreview.swift */; };
+		539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E72468505F001E94E5 /* MediaOptionButton.swift */; };
+		539CD1EA24685655001E94E5 /* ManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E924685655001E94E5 /* ManualView.swift */; };
+		53AA112224696CB1000A370E /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA112124696CB1000A370E /* UserInfoView.swift */; };
 		53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */; };
 		53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */; };
 		53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C833245FAB0B0044C9AD /* Main.storyboard */; };
@@ -71,6 +83,10 @@
 		532EE1002462E83A00A705D4 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		532EE1052463113600A705D4 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
+		533A6DA724697015002038ED /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
+		533A6DA924697C94002038ED /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		533A6DAB24698C80002038ED /* EditingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingInfoView.swift; sourceTree = "<group>"; };
+		533A6DAD24699114002038ED /* GenderSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSegmentedControl.swift; sourceTree = "<group>"; };
 		536ECDC424646B9F00392234 /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
 		536ECDC624646BB900392234 /* SignUpPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPreview.swift; sourceTree = "<group>"; };
 		53901BA92462BAB600336820 /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
@@ -86,12 +102,20 @@
 		53901BC62462BAC800336820 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		53901BCA2462BE7100336820 /* LoginFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormVC.swift; sourceTree = "<group>"; };
 		53901BCC2462C07F00336820 /* UISeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISeparator.swift; sourceTree = "<group>"; };
+		5393316324695953006A8ACC /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		5393316524695ABD006A8ACC /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		5393316724695B35006A8ACC /* ProfilePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePreview.swift; sourceTree = "<group>"; };
 		5394533624660FD900D8ED65 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessmentsVC.swift; sourceTree = "<group>"; };
 		5394533A24660FEE00D8ED65 /* MyAssessmentsPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessmentsPreview.swift; sourceTree = "<group>"; };
 		5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyAssessmentsView.swift; sourceTree = "<group>"; };
 		5394533D2466100300D8ED65 /* FeaturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturesView.swift; sourceTree = "<group>"; };
 		539453402466101500D8ED65 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginAssessmentVC.swift; sourceTree = "<group>"; };
+		539CD1E5246841E8001E94E5 /* BeginAssessmentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginAssessmentPreview.swift; sourceTree = "<group>"; };
+		539CD1E72468505F001E94E5 /* MediaOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionButton.swift; sourceTree = "<group>"; };
+		539CD1E924685655001E94E5 /* ManualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualView.swift; sourceTree = "<group>"; };
+		53AA112124696CB1000A370E /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		53C0C82A245FAB0B0044C9AD /* DermaHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermaHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +200,9 @@
 				53241A2F24662BD200F1DC31 /* StatusView.swift */,
 				53241A31246640E300F1DC31 /* StatusScaleView.swift */,
 				53241A332466446E00F1DC31 /* AssessmentView.swift */,
+				539CD1E924685655001E94E5 /* ManualView.swift */,
+				53AA112124696CB1000A370E /* UserInfoView.swift */,
+				533A6DAB24698C80002038ED /* EditingInfoView.swift */,
 			);
 			path = "Composite Views";
 			sourceTree = "<group>";
@@ -198,6 +225,8 @@
 				536ECDC424646B9F00392234 /* SignUpFormVC.swift */,
 				5394533624660FD900D8ED65 /* TabController.swift */,
 				5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */,
+				539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */,
+				5393316324695953006A8ACC /* ProfileVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				53901BCC2462C07F00336820 /* UISeparator.swift */,
+				5393316524695ABD006A8ACC /* ProfileImageView.swift */,
+				533A6DAD24699114002038ED /* GenderSegmentedControl.swift */,
 				532EE104246310FA00A705D4 /* Composite Views */,
 				53901BB12462BAB600336820 /* Buttons */,
 				53901BB42462BAB600336820 /* Labels */,
@@ -245,6 +276,7 @@
 				539453402466101500D8ED65 /* AddButton.swift */,
 				53241A352466467000F1DC31 /* MenuButton.swift */,
 				53266AE12467B8D20023B13D /* GetHelpButton.swift */,
+				539CD1E72468505F001E94E5 /* MediaOptionButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -253,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				53901BB52462BAB600336820 /* Label.swift */,
+				533A6DA724697015002038ED /* ProfileLabel.swift */,
 			);
 			path = Labels;
 			sourceTree = "<group>";
@@ -280,6 +313,8 @@
 				532C2613246431FE008065B7 /* LoginFormPreview.swift */,
 				536ECDC624646BB900392234 /* SignUpPreview.swift */,
 				5394533A24660FEE00D8ED65 /* MyAssessmentsPreview.swift */,
+				539CD1E5246841E8001E94E5 /* BeginAssessmentPreview.swift */,
+				5393316724695B35006A8ACC /* ProfilePreview.swift */,
 			);
 			path = Previews;
 			sourceTree = "<group>";
@@ -360,6 +395,7 @@
 				53901BC62462BAC800336820 /* UIColor+Extensions.swift */,
 				53266ADD2467B5790023B13D /* UIView+Extensions.swift */,
 				53266AE32467BDCB0023B13D /* Date+Extension.swift */,
+				533A6DA924697C94002038ED /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,12 +526,18 @@
 			files = (
 				53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */,
 				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
+				5393316824695B35006A8ACC /* ProfilePreview.swift in Sources */,
 				53266AE42467BDCB0023B13D /* Date+Extension.swift in Sources */,
 				53241A362466467000F1DC31 /* MenuButton.swift in Sources */,
+				539CD1E6246841E8001E94E5 /* BeginAssessmentPreview.swift in Sources */,
+				533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */,
 				53241A3024662BD200F1DC31 /* StatusView.swift in Sources */,
+				5393316624695ABD006A8ACC /* ProfileImageView.swift in Sources */,
+				53AA112224696CB1000A370E /* UserInfoView.swift in Sources */,
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
 				53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
+				533A6DAA24697C94002038ED /* UIImage+Extension.swift in Sources */,
 				53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
 				5394533E2466100300D8ED65 /* EmptyAssessmentsView.swift in Sources */,
@@ -506,10 +548,13 @@
 				532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */,
 				532EE1012462E83A00A705D4 /* TextField.swift in Sources */,
 				53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */,
+				533A6DA824697015002038ED /* ProfileLabel.swift in Sources */,
 				5394533824660FD900D8ED65 /* TabController.swift in Sources */,
+				539CD1EA24685655001E94E5 /* ManualView.swift in Sources */,
 				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
 				53241A0C24661A8E00F1DC31 /* StatusSlider.swift in Sources */,
 				53901BC12462BAB600336820 /* Button.swift in Sources */,
+				5393316424695953006A8ACC /* ProfileVC.swift in Sources */,
 				53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */,
 				539453412466101500D8ED65 /* AddButton.swift in Sources */,
 				536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */,
@@ -524,11 +569,14 @@
 				53901BCD2462C07F00336820 /* UISeparator.swift in Sources */,
 				53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */,
 				53901BC22462BAB600336820 /* Label.swift in Sources */,
+				539CD1E4246841D5001E94E5 /* BeginAssessmentVC.swift in Sources */,
 				53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */,
 				53266ADC2467B05A0023B13D /* Assessment.swift in Sources */,
 				5394533B24660FEE00D8ED65 /* MyAssessmentsPreview.swift in Sources */,
 				53266AE72467DE9C0023B13D /* AssessmentViewModel.swift in Sources */,
 				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
+				539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */,
+				533A6DAC24698C80002038ED /* EditingInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

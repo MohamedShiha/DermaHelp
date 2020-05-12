@@ -70,7 +70,7 @@ class SignUpFormVC: ViewController, LayoutController {
         separator.layBelow(googleButton, constant: 24)
         emailTextField.layBelow(separator, constant: 24)
         passwordInputView.layBelow(emailTextField, constant: 12)
-        repeatPwInputView.layBelow(passwordInputView, constant: 16)
+        repeatPwInputView.layBelow(passwordInputView, constant: 12)
         termsLabel.layBelow(repeatPwInputView, constant: 12)
         signUpButton.layBelow(termsLabel, constant: 24)
         loginQueLabel.layBelow(signUpButton, constant: 16)

@@ -14,15 +14,13 @@ class Button: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
-            UIView.animate(withDuration: 0.2) {
-                self.alpha = self.isHighlighted ? 0.5 : 1
-            }
+            animateAlpha(self.isHighlighted ? 0.5 : 1)
         }
     }
     
     // MARK: Initializers
     
-    init(title: String, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
+    init(title: String?, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         titleLabel?.font = font

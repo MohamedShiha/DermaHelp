@@ -23,11 +23,19 @@ class TabController: UITabBarController {
     private func setupTabs() {
         viewControllers = [UIViewController]()
         myAssessmentsTab()
+        profileTab()
     }
     
     private func myAssessmentsTab() {
         let vc = MyAssessmentsVC()
-        vc.tabBarItem = UITabBarItem(title: "My Assessments", image: UIImage(named: "Record_Tab"), selectedImage: UIImage(named: "Record_ActiveTab"))
+        vc.tabBarItem = UITabBarItem(title: "Assessments", image: UIImage(named: "Record_Tab"), selectedImage: UIImage(named: "Record_ActiveTab"))
         viewControllers = [vc]
+    }
+    
+    private func profileTab() {
+        let vc = ProfileVC()
+        let image = UIImage(named: "DemoUser")
+        vc.tabBarItem = UITabBarItem(title: "Me", image: image?.roundedImageWithBorder(width: 0), selectedImage: image?.roundedImageWithBorder(width: 1, color: .mainTint))
+        viewControllers?.append(vc)
     }
 }
