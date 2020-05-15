@@ -8,5 +8,7 @@ target 'DermaHelp' do
   # Pods for DermaHelp
 
 pod 'EZConstraints'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end
