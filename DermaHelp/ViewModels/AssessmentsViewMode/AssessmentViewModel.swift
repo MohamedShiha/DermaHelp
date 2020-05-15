@@ -16,7 +16,7 @@ protocol AssessmentViewModelDelegate: class {
 protocol AssessmentModelViewType {
     init(assessment: Assessment)
     var organ: String { get }
-    var status: Assessment.Status { get }
+    var status: Assessment.Severity { get }
     var date: Date { get }
     var riskRate: Float { get }
     var nevusRate: Float { get }
@@ -34,12 +34,16 @@ class AssessmentViewModel: AssessmentModelViewType {
         self.assessment = assessment
     }
     
+    var id: String {
+        return assessment.id
+    }
+    
     var organ: String {
         return assessment.organ
     }
     
-    var status: Assessment.Status {
-        return assessment.status
+    var status: Assessment.Severity {
+        return assessment.severity
     }
     
     var date: Date {
@@ -63,6 +67,6 @@ class AssessmentViewModel: AssessmentModelViewType {
     }
     
     var attachedImage: UIImage? {
-        return assessment.attachedImage
+        return assessment.image
     }
 }
