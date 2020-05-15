@@ -30,7 +30,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupLayout()
         setupActions()
         assessmentsTableView.dataSource = self
-        setTableViewStatus()
+        assessmentsTableView.handleBackgroundViewIf(assessments.count > 0)
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -55,10 +55,6 @@ class MyAssessmentsVC: ViewController, LayoutController {
     
     private func setupActions() {
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
-    }
-    
-    private func setTableViewStatus() {
-        assessmentsTableView.backgroundView?.isHidden = assessments.count > 0 ? true : false
     }
     
     // MARK: Actions
