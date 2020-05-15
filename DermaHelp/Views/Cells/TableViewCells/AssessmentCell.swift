@@ -21,7 +21,7 @@ class AssessmentCell: UITableViewCell, LayoutController {
     var assessmentViewModel: AssessmentViewModel! {
         didSet {
             assessmentView.organNameLabel.text = assessmentViewModel.organ
-            assessmentView.statusView.status = assessmentViewModel.status
+            assessmentView.statusView.severity = assessmentViewModel.status
             assessmentView.dateLabel.text = assessmentViewModel.date.formatted
             assessmentView.riskStatusScale.rate = assessmentViewModel.riskRate
             assessmentView.nevusStatusScale.rate = assessmentViewModel.nevusRate
