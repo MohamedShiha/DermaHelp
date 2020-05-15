@@ -8,6 +8,7 @@
 
 import UIKit
 import EZConstraints
+import GoogleSignIn
 
 class SignUpFormVC: ViewController, LayoutController {
     
@@ -28,7 +29,6 @@ class SignUpFormVC: ViewController, LayoutController {
     // MARK: Properties
     
     weak var presentingDelegate: LoginMethodPresenterDelegate?
-    weak var assessmentsPresenterDelegate: MainScenePresenterDelegate?
     
     // MARK: View controller lifecycle
     
@@ -38,6 +38,7 @@ class SignUpFormVC: ViewController, LayoutController {
         setupLayout()
         setupActions()
         setupGestures()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
     // MARK: Setup UI
@@ -105,14 +106,20 @@ class SignUpFormVC: ViewController, LayoutController {
     
     @objc
     private func didTapGoogleButton() {
-        // TODO: Sign up with google method
-        print("Continue with Google")
+        GoogleAuthProvider.signIn()
     }
     
     @objc
     private func didTapSignUpButton() {
-        dismiss(animated: true) {
-            self.assessmentsPresenterDelegate?.presentMyAssessments()
+        let email = emailTextField.text ?? ""
+        let password = passwordInputView.textField.text ?? ""
+        AuthenticationProvider.shared.signUp(withEmail: email, password: password) { (error) in
+            guard error == nil else {
+                print("Error signing up, Show some alert.")
+                return
+            }
+            // In case of success, Scene delegate has a state handler to handle
+            // if the user has logged in or signed out.
         }
     }
     
