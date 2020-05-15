@@ -22,10 +22,16 @@ class FeaturesView: UIView, LayoutController {
         setupViews()
         setupLayout()
         collectionView.scrollingDelegate = self
+        clipsToBounds = true
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 16
     }
     
     // MARK: Setup UI
