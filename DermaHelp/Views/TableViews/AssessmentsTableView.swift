@@ -40,7 +40,7 @@ class AssessmentsTableView: UITableView, LayoutController {
     
     func handleBackgroundViewIf(_ condition: Bool) {
         backgroundView?.isHidden = condition ? true : false
-        isScrollEnabled = condition ? false : true
+        isScrollEnabled = condition ? true : false
     }
 }
 
