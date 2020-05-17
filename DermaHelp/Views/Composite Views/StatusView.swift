@@ -17,10 +17,10 @@ class StatusView: UIView, LayoutController {
     
     // MARK: Properties
 
-    var status: Assessment.Status = .low {
+    var severity: Assessment.Severity = .low {
         didSet {
-            label.text = status.rawValue
-            setAppearance(by: status)
+            label.text = severity.rawValue
+            setAppearance(by: severity)
         }
     }
     
@@ -55,9 +55,9 @@ class StatusView: UIView, LayoutController {
         label.edgesToSuperView(including: [.top, .right, .bottom])
     }
     
-    private func setAppearance(by status: Assessment.Status) {
+    private func setAppearance(by severity: Assessment.Severity) {
         var color = UIColor.clear
-        switch status {
+        switch severity {
         case .low:
             color = .systemGreen
         case .medium:

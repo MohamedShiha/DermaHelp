@@ -10,8 +10,14 @@ import Foundation
 
 extension Date {
     var formatted: String {
+        return DateFormatter.shortFormat.string(from: self)
+    }
+}
+
+extension DateFormatter {
+    static var shortFormat: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d/M/yyyy"
-        return dateFormatter.string(from: self)
+        return dateFormatter
     }
 }

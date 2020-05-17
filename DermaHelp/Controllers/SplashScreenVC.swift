@@ -14,10 +14,6 @@ protocol LoginMethodPresenterDelegate: class {
     func presentLogin()
 }
 
-protocol MainScenePresenterDelegate: class {
-    func presentMyAssessments()
-}
-
 class SplashScreenVC: ViewController, LayoutController {
 
     // MARK: Views
@@ -90,7 +86,6 @@ class SplashScreenVC: ViewController, LayoutController {
     private func didTapLoginButton() {
         let vc = LoginFormVC()
         vc.presentingDelegate = self
-        vc.assessmentsPresenterDelegate = self
         present(vc, animated: true, completion: nil)
     }
     
@@ -98,7 +93,6 @@ class SplashScreenVC: ViewController, LayoutController {
     private func didTapSignUpButton() {
         let vc = SignUpFormVC()
         vc.presentingDelegate = self
-        vc.assessmentsPresenterDelegate = self
         present(vc, animated: true, completion: nil)
     }
 }
@@ -110,11 +104,5 @@ extension SplashScreenVC: LoginMethodPresenterDelegate {
     
     func presentLogin() {
         present(LoginFormVC(), animated: true, completion: nil)
-    }
-}
-
-extension SplashScreenVC: MainScenePresenterDelegate {
-    func presentMyAssessments() {
-        navigationController?.setViewControllers([TabController()], animated: true)
     }
 }

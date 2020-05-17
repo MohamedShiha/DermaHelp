@@ -37,6 +37,11 @@ class AssessmentsTableView: UITableView, LayoutController {
         backgroundView?.aspectRatio(multiplier: 1)
         backgroundView?.widthAnchor(with: self, multiplier: 0.9)
     }
+    
+    func handleBackgroundViewIf(_ condition: Bool) {
+        backgroundView?.isHidden = condition ? true : false
+        isScrollEnabled = condition ? true : false
+    }
 }
 
 // MARK: TableView Delegate

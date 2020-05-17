@@ -8,6 +8,7 @@
 
 import UIKit
 import EZConstraints
+import GoogleSignIn
 
 class ProfileVC: ViewController {
 
@@ -104,6 +105,12 @@ class ProfileVC: ViewController {
     
     @objc
     private func didTapLogoutButton() {
-        print("Logout")
+        AuthenticationProvider.shared.signOut { [weak self] (success) in
+            if success {
+                self?.navigationController?.setViewControllers([SplashScreenVC()], animated: true)
+            } else {
+                print("Couldn't sign out, Show some alert.")
+            }
+        }
     }
 }
