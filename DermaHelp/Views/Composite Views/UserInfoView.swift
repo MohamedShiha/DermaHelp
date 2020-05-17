@@ -13,26 +13,29 @@ class UserInfoView: UIView, LayoutController {
 
     // MARK: Views
     
-    private lazy var nameLabel = ProfileLabel(text: "Mohamed Reda Shiha", font: .roundedSystemFont(ofSize: 22, weight: .bold))
-    private lazy var ageLabel = ProfileLabel(text: "22 years old", color: .secondaryBlackLabel)
-    private lazy var genderLabel = ProfileLabel(text: "Male")
-    private lazy var emailLabel = ProfileLabel(text: "mohamedshiha15@gmail.com")
-    private lazy var assessmentsNumberLabel = ProfileLabel(text: "4", font: .roundedSystemFont(ofSize: 22, weight: .semibold), color: .mainTint)
+    private lazy var nameLabel = ProfileLabel(font: .roundedSystemFont(ofSize: 22, weight: .bold))
+    private lazy var ageLabel = ProfileLabel(color: .secondaryBlackLabel)
+    private lazy var genderLabel = ProfileLabel()
+    private lazy var emailLabel = ProfileLabel()
+    private lazy var assessmentsNumberLabel = ProfileLabel(font: .roundedSystemFont(ofSize: 22, weight: .semibold), color: .mainTint)
     private lazy var assessmentsLabel = ProfileLabel(text: "Conducted Assessments")
     
     // MARK: Properties
     
-    // TODO: View model to set values
+    private let viewModel: UserViewModel?
     
     // MARK: Initializers
     
-    init() {
+    init(viewModel: UserViewModel?) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         setupViews()
         setupLayout()
+        setupContent()
     }
     
     required init?(coder: NSCoder) {
+        viewModel = nil
         super.init(coder: coder)
     }
     
@@ -55,6 +58,14 @@ class UserInfoView: UIView, LayoutController {
         assessmentsNumberLabel.layLeftInSuperView(constant: 0)
         assessmentsLabel.layRight(to: assessmentsNumberLabel, constant: 4)
         assessmentsLabel.alignBottom(with: assessmentsNumberLabel, constant: 0)
+    }
+    
+    private func setupContent() {
+        nameLabel.text = viewModel?.name
+        ageLabel.text = viewModel?.birthDate != nil ? "\(viewModel!.birthDate!.calculateAge())" : ""
+        genderLabel.text = viewModel?.gender?.rawValue
+        emailLabel.text = viewModel?.email
+        assessmentsNumberLabel.text = "\(viewModel?.assessments.count ?? 0)"
     }
     
     // MARK: Animations
