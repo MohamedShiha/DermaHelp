@@ -16,7 +16,7 @@ class ProfileVC: ViewController {
     
     private lazy var profileImageView = ProfileImageView()
     private lazy var editProfileButton = Button(title: "Edit", font: .roundedSystemFont(ofSize: 22, weight: .medium))
-    private lazy var infoView = UserInfoView()
+    private var infoView: UserInfoView!
     private var editingView: EditingInfoView!
     private lazy var logoutButton = FormButton(title: "Logout", titleColor: .label, backColor: .systemFill)
 
@@ -25,6 +25,20 @@ class ProfileVC: ViewController {
     private weak var topConstraint: EZConstraint!
     private weak var bottomConstraint: EZConstraint!
     private var isEditingProfile = false
+    let viewModel: UserViewModel!
+    
+    // MARK: Initializers
+    
+    init(viewModel: UserViewModel?) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        infoView = UserInfoView(viewModel: viewModel)
+    }
+    
+    required init?(coder: NSCoder) {
+        viewModel = nil
+        super.init(coder: coder)
+    }
     
     // MARK: View controller lifecycle
     
@@ -33,6 +47,7 @@ class ProfileVC: ViewController {
         setupViews()
         setupLayout()
         setupActions()
+        profileImageView.image = viewModel.picture ?? profileImageView.image
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -68,7 +83,7 @@ class ProfileVC: ViewController {
     }
     
     private func showEditingView() {
-        editingView = EditingInfoView()
+        editingView = EditingInfoView(viewModel: viewModel)
         view.addSubview(editingView)
         editingView.layBelow(profileImageView, constant: 8)
         editingView.alignLeft(with: profileImageView, constant: 0)
