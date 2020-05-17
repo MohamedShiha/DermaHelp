@@ -13,24 +13,12 @@ protocol AssessmentViewModelDelegate: class {
     
 }
 
-protocol AssessmentModelViewType {
-    init(assessment: Assessment)
-    var organ: String { get }
-    var status: Assessment.Severity { get }
-    var date: Date { get }
-    var riskRate: Float { get }
-    var nevusRate: Float { get }
-    var melanomaRate: Float { get }
-    var colorRate: Float { get }
-    var attachedImage: UIImage? { get }
-}
-
-class AssessmentViewModel: AssessmentModelViewType {
+struct AssessmentViewModel {
     
     private var assessment: Assessment
     weak var delegate: AssessmentViewModelDelegate?
     
-    required init(assessment: Assessment) {
+    init(assessment: Assessment) {
         self.assessment = assessment
     }
     
@@ -66,7 +54,7 @@ class AssessmentViewModel: AssessmentModelViewType {
         return assessment.colorRate
     }
     
-    var attachedImage: UIImage? {
+    var attachedImage: UIImage {
         return assessment.image
     }
 }
