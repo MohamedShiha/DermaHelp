@@ -24,7 +24,7 @@ struct Assessment: Codable {
     let nevusRate: Float
     let melanomaRate: Float
     let colorRate: Float
-    let image: UIImage?
+    let image: UIImage
     
     enum CodingKeys: String, CodingKey {
         case id, organ = "organName", severity, date,
@@ -32,7 +32,7 @@ struct Assessment: Codable {
     }
     
     init(id: String, organ: String, severity: Severity, date: Date, riskRate: Float, nevusRate: Float,
-         melanomaRate: Float, colorRate: Float, attachedImage: UIImage?) {
+         melanomaRate: Float, colorRate: Float, attachedImage: UIImage) {
         self.id = id
         self.organ = organ
         self.severity = severity
@@ -49,12 +49,12 @@ struct Assessment: Codable {
         id = try container.decode(String.self, forKey: .id)
         organ = try container.decode(String.self, forKey: .organ)
         severity = try container.decode(Severity.self, forKey: .severity)
-        date = try container.decode(String.self, forKey: .date).decodeToDate() ?? Date()
+        date = try container.decode(Date.self, forKey: .date)
         riskRate = try container.decode(Float.self, forKey: .riskRate)
         nevusRate = try container.decode(Float.self, forKey: .nevusRate)
         melanomaRate = try container.decode(Float.self, forKey: .melanomaRate)
         colorRate = try container.decode(Float.self, forKey: .colorRate)
-        image = try container.decode(String.self, forKey: .image).decodeToImage()
+        image = try container.decode(String.self, forKey: .image).decodeToImage() ?? UIImage()
     }
     
     func encode(to encoder: Encoder) throws {
@@ -62,11 +62,11 @@ struct Assessment: Codable {
         try container.encode(id, forKey: .id)
         try container.encode(organ, forKey: .organ)
         try container.encode(severity, forKey: .severity)
-        try container.encode(DateFormatter.shortFormat.string(from: date) , forKey: .date)
+        try container.encode(date , forKey: .date)
         try container.encode(riskRate, forKey: .riskRate)
         try container.encode(nevusRate, forKey: .nevusRate)
         try container.encode(melanomaRate, forKey: .melanomaRate)
         try container.encode(colorRate, forKey: .colorRate)
-        try container.encode(image?.encodeToBase64(), forKey: .image)
+        try container.encode(image.encodeToBase64(), forKey: .image)
     }
 }
