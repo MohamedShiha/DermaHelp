@@ -22,7 +22,6 @@ class AuthenticationProvider {
             if user == nil {
                 completion(false)
             } else {
-                // TODO: Load from FireStore
                 completion(true)
             }
         }
@@ -45,8 +44,8 @@ class AuthenticationProvider {
                 return
             }
             let authUser = result.user
-            let user = User(id: authUser.uid, name: authUser.email?.usernameFromEmail() ?? "", picture: nil, birthDate: nil, gender: nil, assessments: [], updatedAt: Date())
-            // TODO: Save to FireStore
+            let user = User(id: authUser.uid, name: authUser.email?.usernameFromEmail() ?? "", email: authUser.email ?? "", picture: nil, birthDate: nil, gender: nil, assessments: [], updatedAt: Date())
+            FirestoreManager.shared.addUser(user)
             completion(nil)
         }
     }
