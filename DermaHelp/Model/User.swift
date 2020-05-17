@@ -17,15 +17,17 @@ struct User: Codable {
     
     let id: String
     var name: String
+    var email: String
     var picture: UIImage?
     var birthDate: Date?
     var gender: Gender?
     var assessments: [Assessment]
     let updatedAt: Date
     
-    init(id: String, name: String, picture: UIImage?, birthDate: Date?, gender: Gender?, assessments: [Assessment], updatedAt: Date) {
+    init(id: String, name: String, email: String, picture: UIImage?, birthDate: Date?, gender: Gender?, assessments: [Assessment], updatedAt: Date) {
         self.id = id
         self.name = name
+        self.email = email
         self.picture = picture
         self.birthDate = birthDate
         self.gender = gender
@@ -34,15 +36,16 @@ struct User: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, name, picture, assessments, birthDate, gender, updatedAt
+        case id, name, email, picture, assessments, birthDate, gender, updatedAt
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
-        try container.encode(picture?.encodeToBase64() ?? "", forKey: .picture)
-        try container.encode(DateFormatter.shortFormat.string(from: birthDate!), forKey: .birthDate)
+        try container.encode(email, forKey: .email)
+        try container.encode(picture?.encodeToBase64() ?? nil, forKey: .picture)
+        try container.encode(birthDate, forKey: .birthDate)
         try container.encode(gender?.rawValue, forKey: .gender)
         try container.encode(DateFormatter.shortFormat.string(from: updatedAt), forKey: .updatedAt)
         var assessmentsContainer = container.nestedUnkeyedContainer(forKey: .assessments)
@@ -55,9 +58,10 @@ struct User: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        picture = try container.decode(String.self, forKey: .picture).decodeToImage()
-        birthDate = try container.decode(String.self, forKey: .birthDate).decodeToDate()
-        gender = try container.decode(Gender.self, forKey: .gender)
+        email = try container.decode(String.self, forKey: .email)
+        picture = try? container.decode(String.self, forKey: .picture).decodeToImage()
+        birthDate = try? container.decode(Date.self, forKey: .birthDate)
+        gender = try? container.decode(Gender.self, forKey: .gender)
         updatedAt = try container.decode(String.self, forKey: .updatedAt).decodeToDate() ?? Date()
         var assessmentsContainer = try container.nestedUnkeyedContainer(forKey: .assessments)
         var assessments = [Assessment]()
