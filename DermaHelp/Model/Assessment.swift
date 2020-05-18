@@ -44,6 +44,18 @@ struct Assessment: Codable {
         self.image = attachedImage
     }
     
+    init() {
+        id = ""
+        organ = ""
+        severity = .low
+        date = Date()
+        riskRate = 0
+        nevusRate = 0
+        melanomaRate = 0
+        colorRate = 0
+        image = UIImage()
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
