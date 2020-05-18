@@ -65,7 +65,7 @@ class StatusView: UIView, LayoutController {
         case .hazardous:
             color = .systemRed
         }
-        label.backgroundColor = color
+        label.textColor = color
         circle.backgroundColor = color
     }
 }
