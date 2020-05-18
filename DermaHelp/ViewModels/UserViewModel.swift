@@ -70,12 +70,12 @@ class UserViewModel {
         }
     }
     
-    var assessments: [Assessment] {
+    var assessmentIds: [String] {
         set {
-            user.assessments = newValue
+            user.assessmentIds = newValue
         }
         get {
-            return user.assessments
+            return user.assessmentIds
         }
     }
     
