@@ -25,18 +25,18 @@ class ProfileVC: ViewController {
     private weak var topConstraint: EZConstraint!
     private weak var bottomConstraint: EZConstraint!
     private var isEditingProfile = false
-    let viewModel: UserViewModel!
+    let viewModel: UserViewModel
     
     // MARK: Initializers
     
-    init(viewModel: UserViewModel?) {
+    init(viewModel: UserViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         infoView = UserInfoView(viewModel: viewModel)
     }
     
     required init?(coder: NSCoder) {
-        viewModel = nil
+        viewModel = UserViewModel(user: User())
         super.init(coder: coder)
     }
     
