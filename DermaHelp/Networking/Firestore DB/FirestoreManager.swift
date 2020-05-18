@@ -8,7 +8,9 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import FirebaseAuth
+import GoogleSignIn
 
 class FirestoreManager {
     
@@ -32,44 +34,96 @@ class FirestoreManager {
     }
     
     func addUser(_ user: User) {
-        let dictionary = (try? JSONEncoder().encode(user))?.convertToDictionary() ?? [:]
-        usersCollection().document(user.id).setData(dictionary)
+        do {
+            try usersCollection().document(user.id).setData(from: user)
+        } catch let error {
+            print("Error writing city to Firestore: \(error)")
+        }
     }
     
-    func getCurrentUser(_ completion: @escaping userCompletion) {
-        usersCollection().document(Auth.auth().currentUser?.uid ?? "").getDocument { (document, error) in
-            guard let document = document, document.exists, let data = document.data()?.convertToData() else {
+    func addUser(_ gmailUser: GIDGoogleUser!) {
+        let userId = gmailUser.userID ?? ""
+        let fullName = gmailUser.profile.name ?? ""
+        let email = gmailUser.profile.email ?? ""
+        let imageUrl = gmailUser.profile.imageURL(withDimension: 200)
+        var profileImage: UIImage? = nil
+        if let url = imageUrl, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+            profileImage = image
+        }
+        let newUser = User(id: userId, name: fullName, email: email, picture: profileImage, birthDate: nil, gender: nil, assessmentIds: [], updatedAt: Date())
+        addUser(newUser)
+    }
+    
+    private func getUser(byId id: String, _ completion: @escaping userCompletion) {
+        usersCollection().document(id).getDocument { (document, error) in
+            guard let document = document, document.exists else {
                 completion(nil)
                 return
             }
-            guard let user = try? JSONDecoder().decode(User.self, from: data) else {
-                completion(nil)
-                return
+            let result = Result {
+                try document.data(as: User.self)
             }
+            switch result {
+            case .success(let user):
+                if let user = user {
+                    completion(user)
+                } else {
+                    print("Document does not exist")
+                    completion(nil)
+                }
+            case .failure(let error):
+                print("Error decoding user: \(error)")
+                completion(nil)
+            }
+        }
+    }
+    
+    private func getAuthenticatedUser(_ completion: @escaping userCompletion) {
+        getUser(byId: Auth.auth().currentUser?.uid ?? "") { (user) in
             completion(user)
         }
     }
     
-    private func getAssessmentBy(id: String, _ completion: @escaping assessmentCompletion) {
-        assessmentsCollection().document(id).getDocument { (document, error) in
-            guard let document = document, document.exists, let data = document.data()?.convertToData() else {
-                completion(nil)
-                return
-            }
-            guard let assessment = try? JSONDecoder().decode(Assessment.self, from: data) else {
-                completion(nil)
-                return
-            }
-            completion(assessment)
+    private func getCurrentGmailUser(_ completion: @escaping userCompletion) {
+        getUser(byId: GIDSignIn.sharedInstance()?.currentUser.userID ?? "") { (user) in
+            completion(user)
         }
     }
     
-    func getAssessmentsBy(ids: [String], _ completion: @escaping assessmentsCompletion) {
-        ids.forEach { (id) in
-            var assessments = [Assessment]()
-            getAssessmentBy(id: id) { (assessment) in
-                guard let assessment = assessment else { return }
-                assessments.append(assessment)
+    func getCurrentUser(_ completion: @escaping userCompletion) {
+        if Auth.auth().currentUser != nil && !GoogleAuthenticationProvider.isSignedInWithGoogle {
+            getAuthenticatedUser { (user) in
+                completion(user)
+            }
+        } else if GoogleAuthenticationProvider.isSignedInWithGoogle {
+            getCurrentGmailUser { (user) in
+                completion(user)
+            }
+        } else {
+            completion(nil)
+        }
+    }
+    
+    func getAssessmentBy(id: String, _ completion: @escaping assessmentCompletion) {
+        assessmentsCollection().document(id).getDocument { (document, error) in
+            guard let document = document, document.exists else {
+                completion(nil)
+                return
+            }
+            let result = Result {
+                try document.data(as: Assessment.self)
+            }
+            switch result {
+            case .success(let assessment):
+                if let assessment = assessment {
+                    completion(assessment)
+                } else {
+                    print("Document does not exist")
+                    completion(nil)
+                }
+            case .failure(let error):
+                print("Error decoding assessment: \(error)")
+                completion(nil)
             }
         }
     }
