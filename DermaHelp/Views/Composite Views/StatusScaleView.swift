@@ -19,6 +19,8 @@ class StatusScaleView: UIView, LayoutController {
     
     var rate: Float = 0 {
         didSet {
+            rate = rate > 1.0 ? rate / 100 : rate
+            rate = rate < 0 ? abs(rate) : rate
             scaleSlider.value = rate
         }
     }
