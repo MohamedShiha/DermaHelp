@@ -99,7 +99,7 @@ class LoginFormVC: ViewController, LayoutController {
     
     @objc
     private func didTapGoogleButton() {
-        GoogleAuthProvider.signIn()
+        GoogleAuthenticationProvider.signIn()
     }
     
     @objc
