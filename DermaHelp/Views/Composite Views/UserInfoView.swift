@@ -65,7 +65,7 @@ class UserInfoView: UIView, LayoutController {
         ageLabel.text = viewModel?.birthDate != nil ? "\(viewModel!.birthDate!.calculateAge())" : ""
         genderLabel.text = viewModel?.gender?.rawValue
         emailLabel.text = viewModel?.email
-        assessmentsNumberLabel.text = "\(viewModel?.assessments.count ?? 0)"
+        assessmentsNumberLabel.text = "\(viewModel?.assessmentIds.count ?? 0)"
     }
     
     // MARK: Animations
