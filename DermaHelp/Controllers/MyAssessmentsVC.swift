@@ -20,7 +20,17 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Properties
     
     weak var topConstraint: EZConstraint!
-    var assessments = Assessments()
+    var assessments: Assessments
+    
+    init(viewModel: Assessments) {
+        assessments = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        assessments = Assessments(userVM: UserViewModel(user: User()))
+        super.init(coder: coder)
+    }
     
     // MARK: View controller lifecycle
     
@@ -30,7 +40,8 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupLayout()
         setupActions()
         assessmentsTableView.dataSource = self
-        assessmentsTableView.handleBackgroundViewIf(assessments.count > 0)
+        assessments.delegate = self
+        fetchAssessments()
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -57,6 +68,13 @@ class MyAssessmentsVC: ViewController, LayoutController {
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
+    private func fetchAssessments() {
+        assessments.fetchAssessments {
+            self.assessmentsTableView.handleBackgroundViewIf(self.assessments.count > 0)
+            self.assessmentsTableView.reloadData()
+        }
+    }
+    
     // MARK: Actions
     
     @objc
@@ -80,4 +98,10 @@ extension MyAssessmentsVC: UITableViewDataSource, UITableViewDelegate {
         cell.assessmentViewModel = assessments[indexPath.row]
         return cell
     }
+}
+
+// MARK: Assessments ViewModel Delegate
+
+extension MyAssessmentsVC: AssessmentsViewModelDelegate {
+    
 }
