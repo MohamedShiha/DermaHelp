@@ -70,20 +70,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
             return
         }
         
-        rootNavigation.dismiss(animated: true) {
-            self.rootNavigation.setViewControllers([TabController()], animated: true)
+        // Sign in and get user from FireStore, if not, register user in FireStore
+        
+        let auth = user.authentication
+        let credentials = GoogleAuthProvider.credential(withIDToken: auth?.idToken ?? "", accessToken: auth?.accessToken ?? "")
+        AuthenticationProvider.shared.continueWithGoogle(authCredentials: credentials) { (error) in
+            guard error == nil else { return }
+            FirestoreManager.shared.getCurrentUser { (fuser) in
+                guard fuser != nil else {
+                    FirestoreManager.shared.addUser(user)
+                    return
+                }
+            }
         }
-        
-        // TODO: Get user from FireStore, if not, register user in FireStore
-        
-        //        let userId = user.userID                  // For client-side use only!
-        //        let idToken = user.authentication.idToken // Safe to send to the server
-        //        let fullName = user.profile.name
-        //        let givenName = user.profile.givenName
-        //        let familyName = user.profile.familyName
-        //        let email = user.profile.email
-    }
-    
+    }    
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         print("User has disconnected google account from the current app.")
@@ -91,14 +91,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
     
     func handleUserLoginStatus() {
         AuthenticationProvider.shared.userLoginState { [weak self] (isSignedIn) in
-            if isSignedIn || GIDSignIn.sharedInstance()?.currentUser != nil {
-                self?.rootNavigation.dismiss(animated: true) {
+            if isSignedIn {
+                self?.rootNavigation.dismiss(animated: true, completion: {
                     self?.rootNavigation.setViewControllers([TabController()], animated: true)
-                }
+                })
             } else {
                 self?.rootNavigation.setViewControllers([SplashScreenVC()], animated: true)
             }
         }
     }
 }
-
