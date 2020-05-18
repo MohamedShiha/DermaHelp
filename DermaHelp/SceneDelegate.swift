@@ -72,9 +72,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
         
         // Sign in and get user from FireStore, if not, register user in FireStore
         
-        let auth = user.authentication
-        let credentials = GoogleAuthProvider.credential(withIDToken: auth?.idToken ?? "", accessToken: auth?.accessToken ?? "")
-        AuthenticationProvider.shared.continueWithGoogle(authCredentials: credentials) { (error) in
+        AuthenticationProvider.shared.continueWithGoogle(user: user) { (error) in
             guard error == nil else { return }
             FirestoreManager.shared.getCurrentUser { (fuser) in
                 guard fuser != nil else {
