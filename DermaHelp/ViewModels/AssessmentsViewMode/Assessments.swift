@@ -8,19 +8,53 @@
 
 import Foundation
 
-struct Assessments {
+protocol AssessmentsViewModelDelegate: class {
     
-    private let modelViews = [AssessmentViewModel]()
+}
+
+class Assessments {
+    
+    private var viewModel = [AssessmentViewModel]()
+    private var userVM: UserViewModel
+    weak var delegate: AssessmentsViewModelDelegate?
+    
+    init(userVM: UserViewModel) {
+        self.userVM = userVM
+    }
     
     subscript(index: Int) -> AssessmentViewModel {
         get {
-            return modelViews[index]
+            return viewModel[index]
         }
     }
     
     var count: Int {
-        return modelViews.count
+        return viewModel.count
     }
     
-    // TODO: Request Firebase to fetch assessments
+    func fetchAssessments(completion: @escaping () -> Void) {
+        
+        let group = DispatchGroup()
+        group.enter()
+        
+        var counter = 0
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
+            self.userVM.assessmentIds.forEach { (id) in
+                FirestoreManager.shared.getAssessmentBy(id: id) { (assessmentResult) in
+                    guard let assessment = assessmentResult else { return }
+                    self.viewModel.append(AssessmentViewModel(assessment: assessment))
+                    counter += 1
+                    group.leave()
+                }
+            }
+        }
+        
+        group.notify(queue: .global(qos: .background)) {
+            if counter == self.userVM.assessmentIds.count {
+                DispatchQueue.main.async {
+                    completion()
+                }
+            }
+        }
+    }
 }
