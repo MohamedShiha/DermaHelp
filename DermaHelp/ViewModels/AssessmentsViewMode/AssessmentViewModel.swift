@@ -9,14 +9,9 @@
 import struct Foundation.Date
 import class UIKit.UIImage
 
-protocol AssessmentViewModelDelegate: class {
-    
-}
-
 struct AssessmentViewModel {
     
     private var assessment: Assessment
-    weak var delegate: AssessmentViewModelDelegate?
     
     init(assessment: Assessment) {
         self.assessment = assessment
