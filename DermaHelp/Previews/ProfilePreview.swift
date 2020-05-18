@@ -11,7 +11,7 @@ import SwiftUI
 struct ProfilePreview : PreviewProvider, UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<ProfilePreview>) -> ProfileVC {
-        return ProfileVC(viewModel: nil)
+        return ProfileVC(viewModel: UserViewModel(user: User()))
     }
     
     func updateUIViewController(_ uiViewController: ProfileVC, context: UIViewControllerRepresentableContext<ProfilePreview>) {  }
