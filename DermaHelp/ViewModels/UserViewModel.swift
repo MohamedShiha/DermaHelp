@@ -9,7 +9,8 @@
 import UIKit
 
 protocol UserViewModelDelegate: class {
-    
+    func didFetchUser()
+    func failedToFetchUser(with error: String)
 }
 
 class UserViewModel {
@@ -83,9 +84,16 @@ class UserViewModel {
         return user.updatedAt
     }
     
-    static func fetchCurrentUser(completion: @escaping (_ user: User?) -> Void) {
-        FirestoreManager.shared.getCurrentUser { (user) in
-            completion(user)
+    func fetchCurrentUser() {
+        FirestoreManager.shared.getCurrentUser { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+                self?.delegate?.didFetchUser()
+            case .failure(let error):
+                self?.delegate?.failedToFetchUser(with: error.rawValue)
+                break
+            }
         }
     }
 }
