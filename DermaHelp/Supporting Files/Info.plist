@@ -81,5 +81,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>The app uses camera to take photo for assessments.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app uses saves photos to your photo library.</string>
 </dict>
 </plist>

@@ -21,6 +21,7 @@ class BeginAssessmentVC: ViewController, LayoutController {
     
     // MARK: Properties
     
+    var imagePicker: ImagePicker!
     weak var topConstraint: EZConstraint!
     
     // MARK: View controller lifecycle
@@ -30,6 +31,7 @@ class BeginAssessmentVC: ViewController, LayoutController {
         setupViews()
         setupLayout()
         setupActions()
+        imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,14 +86,17 @@ class BeginAssessmentVC: ViewController, LayoutController {
     
     @objc
     private func didTapCameraButton() {
-        // TODO: Present camera
-        print("Camera")
+        imagePicker.presentCamera()
     }
     
     @objc
     private func didTapLibraryButton() {
-        // TODO: Present Library
-        print("Photo Library")
+        imagePicker.presentPhotoLibrary()
     }
 }
 
+extension BeginAssessmentVC: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        // TODO: Use the image for analysis
+    }
+}
