@@ -22,7 +22,11 @@ class UserInfoView: UIView, LayoutController {
     
     // MARK: Properties
     
-    private let viewModel: UserViewModel?
+    var viewModel: UserViewModel? {
+        didSet {
+            setupContent()
+        }
+    }
     
     // MARK: Initializers
     
@@ -31,7 +35,6 @@ class UserInfoView: UIView, LayoutController {
         super.init(frame: .zero)
         setupViews()
         setupLayout()
-        setupContent()
     }
     
     required init?(coder: NSCoder) {
