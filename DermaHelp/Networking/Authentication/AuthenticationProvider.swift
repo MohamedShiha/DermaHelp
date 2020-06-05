@@ -63,18 +63,15 @@ class AuthenticationProvider {
     }
     
     func signOut(_ completion: @escaping signOutCompletion) {
-        
         if GoogleAuthenticationProvider.isSignedInWithGoogle {
             GoogleAuthenticationProvider.signOut()
-            completion(true)
-        } else {
-            do {
-                try Auth.auth().signOut()
-                // Completion is handled by SceneDelegate by a state listener.
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                completion(false)
-            }
+        }
+        do {
+            try Auth.auth().signOut()
+            // Completion is handled by SceneDelegate by a state listener.
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            completion(false)
         }
     }
 }
