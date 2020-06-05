@@ -74,12 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
         
         AuthenticationProvider.shared.continueWithGoogle(user: user) { (error) in
             guard error == nil else { return }
-            FirestoreManager.shared.getCurrentUser { (fuser) in
-                guard fuser != nil else {
-                    FirestoreManager.shared.addUser(user)
-                    return
-                }
-            }
+            FirestoreManager.shared.addUser(user)
         }
     }    
     
