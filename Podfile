@@ -11,5 +11,6 @@ pod 'EZConstraints'
 pod 'Firebase/Auth'
 pod 'GoogleSignIn'
 pod 'Firebase/Firestore'
+pod "FirebaseFirestoreSwift"
 
 end
