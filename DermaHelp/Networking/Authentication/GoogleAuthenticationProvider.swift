@@ -8,11 +8,16 @@
 
 import Foundation
 import GoogleSignIn
+import FirebaseAuth
 
-class GoogleAuthProvider {
+class GoogleAuthenticationProvider {
     
     static var isSignedInWithGoogle: Bool {
         return GIDSignIn.sharedInstance()?.currentUser != nil
+    }
+    
+    static func credential(authentication: GIDAuthentication?) -> AuthCredential {
+        GoogleAuthProvider.credential(withIDToken: authentication?.idToken ?? "", accessToken: authentication?.accessToken ?? "")
     }
     
     static func signIn() {

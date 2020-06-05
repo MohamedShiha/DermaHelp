@@ -27,7 +27,7 @@ class AssessmentCell: UITableViewCell, LayoutController {
             assessmentView.nevusStatusScale.rate = assessmentViewModel.nevusRate
             assessmentView.melanomaStatusScale.rate = assessmentViewModel.melanomaRate
             assessmentView.colorStatusScale.rate = assessmentViewModel.colorRate
-            assessmentView.getHelpButton.isHidden = assessmentViewModel.status == .hazardous
+            assessmentView.getHelpButton.isHidden = assessmentViewModel.status != .hazardous
         }
     }
     

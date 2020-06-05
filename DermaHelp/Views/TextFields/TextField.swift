@@ -14,10 +14,15 @@ class TextField: UITextField {
     // MARK: Properties
     
     private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+    override var placeholder: String? {
+        didSet {
+            attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        }
+    }
     
     // MARK: Initializers
     
-    init(placeholder: String?, type: InputType) {
+    init(placeholder: String? = nil, type: InputType) {
         super.init(frame: .zero)
         self.placeholder = placeholder
         setupAppearance()
@@ -61,7 +66,6 @@ class TextField: UITextField {
         borderStyle = .none
         textColor = .label
         backgroundColor = .white
-        attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     }
     
     private func dropShadow() {

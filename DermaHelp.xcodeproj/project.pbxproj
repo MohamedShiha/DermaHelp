@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A07ED0BF973424C213128F0 /* Pods_DermaHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6BF3675B5F9B16187E6717 /* Pods_DermaHelp.framework */; };
+		53023991247015B200F21E98 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53023990247015B200F21E98 /* FirestoreManager.swift */; };
+		5302399D247094A100F21E98 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5302399C247094A100F21E98 /* UserViewModel.swift */; };
 		53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A052466196D00F1DC31 /* AssessmentsTableView.swift */; };
 		53241A092466199C00F1DC31 /* AssessmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A082466199C00F1DC31 /* AssessmentCell.swift */; };
 		53241A0C24661A8E00F1DC31 /* StatusSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53241A0B24661A8E00F1DC31 /* StatusSlider.swift */; };
@@ -17,7 +20,7 @@
 		53266ADC2467B05A0023B13D /* Assessment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266ADB2467B05A0023B13D /* Assessment.swift */; };
 		53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266ADD2467B5790023B13D /* UIView+Extensions.swift */; };
 		53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE12467B8D20023B13D /* GetHelpButton.swift */; };
-		53266AE42467BDCB0023B13D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE32467BDCB0023B13D /* Date+Extension.swift */; };
+		53266AE42467BDCB0023B13D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE32467BDCB0023B13D /* Date+Extensions.swift */; };
 		53266AE72467DE9C0023B13D /* AssessmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53266AE62467DE9C0023B13D /* AssessmentViewModel.swift */; };
 		5326C1AC246AFC9F0089AD7B /* AuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326C1AB246AFC9F0089AD7B /* AuthenticationProvider.swift */; };
 		532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532C2613246431FE008065B7 /* LoginFormPreview.swift */; };
@@ -25,12 +28,11 @@
 		532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1022462EAA300A705D4 /* GoogleButton.swift */; };
 		532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532EE1052463113600A705D4 /* PasswordInputView.swift */; };
 		533A6DA824697015002038ED /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA724697015002038ED /* ProfileLabel.swift */; };
-		533A6DAA24697C94002038ED /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA924697C94002038ED /* UIImage+Extension.swift */; };
+		533A6DAA24697C94002038ED /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA924697C94002038ED /* UIImage+Extensions.swift */; };
 		533A6DAC24698C80002038ED /* EditingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DAB24698C80002038ED /* EditingInfoView.swift */; };
 		533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DAD24699114002038ED /* GenderSegmentedControl.swift */; };
 		536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC424646B9F00392234 /* SignUpFormVC.swift */; };
 		536ECDC724646BB900392234 /* SignUpPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC624646BB900392234 /* SignUpPreview.swift */; };
-		537DC736246D4C6F00DB7342 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537DC735246D4C6F00DB7342 /* Paths.swift */; };
 		537DC73B246D8DC300DB7342 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537DC73A246D8DC200DB7342 /* User.swift */; };
 		53901BBC2462BAB600336820 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BA92462BAB600336820 /* Features.swift */; };
 		53901BBD2462BAB600336820 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAB2462BAB600336820 /* ViewController.swift */; };
@@ -58,7 +60,7 @@
 		539CD1E6246841E8001E94E5 /* BeginAssessmentPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E5246841E8001E94E5 /* BeginAssessmentPreview.swift */; };
 		539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E72468505F001E94E5 /* MediaOptionButton.swift */; };
 		539CD1EA24685655001E94E5 /* ManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E924685655001E94E5 /* ManualView.swift */; };
-		53A0502D246D3B7400097664 /* GoogleAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0502C246D3B7400097664 /* GoogleAuthProvider.swift */; };
+		53A0502D246D3B7400097664 /* GoogleAuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0502C246D3B7400097664 /* GoogleAuthenticationProvider.swift */; };
 		53A0502F246D43EC00097664 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0502E246D43EC00097664 /* RootNavigationController.swift */; };
 		53A05C0E246AF6BA00802615 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53A05C0D246AF6BA00802615 /* GoogleService-Info.plist */; };
 		53AA112224696CB1000A370E /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AA112124696CB1000A370E /* UserInfoView.swift */; };
@@ -69,11 +71,13 @@
 		53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */; };
 		53DCCE53246EFAF500919AD5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCCE52246EFAF500919AD5 /* String+Extensions.swift */; };
 		53F82CCE24680463006E38E8 /* Assessments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F82CCD24680463006E38E8 /* Assessments.swift */; };
+		53FCDD4E248A3C80003A0ADE /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FCDD4D248A3C80003A0ADE /* ErrorHandling.swift */; };
 		53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */; };
-		ED42FC759E00C678BA23BB48 /* Pods_DermaHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53023990247015B200F21E98 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		5302399C247094A100F21E98 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		53241A052466196D00F1DC31 /* AssessmentsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentsTableView.swift; sourceTree = "<group>"; };
 		53241A082466199C00F1DC31 /* AssessmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentCell.swift; sourceTree = "<group>"; };
 		53241A0B24661A8E00F1DC31 /* StatusSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSlider.swift; sourceTree = "<group>"; };
@@ -84,7 +88,7 @@
 		53266ADB2467B05A0023B13D /* Assessment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessment.swift; sourceTree = "<group>"; };
 		53266ADD2467B5790023B13D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		53266AE12467B8D20023B13D /* GetHelpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHelpButton.swift; sourceTree = "<group>"; };
-		53266AE32467BDCB0023B13D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		53266AE32467BDCB0023B13D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		53266AE62467DE9C0023B13D /* AssessmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentViewModel.swift; sourceTree = "<group>"; };
 		5326C1AB246AFC9F0089AD7B /* AuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationProvider.swift; sourceTree = "<group>"; };
 		532C2613246431FE008065B7 /* LoginFormPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormPreview.swift; sourceTree = "<group>"; };
@@ -92,12 +96,11 @@
 		532EE1022462EAA300A705D4 /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		532EE1052463113600A705D4 /* PasswordInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInputView.swift; sourceTree = "<group>"; };
 		533A6DA724697015002038ED /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
-		533A6DA924697C94002038ED /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		533A6DA924697C94002038ED /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		533A6DAB24698C80002038ED /* EditingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingInfoView.swift; sourceTree = "<group>"; };
 		533A6DAD24699114002038ED /* GenderSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSegmentedControl.swift; sourceTree = "<group>"; };
 		536ECDC424646B9F00392234 /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
 		536ECDC624646BB900392234 /* SignUpPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPreview.swift; sourceTree = "<group>"; };
-		537DC735246D4C6F00DB7342 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		537DC73A246D8DC200DB7342 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53901BA92462BAB600336820 /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		53901BAB2462BAB600336820 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,7 +128,7 @@
 		539CD1E5246841E8001E94E5 /* BeginAssessmentPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginAssessmentPreview.swift; sourceTree = "<group>"; };
 		539CD1E72468505F001E94E5 /* MediaOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionButton.swift; sourceTree = "<group>"; };
 		539CD1E924685655001E94E5 /* ManualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualView.swift; sourceTree = "<group>"; };
-		53A0502C246D3B7400097664 /* GoogleAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthProvider.swift; sourceTree = "<group>"; };
+		53A0502C246D3B7400097664 /* GoogleAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationProvider.swift; sourceTree = "<group>"; };
 		53A0502E246D43EC00097664 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		53A05C0D246AF6BA00802615 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53AA112124696CB1000A370E /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
@@ -138,10 +141,11 @@
 		53C0C83B245FAB0C0044C9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53DCCE52246EFAF500919AD5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		53F82CCD24680463006E38E8 /* Assessments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessments.swift; sourceTree = "<group>"; };
+		53FCDD4D248A3C80003A0ADE /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
-		7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DermaHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.release.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.release.xcconfig"; sourceTree = "<group>"; };
-		AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.debug.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		68111FE5619D4E1378782933 /* Pods-DermaHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.release.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.release.xcconfig"; sourceTree = "<group>"; };
+		9C3DA5B8F873239F0594ED59 /* Pods-DermaHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DermaHelp.debug.xcconfig"; path = "Target Support Files/Pods-DermaHelp/Pods-DermaHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		EB6BF3675B5F9B16187E6717 /* Pods_DermaHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DermaHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,19 +153,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED42FC759E00C678BA23BB48 /* Pods_DermaHelp.framework in Frameworks */,
+				2A07ED0BF973424C213128F0 /* Pods_DermaHelp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CE826EB29A9EBCFC0656471 /* Frameworks */ = {
+		493704E348A7DAFECD5396BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7C70E0B579C9F65C9F874F8D /* Pods_DermaHelp.framework */,
+				EB6BF3675B5F9B16187E6717 /* Pods_DermaHelp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5302398D2470156700F21E98 /* Firestore DB */ = {
+			isa = PBXGroup;
+			children = (
+				53023990247015B200F21E98 /* FirestoreManager.swift */,
+			);
+			path = "Firestore DB";
 			sourceTree = "<group>";
 		};
 		53241A042466194600F1DC31 /* TableViews */ = {
@@ -193,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				53F82CCC24680439006E38E8 /* AssessmentsViewMode */,
+				5302399C247094A100F21E98 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,8 +213,9 @@
 		5326C1AA246AFB590089AD7B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				537DC735246D4C6F00DB7342 /* Paths.swift */,
 				53A0502B246D3B5D00097664 /* Authentication */,
+				5302398D2470156700F21E98 /* Firestore DB */,
+				53FCDD4D248A3C80003A0ADE /* ErrorHandling.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -347,7 +361,7 @@
 		53A0502B246D3B5D00097664 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				53A0502C246D3B7400097664 /* GoogleAuthProvider.swift */,
+				53A0502C246D3B7400097664 /* GoogleAuthenticationProvider.swift */,
 				5326C1AB246AFC9F0089AD7B /* AuthenticationProvider.swift */,
 			);
 			path = Authentication;
@@ -359,7 +373,7 @@
 				53C0C82C245FAB0B0044C9AD /* DermaHelp */,
 				53C0C82B245FAB0B0044C9AD /* Products */,
 				BD905DF6464979233BF21FCA /* Pods */,
-				3CE826EB29A9EBCFC0656471 /* Frameworks */,
+				493704E348A7DAFECD5396BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -430,8 +444,8 @@
 				53FECBAD245FD43E00E706D0 /* UIFont+Extensions.swift */,
 				53901BC62462BAC800336820 /* UIColor+Extensions.swift */,
 				53266ADD2467B5790023B13D /* UIView+Extensions.swift */,
-				53266AE32467BDCB0023B13D /* Date+Extension.swift */,
-				533A6DA924697C94002038ED /* UIImage+Extension.swift */,
+				53266AE32467BDCB0023B13D /* Date+Extensions.swift */,
+				533A6DA924697C94002038ED /* UIImage+Extensions.swift */,
 				53DCCE52246EFAF500919AD5 /* String+Extensions.swift */,
 			);
 			path = Extensions;
@@ -440,8 +454,8 @@
 		BD905DF6464979233BF21FCA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */,
-				979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */,
+				9C3DA5B8F873239F0594ED59 /* Pods-DermaHelp.debug.xcconfig */,
+				68111FE5619D4E1378782933 /* Pods-DermaHelp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -453,12 +467,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53C0C83E245FAB0C0044C9AD /* Build configuration list for PBXNativeTarget "DermaHelp" */;
 			buildPhases = (
-				1B145065B365CFFD8EA47DC3 /* [CP] Check Pods Manifest.lock */,
+				5FA9820F06266D3069784931 /* [CP] Check Pods Manifest.lock */,
 				53C0C826245FAB0B0044C9AD /* Sources */,
 				53C0C827245FAB0B0044C9AD /* Frameworks */,
 				53C0C828245FAB0B0044C9AD /* Resources */,
-				8CF96919881B3C71FD48C7CC /* [CP] Embed Pods Frameworks */,
-				9DBC78A0D05D45046C0FBBA8 /* [CP] Copy Pods Resources */,
+				068D9D2B367814FC9EAB8657 /* [CP] Embed Pods Frameworks */,
+				2E401C8888A3BA62CC5FC6E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -517,7 +531,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1B145065B365CFFD8EA47DC3 /* [CP] Check Pods Manifest.lock */ = {
+		068D9D2B367814FC9EAB8657 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E401C8888A3BA62CC5FC6E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FA9820F06266D3069784931 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,40 +587,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8CF96919881B3C71FD48C7CC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9DBC78A0D05D45046C0FBBA8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DermaHelp/Pods-DermaHelp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -583,7 +597,7 @@
 				53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */,
 				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
 				5393316824695B35006A8ACC /* ProfilePreview.swift in Sources */,
-				53266AE42467BDCB0023B13D /* Date+Extension.swift in Sources */,
+				53266AE42467BDCB0023B13D /* Date+Extensions.swift in Sources */,
 				53241A362466467000F1DC31 /* MenuButton.swift in Sources */,
 				539CD1E6246841E8001E94E5 /* BeginAssessmentPreview.swift in Sources */,
 				533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */,
@@ -593,7 +607,7 @@
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
 				53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
-				533A6DAA24697C94002038ED /* UIImage+Extension.swift in Sources */,
+				533A6DAA24697C94002038ED /* UIImage+Extensions.swift in Sources */,
 				53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
 				5394533E2466100300D8ED65 /* EmptyAssessmentsView.swift in Sources */,
@@ -601,7 +615,7 @@
 				532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */,
 				53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */,
 				53901BC42462BAB600336820 /* FeaturesCollectionView.swift in Sources */,
-				53A0502D246D3B7400097664 /* GoogleAuthProvider.swift in Sources */,
+				53A0502D246D3B7400097664 /* GoogleAuthenticationProvider.swift in Sources */,
 				532C2614246431FE008065B7 /* LoginFormPreview.swift in Sources */,
 				532EE1012462E83A00A705D4 /* TextField.swift in Sources */,
 				537DC73B246D8DC300DB7342 /* User.swift in Sources */,
@@ -630,7 +644,7 @@
 				53901BC72462BAC800336820 /* UIColor+Extensions.swift in Sources */,
 				53901BC22462BAB600336820 /* Label.swift in Sources */,
 				539CD1E4246841D5001E94E5 /* BeginAssessmentVC.swift in Sources */,
-				537DC736246D4C6F00DB7342 /* Paths.swift in Sources */,
+				53023991247015B200F21E98 /* FirestoreManager.swift in Sources */,
 				53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */,
 				53266ADC2467B05A0023B13D /* Assessment.swift in Sources */,
 				5394533B24660FEE00D8ED65 /* MyAssessmentsPreview.swift in Sources */,
@@ -638,7 +652,9 @@
 				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
 				539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */,
 				5326C1AC246AFC9F0089AD7B /* AuthenticationProvider.swift in Sources */,
+				5302399D247094A100F21E98 /* UserViewModel.swift in Sources */,
 				533A6DAC24698C80002038ED /* EditingInfoView.swift in Sources */,
+				53FCDD4E248A3C80003A0ADE /* ErrorHandling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,7 +796,7 @@
 		};
 		53C0C83F245FAB0C0044C9AD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB22AB9922CDDE299355589D /* Pods-DermaHelp.debug.xcconfig */;
+			baseConfigurationReference = 9C3DA5B8F873239F0594ED59 /* Pods-DermaHelp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -800,7 +816,7 @@
 		};
 		53C0C840245FAB0C0044C9AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 979A615BEA0A8D1AC92D047F /* Pods-DermaHelp.release.xcconfig */;
+			baseConfigurationReference = 68111FE5619D4E1378782933 /* Pods-DermaHelp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -14,10 +14,10 @@ class EditingInfoView: UIView {
     // MARK: Views
     
     private lazy var editButton = Button(title: "Change profile photo")
-    private lazy var nameTextfield = TextField(placeholder: "Full Name", type: .nickname)
+    private lazy var nameTextfield = TextField(type: .nickname)
     // Date Picker field for birth date
     private lazy var genderSegmentedControl = GenderSegmentedControl()
-    private lazy var emailTextfield = TextField(placeholder: "Email", type: .email)
+    private lazy var emailTextfield = TextField(type: .email)
     private lazy var noteLabel = Label(text: "Changing password is not required", font: .roundedSystemFont(ofSize: 13), numberOfLines: 0)
     lazy var oldPasswordView = PasswordInputView(placeholder: "Old Password")
     lazy var passwordView = PasswordInputView(placeholder: "New Password")
@@ -25,19 +25,22 @@ class EditingInfoView: UIView {
     
     // MARK: Properties
     
-    
+    private let viewModel: UserViewModel!
     
     // MARK: Initializers
     
-    init() {
+    init(viewModel: UserViewModel?) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         setupViews()
         setupLayout()
+        setupContent()
         alpha = 0
         isHidden = true
     }
     
     required init?(coder: NSCoder) {
+        viewModel = nil
         super.init(coder: coder)
     }
     
@@ -68,6 +71,19 @@ class EditingInfoView: UIView {
         passwordView.layBelow(oldPasswordView, constant: 16)
         repeatPwView.layBelow(passwordView, constant: 16)
         repeatPwView.layBottomInSuperView(constant: 0)
+    }
+    
+    private func setupContent() {
+        nameTextfield.placeholder = viewModel.name
+        emailTextfield.placeholder = viewModel.email
+        switch viewModel.gender {
+        case .male:
+            genderSegmentedControl.selectedSegmentIndex = 0
+        case .female:
+            genderSegmentedControl.selectedSegmentIndex = 1
+        default:
+            genderSegmentedControl.selectedSegmentIndex = -1
+        }
     }
     
     // MARK: Animations

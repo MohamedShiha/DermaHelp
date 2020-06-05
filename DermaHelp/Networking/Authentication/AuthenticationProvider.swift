@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import GoogleSignIn
 
 class AuthenticationProvider {
     
@@ -22,9 +23,19 @@ class AuthenticationProvider {
             if user == nil {
                 completion(false)
             } else {
-                // TODO: Load from FireStore
                 completion(true)
             }
+        }
+    }
+    
+    func continueWithGoogle(user: GIDGoogleUser!, _ completion: @escaping authCompletion) {
+        let authCredentials = GoogleAuthenticationProvider.credential(authentication: user.authentication)
+        Auth.auth().signIn(with: authCredentials) { (result, error) in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            completion(nil)
         }
     }
     
@@ -45,25 +56,22 @@ class AuthenticationProvider {
                 return
             }
             let authUser = result.user
-            let user = User(id: authUser.uid, name: authUser.email?.usernameFromEmail() ?? "", picture: nil, birthDate: nil, gender: nil, assessments: [], updatedAt: Date())
-            // TODO: Save to FireStore
+            let user = User(id: authUser.uid, name: authUser.email?.usernameFromEmail() ?? "", email: authUser.email ?? "", picture: nil, birthDate: nil, gender: nil, assessmentIds: [], updatedAt: Date())
+            FirestoreManager.shared.addUser(user)
             completion(nil)
         }
     }
     
     func signOut(_ completion: @escaping signOutCompletion) {
-        
-        if GoogleAuthProvider.isSignedInWithGoogle {
-            GoogleAuthProvider.signOut()
-            completion(true)
-        } else {
-            do {
-                try Auth.auth().signOut()
-                // Completion is handled by SceneDelegate by a state listener.
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                completion(false)
-            }
+        if GoogleAuthenticationProvider.isSignedInWithGoogle {
+            GoogleAuthenticationProvider.signOut()
+        }
+        do {
+            try Auth.auth().signOut()
+            // Completion is handled by SceneDelegate by a state listener.
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            completion(false)
         }
     }
 }

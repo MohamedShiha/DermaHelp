@@ -16,7 +16,7 @@ class ProfileVC: ViewController {
     
     private lazy var profileImageView = ProfileImageView()
     private lazy var editProfileButton = Button(title: "Edit", font: .roundedSystemFont(ofSize: 22, weight: .medium))
-    private lazy var infoView = UserInfoView()
+    private var infoView: UserInfoView
     private var editingView: EditingInfoView!
     private lazy var logoutButton = FormButton(title: "Logout", titleColor: .label, backColor: .systemFill)
 
@@ -25,6 +25,23 @@ class ProfileVC: ViewController {
     private weak var topConstraint: EZConstraint!
     private weak var bottomConstraint: EZConstraint!
     private var isEditingProfile = false
+    let viewModel: UserViewModel
+    
+    // MARK: Initializers
+    
+    init(viewModel: UserViewModel) {
+        self.viewModel = viewModel
+        infoView = UserInfoView(viewModel: viewModel)
+        super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
+        viewModel.fetchCurrentUser()
+    }
+    
+    required init?(coder: NSCoder) {
+        viewModel = UserViewModel(user: User())
+        infoView = UserInfoView(viewModel: viewModel)
+        super.init(coder: coder)
+    }
     
     // MARK: View controller lifecycle
     
@@ -33,6 +50,7 @@ class ProfileVC: ViewController {
         setupViews()
         setupLayout()
         setupActions()
+        profileImageView.image = viewModel.picture ?? profileImageView.image
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -68,7 +86,7 @@ class ProfileVC: ViewController {
     }
     
     private func showEditingView() {
-        editingView = EditingInfoView()
+        editingView = EditingInfoView(viewModel: viewModel)
         view.addSubview(editingView)
         editingView.layBelow(profileImageView, constant: 8)
         editingView.alignLeft(with: profileImageView, constant: 0)
@@ -112,5 +130,21 @@ class ProfileVC: ViewController {
                 print("Couldn't sign out, Show some alert.")
             }
         }
+    }
+}
+
+// MARK: UserViewModel Delegate
+
+extension ProfileVC: UserViewModelDelegate {
+    func didFetchUser() {
+        infoView.viewModel = viewModel
+        let image = viewModel.picture ?? UIImage.profilePlaceholder
+        tabBarController?.tabBar.items?[1].image = image?.roundedImageWithBorder(width: 0)
+        tabBarController?.tabBar.items?[1].selectedImage = image?.roundedImageWithBorder(width: 2, color: .mainTint)
+    }
+    
+    func failedToFetchUser(with error: String) {
+        // TODO: Present an alert view displaying the error.
+        print(error)
     }
 }

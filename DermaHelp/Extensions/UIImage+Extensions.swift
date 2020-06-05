@@ -10,10 +10,14 @@ import UIKit
 
 extension UIImage {
     
+    static var profilePlaceholder: UIImage? {
+        return UIImage(named: "UserPlaceholder")
+    }
+    
     func roundedImageWithBorder(width: CGFloat, color: UIColor = .clear) -> UIImage? {
-        let square = CGSize(width: min(size.width, size.height) + width * 2, height: min(size.width, size.height) + width * 2)
+        let square = CGSize(width: 28, height: 28)
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: square))
-        imageView.contentMode = .center
+        imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .systemFill
         imageView.image = self
         imageView.layer.cornerRadius = square.width/2

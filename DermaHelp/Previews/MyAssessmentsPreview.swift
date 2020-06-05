@@ -11,7 +11,7 @@ import SwiftUI
 struct MyAssessmentsPreview : PreviewProvider, UIViewControllerRepresentable {
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<MyAssessmentsPreview>) -> MyAssessmentsVC {
-        return MyAssessmentsVC()
+        return MyAssessmentsVC(viewModel: Assessments(userVM: UserViewModel(user: User())))
     }
     
     func updateUIViewController(_ uiViewController: MyAssessmentsVC, context: UIViewControllerRepresentableContext<MyAssessmentsPreview>) {  }

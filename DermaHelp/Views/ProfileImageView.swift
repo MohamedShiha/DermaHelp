@@ -11,7 +11,7 @@ import UIKit
 class ProfileImageView: UIImageView {
     
     init() {
-        super.init(image: UIImage(named: "DemoUser"))
+        super.init(image: UIImage(named: "UserPlaceholder"))
         clipsToBounds = true
         backgroundColor = .systemFill
     }
