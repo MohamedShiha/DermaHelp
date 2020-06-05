@@ -16,7 +16,7 @@ class FirestoreManager {
     
     static let shared = FirestoreManager()
     private let fireStore = Firestore.firestore()
-    typealias userCompletion = (_ user: User?) -> Void
+    typealias userCompletion = (Result<User,DHError>) -> Void
     typealias assessmentCompletion = (_ assessment: Assessment?) -> Void
     typealias assessmentsCompletion = (_ assessment: [Assessment]) -> Void
     
@@ -37,12 +37,12 @@ class FirestoreManager {
         do {
             try usersCollection().document(user.id).setData(from: user)
         } catch let error {
-            print("Error writing city to Firestore: \(error)")
+            print("Error writing user to Firestore: \(error)")
         }
     }
     
     func addUser(_ gmailUser: GIDGoogleUser!) {
-        let userId = gmailUser.userID ?? ""
+        let userId = Auth.auth().currentUser?.uid ?? ""
         let fullName = gmailUser.profile.name ?? ""
         let email = gmailUser.profile.email ?? ""
         let imageUrl = gmailUser.profile.imageURL(withDimension: 200)
@@ -57,7 +57,7 @@ class FirestoreManager {
     private func getUser(byId id: String, _ completion: @escaping userCompletion) {
         usersCollection().document(id).getDocument { (document, error) in
             guard let document = document, document.exists else {
-                completion(nil)
+                completion(.failure(.invalidUsername))
                 return
             }
             let result = Result {
@@ -66,14 +66,14 @@ class FirestoreManager {
             switch result {
             case .success(let user):
                 if let user = user {
-                    completion(user)
+                    completion(.success(user))
                 } else {
                     print("Document does not exist")
-                    completion(nil)
+                    completion(.failure(.invalidUsername))
                 }
             case .failure(let error):
                 print("Error decoding user: \(error)")
-                completion(nil)
+                completion(.failure(.invalidUsername))
             }
         }
     }
@@ -84,23 +84,9 @@ class FirestoreManager {
         }
     }
     
-    private func getCurrentGmailUser(_ completion: @escaping userCompletion) {
-        getUser(byId: GIDSignIn.sharedInstance()?.currentUser.userID ?? "") { (user) in
-            completion(user)
-        }
-    }
-    
     func getCurrentUser(_ completion: @escaping userCompletion) {
-        if Auth.auth().currentUser != nil && !GoogleAuthenticationProvider.isSignedInWithGoogle {
-            getAuthenticatedUser { (user) in
-                completion(user)
-            }
-        } else if GoogleAuthenticationProvider.isSignedInWithGoogle {
-            getCurrentGmailUser { (user) in
-                completion(user)
-            }
-        } else {
-            completion(nil)
+        getAuthenticatedUser { (result) in
+            completion(result)
         }
     }
     
