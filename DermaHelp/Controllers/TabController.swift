@@ -10,22 +10,14 @@ import UIKit
 
 class TabController: UITabBarController {
     
-    var user: User! {
-        didSet {
-            profileTab()
-        }
-    }
-    
     // MARK: View controller lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabs()
         tabBar.tintColor = .mainTint
+        view.backgroundColor = .white
         delegate = self
-        UserViewModel.fetchCurrentUser { [weak self] (user) in
-            self?.user = user
-        }
     }
     
     // MARK: Tabs
@@ -33,22 +25,26 @@ class TabController: UITabBarController {
     private func setupTabs() {
         viewControllers = [UIViewController]()
         myAssessmentsTab()
+        profileTab()
     }
     
     private func myAssessmentsTab() {
-        let vc = MyAssessmentsVC()
+        let vc = MyAssessmentsVC(viewModel: Assessments(userVM: UserViewModel(user: User())))
         vc.tabBarItem = UITabBarItem(title: "Assessments", image: UIImage(named: "Record_Tab"), selectedImage: UIImage(named: "Record_ActiveTab"))
         viewControllers = [vc]
     }
     
     private func profileTab() {
-        guard let user = user else { return }
-        let vc = ProfileVC(viewModel: UserViewModel(user: user))
-        let image = vc.viewModel.picture ?? UIImage(named: "UserPlaceholder")
-        vc.tabBarItem = UITabBarItem(title: "Me", image: image?.roundedImageWithBorder(width: 0), selectedImage: image?.roundedImageWithBorder(width: 1, color: .mainTint))
-        self.viewControllers?.append(vc)
+        let vc = ProfileVC(viewModel: UserViewModel(user: User()))
+        let image = UIImage.profilePlaceholder
+        vc.tabBarItem = UITabBarItem(title: "Me", image: image?.roundedImageWithBorder(width: 0), selectedImage: image?.roundedImageWithBorder(width: 2, color: .mainTint))
+        var vcArray = viewControllers
+        vcArray?.append(vc)
+        setViewControllers(vcArray, animated: true)
     }
 }
+
+// MARK: TabBarController Delegate
 
 extension TabController: UITabBarControllerDelegate  {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
