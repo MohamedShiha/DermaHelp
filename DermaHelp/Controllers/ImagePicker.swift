@@ -73,7 +73,11 @@ class ImagePicker: NSObject {
     // MARK: Present specific picker type directly
     
     public func presentCamera() {
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            let alertController = AlertController.dismissingAlert(title: "Oops!", message: "This device currently does not support taking photos with a camera.", dismissingTitle: "Cancel")
+            presentationController?.present(alertController, animated: true, completion: nil)
+            return
+        }
         pickerController.sourceType = .camera
         if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
             self.presentationController?.present(pickerController, animated: true, completion: nil)
@@ -138,22 +142,21 @@ class ImagePicker: NSObject {
         let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "The app"
         let source = pickerController.sourceType == .camera ? "camera" : "photo library or videos"
         let message = "\(appName) does not have access to your \(source), tap Settings and turn on Photos."
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            alertController.dismiss(animated: true, completion: nil)
-        }
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { _ in
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, options: [:]) { (success) in
-                    print("Settings opened: \(success)")
-                }
-            }
-        }
-        [cancelAction, settingsAction].forEach { (action) in
-            alertController.addAction(action)
+        let alertController = AlertController.dismissingAlert(title: message, message: "", dismissingTitle: "Cancel")
+        // Settings Action
+        alertController.createAlert(title: "Settings", alertStyle: .default) {
+            self.openSettings()
         }
         self.presentationController?.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func openSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, options: [:]) { (success) in
+                print("Settings opened: \(success)")
+            }
+        }
     }
 }
 
