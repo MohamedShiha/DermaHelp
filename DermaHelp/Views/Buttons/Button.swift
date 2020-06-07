@@ -18,6 +18,25 @@ class Button: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            animateAlpha(self.isEnabled ? 1 : 0.5)
+        }
+    }
+    
+    typealias buttonHandler = (Button) -> ()
+    
+    var didTapButton: buttonHandler? {
+        didSet {
+            if didTapButton != nil {
+                addTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
+            } else {
+                removeTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
+            }
+        }
+    }
+
+    
     // MARK: Initializers
     
     init(title: String?, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
@@ -46,5 +65,14 @@ class Button: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 8
+    }
+    
+    // MARK: Action with a closure
+
+    @objc
+    private func didTapButton(sender: UIButton) {
+        if let handler = didTapButton {
+            handler(self)
+        }
     }
 }
