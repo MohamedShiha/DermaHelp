@@ -48,6 +48,7 @@ class LoginFormVC: ViewController, LayoutController {
             emailTextField, passwordInputView, forgotPwButton,
             loginButton, signUpQueLabel, signUpButton
         ])
+        loginButton.isEnabled = false
     }
     
     func setupLayout() {
@@ -93,6 +94,8 @@ class LoginFormVC: ViewController, LayoutController {
         forgotPwButton.addTarget(self, action: #selector(didTapForgotPwButton), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
+        emailTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        passwordInputView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     // MARK: Actions
@@ -109,17 +112,42 @@ class LoginFormVC: ViewController, LayoutController {
     }
     
     @objc
+    private func textFieldEditingChanged() {
+        let isEmptyCredentials = (emailTextField.text ?? "").isEmpty || (passwordInputView.textField.text ?? "").isEmpty
+        loginButton.isEnabled = isEmptyCredentials ? false : true
+    }
+    
+    @objc
     private func didTapLoginButton() {
         let email = emailTextField.text ?? ""
         let password = passwordInputView.textField.text ?? ""
+        
+        guard email.evaluateEmail() else {
+            presentWrongFormatAlert()
+            return
+        }
+        
+        guard password.evaluatePassword() else {
+            presentWrongFormatAlert()
+            return
+        }
+        
         AuthenticationProvider.shared.login(withEmail: email, password: password) { (error) in
-            guard error == nil else {
-                print("Couldn't sign in, Show some alert")
+            if let error = error {
+                DispatchQueue.main.async {
+                    let alert = AlertController.dismissingAlert(title: "Oops!", message: error.localizedDescription, dismissingTitle: "Try Again")
+                    self.present(alert, animated: true, completion: nil)
+                }
                 return
             }
             // In case of success, Scene delegate has a state handler to handle
             // if the user has logged in or signed out.
         }
+    }
+    
+    private func presentWrongFormatAlert() {
+        let alert = AlertController.dismissingAlert(title: "Oops!", message: "Your email or password are empty or not in the correct format.", dismissingTitle: "Try Again")
+        present(alert, animated: true, completion: nil)
     }
     
     @objc
