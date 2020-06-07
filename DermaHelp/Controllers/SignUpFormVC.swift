@@ -49,6 +49,7 @@ class SignUpFormVC: ViewController, LayoutController {
             emailTextField, passwordInputView, repeatPwInputView,
             termsLabel, signUpButton, loginQueLabel, loginButton
         ])
+        signUpButton.isEnabled = false
     }
     
     func setupLayout() {
@@ -56,12 +57,12 @@ class SignUpFormVC: ViewController, LayoutController {
         [headingLabel, subHeadingLabel].centerHorizontally()
         
         [googleButton, separator, emailTextField, passwordInputView, repeatPwInputView,
-        signUpButton].edgesToSuperView(including: [.left, .right], insets: .left(24) + .right(24))
+         signUpButton].edgesToSuperView(including: [.left, .right], insets: .left(24) + .right(24))
         
         [termsLabel, loginQueLabel].layLeftInSuperView(constant: 24 + 4)
         
         [googleButton, emailTextField, passwordInputView,
-        repeatPwInputView, signUpButton].heightAnchor(.equal, constant: 44)
+         repeatPwInputView, signUpButton].heightAnchor(.equal, constant: 44)
         
         separator.heightAnchor(.equal, constant: 1)
         
@@ -94,6 +95,9 @@ class SignUpFormVC: ViewController, LayoutController {
         googleButton.addTarget(self, action: #selector(didTapGoogleButton), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        emailTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        passwordInputView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        repeatPwInputView.textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     @objc
@@ -110,18 +114,50 @@ class SignUpFormVC: ViewController, LayoutController {
     }
     
     @objc
+    private func textFieldEditingChanged() {
+        let isEmptyCredentials = (emailTextField.text ?? "").isEmpty || (passwordInputView.textField.text ?? "").isEmpty || (repeatPwInputView.textField.text ?? "").isEmpty
+        signUpButton.isEnabled = isEmptyCredentials ? false : true
+    }
+    
+    @objc
     private func didTapSignUpButton() {
         let email = emailTextField.text ?? ""
         let password = passwordInputView.textField.text ?? ""
+        let repeatedPw = repeatPwInputView.textField.text ?? ""
+        
+        guard email.evaluateEmail() else {
+            presentWrongFormatAlert()
+            return
+        }
+        
+        guard password.evaluatePassword() else {
+            presentWrongFormatAlert()
+            return
+        }
+        
+        guard repeatedPw.evaluatePassword() else {
+            presentWrongFormatAlert()
+            return
+        }
+        
         AuthenticationProvider.shared.signUp(withEmail: email, password: password) { (error) in
-            guard error == nil else {
-                print("Error signing up, Show some alert.")
+            if let error = error {
+                DispatchQueue.main.async {
+                    let alert = AlertController.dismissingAlert(title: "Oops!", message: error.localizedDescription, dismissingTitle: "Try Again")
+                    self.present(alert, animated: true, completion: nil)
+                }
                 return
             }
             // In case of success, Scene delegate has a state handler to handle
             // if the user has logged in or signed out.
         }
     }
+    
+    private func presentWrongFormatAlert() {
+        let alert = AlertController.dismissingAlert(title: "Oops!", message: "Your email or password are empty or not in the correct format.", dismissingTitle: "Try Again")
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     @objc
     private func didTapLoginButton() {
