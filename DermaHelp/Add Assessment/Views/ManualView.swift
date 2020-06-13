@@ -13,8 +13,9 @@ class ManualView: UIView, LayoutController {
     
     // MARK: Views
     
-    private lazy var titleLabel = Label(text: "How it works", font: .roundedSystemFont(ofSize: 20, weight: .bold))
-    private lazy var manualLabel = Label(text: "DermaHelp analyses your captured photos in a highly intelligent way to provide you with the most accurate results, raises your awareness, and shows you the nearest dermatologist on the map.", font: .roundedSystemFont(ofSize: 17), numberOfLines: 0)
+    private let titleLabel = Label(text: "How it works", font: .roundedSystemFont(ofSize: 20, weight: .bold))
+    // swiftlint:disable:next line_length
+    private let manualLabel = Label(text: "DermaHelp analyses your captured photos in a highly intelligent way to provide you with the most accurate results, raises your awareness, and shows you the nearest dermatologist on the map.", font: .roundedSystemFont(ofSize: 17), numberOfLines: 0)
     
     // MARK: Initializers
     
