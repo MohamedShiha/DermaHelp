@@ -9,18 +9,25 @@
 import UIKit
 
 protocol UserViewModelDelegate: class {
-    func didFetchUser()
-    func failedToFetchUser(with error: String)
+    func didFetchUser(_ error: Error?)
+    func didUpdateUserData(_ error: Error?)
+}
+
+extension UserViewModelDelegate {
+    func didFetchUser(_ error: Error?) { }
+    func didUpdateUserData(_ error: Error?) { }
 }
 
 class UserViewModel {
     
-    private var user: User
+    private(set) var user: User
     weak var delegate: UserViewModelDelegate?
     
     init(user: User) {
         self.user = user
     }
+    
+    // MARK: Properties
     
     var id: String {
         return user.id
@@ -84,16 +91,21 @@ class UserViewModel {
         return user.updatedAt
     }
     
+    // MARK: Functionality
+    
     func fetchCurrentUser() {
         FirestoreManager.shared.getCurrentUser { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
-                self?.delegate?.didFetchUser()
+                self?.delegate?.didFetchUser(nil)
             case .failure(let error):
-                self?.delegate?.failedToFetchUser(with: error.rawValue)
-                break
+                self?.delegate?.didFetchUser(error)
             }
         }
+    }
+    
+    func clearAssessments() {
+        updateUser(field: .assessmentIds, newValue: [])
     }
 }
