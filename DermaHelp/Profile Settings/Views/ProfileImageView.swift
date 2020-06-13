@@ -2,7 +2,7 @@
 //  ProfileImageView.swift
 //  DermaHelp
 //
-//  Created by Mohamed Shiha on 5/11/20.
+//  Created by Mohamed Shiha on 6/12/20.
 //  Copyright © 2020 Mohamed Shiha. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 class ProfileImageView: UIImageView {
     
     init() {
-        super.init(image: UIImage(named: "UserPlaceholder"))
+        super.init(image: .profilePlaceholder)
         clipsToBounds = true
         backgroundColor = .systemFill
     }
