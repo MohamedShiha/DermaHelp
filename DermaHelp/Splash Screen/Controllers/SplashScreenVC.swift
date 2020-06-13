@@ -18,12 +18,12 @@ class SplashScreenVC: ViewController, LayoutController {
 
     // MARK: Views
     
-    private lazy var logoImageView = UIImageView(image: UIImage(named: "Logo"))
-    private lazy var solidLogoImageView = UIImageView(image: UIImage(named: "Solid-logo"))
-    private lazy var logoLabel = Label(text: "Derma Help", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
-    private lazy var featuresView = FeaturesView()
-    private lazy var loginButton = FormButton(title: "Login", titleColor: .label, backColor: .systemFill)
-    private lazy var signUpButton = FormButton(title: "Sign Up", titleColor: .white, backColor: .mainTint)
+    private let logoImageView = UIImageView(image: UIImage(named: "Logo"))
+    private let solidLogoImageView = UIImageView(image: UIImage(named: "Solid-logo"))
+    private let logoLabel = Label(text: "Derma Help", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
+    private let featuresView = FeaturesView()
+    private let loginButton = FormButton(title: "Login", titleColor: .label, backColor: .systemFill)
+    private let signUpButton = FormButton(title: "Sign Up", titleColor: .white, backColor: .mainTint)
     
     // MARK: View Controller lifecycle
     
@@ -99,10 +99,10 @@ class SplashScreenVC: ViewController, LayoutController {
 
 extension SplashScreenVC: LoginMethodPresenterDelegate {
     func presentSignUp() {
-        present(SignUpFormVC(), animated: true, completion: nil)
+        didTapSignUpButton()
     }
     
     func presentLogin() {
-        present(LoginFormVC(), animated: true, completion: nil)
+        didTapLoginButton()
     }
 }
