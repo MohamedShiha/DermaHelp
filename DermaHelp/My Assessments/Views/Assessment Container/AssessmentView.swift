@@ -13,15 +13,15 @@ class AssessmentView: UIView, LayoutController {
 
     // MARK: Views
     
-    lazy var organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
-    lazy var statusView = StatusView()
-    lazy var riskStatusScale = StatusScaleView(metricsLabel: "Risk")
-    lazy var nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
-    lazy var melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
-    lazy var colorStatusScale = StatusScaleView(metricsLabel: "Color")
-    lazy var dateLabel = Label(color: .secondaryLabel)
-    lazy var menuButton = MenuButton()
-    lazy var getHelpButton = GetHelpButton()
+    let organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
+    let statusView = StatusView()
+    let riskStatusScale = StatusScaleView(metricsLabel: "Risk")
+    let nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
+    let melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
+    let colorStatusScale = StatusScaleView(metricsLabel: "Color")
+    let dateLabel = Label(color: .secondaryLabel)
+    let menuButton = MenuButton()
+//    let getHelpButton = GetHelpButton()
     
     // MARK: Initializers
     
@@ -32,7 +32,6 @@ class AssessmentView: UIView, LayoutController {
         setupViews()
         setupLayout()
         dropShadow()
-        setupLongPressGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +40,7 @@ class AssessmentView: UIView, LayoutController {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 12
+        layer.cornerRadius = 16
         layer.shadowPath = UIBezierPath(rect: CGRect(x: -2, y: 4, width: frame.width + 4, height: frame.height)).cgPath
     }
     
@@ -51,7 +50,7 @@ class AssessmentView: UIView, LayoutController {
         addSubViews([
             organNameLabel, statusView, dateLabel, menuButton,
             riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale, getHelpButton
+            colorStatusScale/*, getHelpButton*/
         ])
     }
 
@@ -67,7 +66,7 @@ class AssessmentView: UIView, LayoutController {
         [menuButton, dateLabel].alignCenterVertically(with: organNameLabel, constant: 0)
         
         [riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale].widthAnchor(with: self, multiplier: 0.65)
+            colorStatusScale].alignRight(with: dateLabel, constant: 0)
         [riskStatusScale, nevusStatusScale, melanomaStatusScale,
             colorStatusScale].alignLeft(with: organNameLabel, constant: 0)
         
@@ -76,9 +75,9 @@ class AssessmentView: UIView, LayoutController {
         melanomaStatusScale.layBelow(nevusStatusScale, constant: 8)
         colorStatusScale.layBelow(melanomaStatusScale, constant: 8)
         
-        getHelpButton.layRightInSuperView(constant: 16)
-        getHelpButton.layRight(to: colorStatusScale, constant: 16)
-        getHelpButton.alignCenterVertically(with: colorStatusScale, constant: 0)
+//        getHelpButton.layRightInSuperView(constant: 16)
+//        getHelpButton.layRight(to: colorStatusScale, constant: 16)
+//        getHelpButton.alignCenterVertically(with: colorStatusScale, constant: 0)
     }
     
     private func dropShadow() {
@@ -87,35 +86,5 @@ class AssessmentView: UIView, LayoutController {
         layer.shadowRadius = 6
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
-    }
-    
-    private func setupLongPressGesture() {
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
-        longPress.minimumPressDuration = 0.9
-        addGestureRecognizer(longPress)
-    }
-    
-    @objc
-    private func handleLongPress(recognizer: UILongPressGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            scaleDown()
-        case .ended:
-            scaleToDefault()
-        default:
-            break
-        }
-    }
-    
-    private func scaleDown() {
-        UIView.animate(withDuration: 0.3) {
-            self.transform = CGAffineTransform.identity.scaledBy(x: 0.95, y: 0.95)
-        }
-    }
-    
-    private func scaleToDefault() {
-        UIView.animate(withDuration: 0.3) {
-            self.transform = CGAffineTransform.identity
-        }
     }
 }
