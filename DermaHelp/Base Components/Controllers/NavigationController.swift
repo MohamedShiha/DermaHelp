@@ -1,5 +1,5 @@
 //
-//  RootNavigationController.swift
+//  NavigationController.swift
 //  DermaHelp
 //
 //  Created by Mohamed Shiha on 5/14/20.
@@ -8,10 +8,12 @@
 
 import UIKit
 
-class RootNavigationController: UINavigationController {
+class NavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.isHidden = true
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.mainTint]
+        navigationBar.tintColor = .mainTint
     }
 }
