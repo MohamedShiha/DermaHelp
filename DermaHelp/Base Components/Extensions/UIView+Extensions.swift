@@ -21,20 +21,31 @@ extension UIView {
         return nil
     }
     
-    var parentTabBarController: UIViewController? {
-        var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let tabBarController = parentResponder as? UITabBarController {
-                return tabBarController
-            }
-        }
-        return nil
-    }
+    // MARK: Animations
     
     func animateAlpha(_ alpha: CGFloat) {
         UIView.animate(withDuration: 0.25) {
             self.alpha = alpha
+        }
+    }
+    
+    func scaleTo(point: CGPoint, animated: Bool = true) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity.scaledBy(x: point.x, y: point.y)
+            }
+        } else {
+            transform = CGAffineTransform.identity
+        }
+    }
+    
+    func scaleToIdentity(animated: Bool = true) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.transform = CGAffineTransform.identity
+            }
+        } else {
+            transform = CGAffineTransform.identity
         }
     }
 }
