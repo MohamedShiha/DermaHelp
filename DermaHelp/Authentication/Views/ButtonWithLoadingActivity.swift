@@ -1,14 +1,14 @@
 //
-//  SaveAccessoryButton.swift
+//  ButtonWithLoadingActivity.swift
 //  DermaHelp
 //
-//  Created by Mohamed Shiha on 6/7/20.
+//  Created by Mohamed Shiha on 6/13/20.
 //  Copyright © 2020 Mohamed Shiha. All rights reserved.
 //
 
 import UIKit
 
-class SaveAccessoryButton: Button {
+class ButtonWithLoadingActivity: Button {
     
     // MARK: Views
     
@@ -16,6 +16,7 @@ class SaveAccessoryButton: Button {
     
     // MARK: Properties
     
+    let radius: CGFloat
     var isLoading: Bool {
         if let activity = activityIndicator {
             return activity.isAnimating
@@ -26,18 +27,21 @@ class SaveAccessoryButton: Button {
     
     // MARK: Initializers
     
-    init() {
-        super.init(title: "SAVE", font: .roundedSystemFont(ofSize: 19, weight: .bold), titleColor: .white, backColor: .mainTint)
+    init(title: String, font: UIFont = .roundedSystemFont(ofSize: UIFont.buttonFontSize, weight: .bold),
+         titleColor: UIColor = .white, backColor: UIColor = .mainTint, cornerRadius: CGFloat) {
+        radius = cornerRadius
+        super.init(title: title, font: .roundedSystemFont(ofSize: 19, weight: .bold), titleColor: .white, backColor: .mainTint)
         isEnabled = false
     }
 
     required init?(coder: NSCoder) {
+        radius = 0
         super.init(coder: coder)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = 0
+        layer.cornerRadius = radius
     }
     
     func showLoadingIndicator() {
