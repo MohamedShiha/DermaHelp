@@ -16,7 +16,15 @@ class TextField: UITextField {
     private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     override var placeholder: String? {
         didSet {
-            attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+            let attributes = [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
+            attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: attributes)
+        }
+    }
+    override var isSecureTextEntry: Bool {
+        didSet {
+            if isFirstResponder {
+                _ = becomeFirstResponder()
+            }
         }
     }
     
@@ -29,6 +37,7 @@ class TextField: UITextField {
         dropShadow()
         setupTextView(type: type)
         clearButtonMode = .whileEditing
+        autocapitalizationType = .none
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +62,16 @@ class TextField: UITextField {
         return bounds.inset(by: UIEdgeInsets(top: padding.top, left: padding.left, bottom: padding.bottom, right: padding.right))
     }
     
+    @discardableResult
+    override func becomeFirstResponder() -> Bool {
+
+        let success = super.becomeFirstResponder()
+        if isSecureTextEntry, let text = self.text {
+            self.text?.removeAll()
+            insertText(text)
+        }
+        return success
+    }
     
     // MARK: Appearance
     
@@ -100,7 +119,11 @@ class TextField: UITextField {
         }
     }
     
-    private func setupTextFieldContent(type textContent: UITextContentType? = .none, spellChecking: UITextSpellCheckingType = .default, autocorrection: UITextAutocorrectionType = .default, keyboardType: UIKeyboardType = .default, isMasked: Bool = false) {
+    private func setupTextFieldContent(type textContent: UITextContentType? = .none,
+                                       spellChecking: UITextSpellCheckingType = .default,
+                                       autocorrection: UITextAutocorrectionType = .default,
+                                       keyboardType: UIKeyboardType = .default,
+                                       isMasked: Bool = false) {
         textContentType = textContent
         spellCheckingType = spellChecking
         autocorrectionType = autocorrection
