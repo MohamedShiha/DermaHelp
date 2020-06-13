@@ -9,14 +9,6 @@
 import UIKit
 
 class GetHelpButton: Button {
-
-    override var isHighlighted: Bool {
-        didSet {
-            UIView.animate(withDuration: 0.15) {
-                self.alpha = self.isHighlighted ? 0.5 : 1
-            }
-        }
-    }
     
     init() {
         super.init(title: "GET HELP", font: .roundedSystemFont(ofSize: 13, weight: .bold), titleColor: .white, backColor: .mainTint)
