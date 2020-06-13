@@ -13,11 +13,11 @@ class BeginAssessmentVC: ViewController, LayoutController {
     
     // MARK: Views
     
-    private lazy var headingLabel = Label(text: "Begin Assessment", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
-    private lazy var dismissButton = AddButton()
-    private lazy var manualView = ManualView()
-    private lazy var cameraButton = MediaOptionButton(image: UIImage(systemName: "camera.fill"), title: "Take Photo")
-    private lazy var libraryButton = MediaOptionButton(image: UIImage(systemName: "photo"), title: "Choose Photo")
+    private let headingLabel = Label(text: "Begin Assessment", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
+    private let dismissButton = AddButton()
+    private let manualView = ManualView()
+    private let cameraButton = MediaOptionButton(image: UIImage(systemName: "camera.fill"), title: "Take Photo")
+    private let libraryButton = MediaOptionButton(image: UIImage(systemName: "photo"), title: "Choose Photo")
     
     // MARK: Properties
     
