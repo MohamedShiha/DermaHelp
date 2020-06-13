@@ -10,6 +10,12 @@ import UIKit
 
 class AssessmentsTableView: UITableView, LayoutController {
     
+    override var backgroundView: UIView? {
+        didSet {
+            setupLayout()
+        }
+    }
+    
     // MARK: Initializers
     
     init() {
@@ -19,8 +25,6 @@ class AssessmentsTableView: UITableView, LayoutController {
         allowsSelection = false
         register(AssessmentCell.self, forCellReuseIdentifier: AssessmentCell.cellId)
         delegate = self
-        setupViews()
-        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +33,6 @@ class AssessmentsTableView: UITableView, LayoutController {
     
     func setupViews() {
         backgroundView = EmptyAssessmentsView()
-        backgroundView?.isHidden = false
     }
     
     func setupLayout() {
@@ -38,9 +41,9 @@ class AssessmentsTableView: UITableView, LayoutController {
         backgroundView?.widthAnchor(with: self, multiplier: 0.9)
     }
     
-    func handleBackgroundViewIf(_ condition: Bool) {
-        backgroundView?.isHidden = condition ? true : false
-        isScrollEnabled = condition ? true : false
+    func handleBackgroundViewIf(emptyCondition: Bool) {
+        backgroundView = emptyCondition ? EmptyAssessmentsView() : nil
+        isScrollEnabled = !emptyCondition        
     }
 }
 
