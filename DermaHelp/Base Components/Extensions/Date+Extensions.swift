@@ -13,10 +13,8 @@ extension Date {
         return DateFormatter.shortFormat.string(from: self)
     }
     
-    func calculateAge() -> Int {
-        let ageComponents = Calendar.current.dateComponents([.year], from: self, to: Date())
-        let age = ageComponents.year
-        return age ?? 0
+    var formattedWithMonthName: String {
+        return DateFormatter.formatWithMonthName.string(from: self)
     }
 }
 
@@ -24,6 +22,12 @@ extension DateFormatter {
     static var shortFormat: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d/M/yyyy"
+        return dateFormatter
+    }
+    
+    static var formatWithMonthName: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM, yyyy"
         return dateFormatter
     }
 }
