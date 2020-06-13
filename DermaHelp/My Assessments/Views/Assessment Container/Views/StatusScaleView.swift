@@ -12,8 +12,8 @@ class StatusScaleView: UIView, LayoutController {
     
     // MARK: Views
     
-    private lazy var label = Label()
-    private lazy var scaleSlider = StatusSlider()
+    private let label = Label()
+    private let scaleSlider = StatusSlider()
     
     // MARK: Properties
     
@@ -47,7 +47,7 @@ class StatusScaleView: UIView, LayoutController {
     func setupLayout() {
         label.edgesToSuperView(including: [.top, .left, .bottom])
         label.layLeft(to: scaleSlider, constant: 8)
-        label.widthAnchor(.equal, constant: 80)
+        label.widthAnchor(.equal, constant: 88)
         scaleSlider.centerVertically()
         scaleSlider.layRightInSuperView(constant: 0)
         scaleSlider.heightAnchor(.equal, constant: 16)
