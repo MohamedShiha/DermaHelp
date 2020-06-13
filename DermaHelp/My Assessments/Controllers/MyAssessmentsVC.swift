@@ -111,7 +111,11 @@ extension MyAssessmentsVC: AssessmentsViewModelDelegate {
     func didFetchAssessments() {
         assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
         if assessmentsTableView.window != nil {
-            assessmentsTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
+            var indexPaths = [IndexPath]()
+            for i in 0..<assessments.count {
+                indexPaths.append(IndexPath(row: i, section: 0))
+            }
+            assessmentsTableView.insertRows(at: indexPaths, with: .top)
         } else {
             assessmentsTableView.reloadData()
         }
