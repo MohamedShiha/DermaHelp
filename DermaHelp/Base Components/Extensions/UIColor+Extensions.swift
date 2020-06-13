@@ -19,7 +19,7 @@ extension UIColor {
     }
     
     static var secondaryBlackLabel: UIColor {
-        return UIColor(displayP3Red: 5/255, green: 12/255, blue: 28/255, alpha: 0.65)
+        return UIColor(displayP3Red: 5/255, green: 12/255, blue: 28/255, alpha: 0.5)
     }
     
     static var separator: UIColor {
