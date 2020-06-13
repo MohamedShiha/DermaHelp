@@ -18,6 +18,7 @@ class TabController: UITabBarController {
         tabBar.tintColor = .mainTint
         view.backgroundColor = .white
         delegate = self
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
     }
     
     // MARK: Tabs
@@ -27,28 +28,18 @@ class TabController: UITabBarController {
         myAssessmentsTab()
         profileTab()
     }
-    
-    private func myAssessmentsTab() {
-        let vc = MyAssessmentsVC(viewModel: Assessments(userVM: UserViewModel(user: User())))
-        vc.tabBarItem = UITabBarItem(title: "Assessments", image: UIImage(named: "Record_Tab"), selectedImage: UIImage(named: "Record_ActiveTab"))
-        viewControllers = [vc]
-    }
-    
-    private func profileTab() {
-        let vc = ProfileVC(viewModel: UserViewModel(user: User()))
-        let image = UIImage.profilePlaceholder
-        vc.tabBarItem = UITabBarItem(title: "Me", image: image?.roundedImageWithBorder(width: 0), selectedImage: image?.roundedImageWithBorder(width: 2, color: .mainTint))
-        var vcArray = viewControllers
-        vcArray?.append(vc)
-        setViewControllers(vcArray, animated: true)
-    }
 }
 
 // MARK: TabBarController Delegate
 
-extension TabController: UITabBarControllerDelegate  {
+extension TabController: UITabBarControllerDelegate {
+    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let tabViewControllers = tabBarController.viewControllers, let toIndex = tabViewControllers.firstIndex(of: viewController) else {
+        
+        guard let tabViewControllers = tabBarController.viewControllers else {
+            return false
+        }
+        guard let toIndex = tabViewControllers.firstIndex(of: viewController) else {
             return false
         }
         animateToTab(toIndex: toIndex)
@@ -86,7 +77,7 @@ extension TabController: UITabBarControllerDelegate  {
                         fromView.center = CGPoint(x: fromView.center.x - offset, y: fromView.center.y)
                         toView.center = CGPoint(x: toView.center.x - offset, y: toView.center.y)
                         
-        }, completion: { finished in
+        }, completion: { _ in
             // Remove the old view from the tabBar view.
             fromView.removeFromSuperview()
             self.selectedIndex = toIndex
