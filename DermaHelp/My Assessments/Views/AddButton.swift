@@ -23,7 +23,7 @@ class AddButton: Button {
         layer.cornerRadius = bounds.height / 2
     }
     
-    func animateRotation()  {
+    func animateRotation() {
         UIView.animate(withDuration: 0.2) {
             self.transform = CGAffineTransform.identity.rotated(by: .pi / 4)
         }
