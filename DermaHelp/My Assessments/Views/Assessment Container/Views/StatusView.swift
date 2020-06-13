@@ -12,8 +12,8 @@ class StatusView: UIView, LayoutController {
 
     // MARK: Views
     
-    private lazy var label = Label(font: .roundedSystemFont(ofSize: 19, weight: .semibold))
-    private lazy var circle = UIView()
+    private let label = Label(font: .roundedSystemFont(ofSize: 19, weight: .semibold))
+    private let circle = UIView()
     
     // MARK: Properties
 
