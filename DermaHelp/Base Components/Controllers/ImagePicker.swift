@@ -48,14 +48,11 @@ class ImagePicker: NSObject {
     public func presentOptions(from sourceView: UIView) {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+        alertController.view.tintColor = .black
         if let action = self.action(for: .camera, title: "Take photo") {
             alertController.addAction(action)
         }
         if let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
-            alertController.addAction(action)
-        }
-        if let action = self.action(for: .photoLibrary, title: "Photo library") {
             alertController.addAction(action)
         }
         
@@ -74,7 +71,8 @@ class ImagePicker: NSObject {
     
     public func presentCamera() {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            let alertController = AlertController.dismissingAlert(title: "Oops!", message: "This device currently does not support taking photos with a camera.", dismissingTitle: "Cancel")
+            let msg = "This device currently does not support taking photos with a camera."
+            let alertController = AlertController.dismissingAlert(title: msg, message: nil, dismissingTitle: "Cancel")
             presentationController?.present(alertController, animated: true, completion: nil)
             return
         }
@@ -144,7 +142,7 @@ class ImagePicker: NSObject {
         let message = "\(appName) does not have access to your \(source), tap Settings and turn on Photos."
         let alertController = AlertController.dismissingAlert(title: message, message: "", dismissingTitle: "Cancel")
         // Settings Action
-        alertController.createAlert(title: "Settings", alertStyle: .default) {
+        alertController.createAlert(title: "Settings", action: .secondary, alertStyle: .default) {
             self.openSettings()
         }
         self.presentationController?.present(alertController, animated: true, completion: nil)
