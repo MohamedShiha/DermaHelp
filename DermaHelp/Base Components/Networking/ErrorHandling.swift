@@ -10,4 +10,5 @@ import Foundation
 
 enum DHError: String, Error {
     case invalidUsername = "This username is invalid, please try again."
+    case invalidAssessment = "An error occurred while fetching assessment document."
 }
