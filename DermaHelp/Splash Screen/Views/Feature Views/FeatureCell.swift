@@ -12,12 +12,12 @@ class FeatureCell: UICollectionViewCell, LayoutController {
     
     // MARK: Views
     
-    private lazy var featureImageView: UIImageView = {
+    private let featureImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .black
         return imageView
     }()
-    private lazy var featureLabel = Label(font: .roundedSystemFont(ofSize: 22, weight: .semibold))
+    private let featureLabel = Label(font: .roundedSystemFont(ofSize: 22, weight: .semibold))
     
     // MARK: Properties
     
