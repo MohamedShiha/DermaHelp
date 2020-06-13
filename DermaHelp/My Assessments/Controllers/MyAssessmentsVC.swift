@@ -8,19 +8,25 @@
 
 import UIKit
 import EZConstraints
+import LinkPresentation
 
 class MyAssessmentsVC: ViewController, LayoutController {
 
     // MARK: Views
     
-    private lazy var headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
-    private lazy var addButton = AddButton()
-    private lazy var assessmentsTableView = AssessmentsTableView()
+    private let headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
+    private let addButton = AddButton()
+    private let assessmentsTableView = AssessmentsTableView()
     
     // MARK: Properties
     
     weak var topConstraint: EZConstraint!
-    var assessments: Assessments
+    var assessments: Assessments {
+        didSet {
+            assessments.delegate = self
+            assessments.fetch()
+        }
+    }
     
     init(viewModel: Assessments) {
         assessments = viewModel
@@ -40,8 +46,12 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupLayout()
         setupActions()
         assessmentsTableView.dataSource = self
-        assessments.delegate = self
-        fetchAssessments()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        assessmentsTableView.reloadData()
+        assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -68,13 +78,6 @@ class MyAssessmentsVC: ViewController, LayoutController {
         addButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
     }
     
-    private func fetchAssessments() {
-        assessments.fetchAssessments {
-            self.assessmentsTableView.handleBackgroundViewIf(self.assessments.count > 0)
-            self.assessmentsTableView.reloadData()
-        }
-    }
-    
     // MARK: Actions
     
     @objc
@@ -95,6 +98,7 @@ extension MyAssessmentsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AssessmentCell.cellId, for: indexPath) as! AssessmentCell
+        cell.actionDelegate = self
         cell.assessmentViewModel = assessments[indexPath.row]
         return cell
     }
@@ -104,4 +108,52 @@ extension MyAssessmentsVC: UITableViewDataSource, UITableViewDelegate {
 
 extension MyAssessmentsVC: AssessmentsViewModelDelegate {
     
+    func didFetchAssessments() {
+        assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
+        if assessmentsTableView.window != nil {
+            assessmentsTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .top)
+        } else {
+            assessmentsTableView.reloadData()
+        }
+    }
+    
+    func didDeleteAssessment(at index: Int, _ error: Error?) {
+        if error == nil {
+            assessmentsTableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
+            assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
+        } else {
+            presentDismissingAlert(title: "Unable to delete the assessment.")
+        }
+    }
+}
+
+// MARK: Cell Delegate
+
+extension MyAssessmentsVC: AssessmentCellDelegate {
+    
+    func didTapAttachedImage(image: UIImage?) {
+        let vc = AttachedImageVC()
+        vc.image = image
+        let nav = vc.embedInNavigationController()
+        present(nav, animated: true, completion: nil)
+    }
+    
+    func didTapShareAction(imageToShare: UIImage?) {
+        if let image = imageToShare {
+            let activityController = UIActivityViewController(activityItems: [image] as [Any], applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        }
+    }
+    
+    func didTapDeleteAction(idToDelete: String) {
+        let title = "Are you sure you want to delete this assessment?"
+        let message = "This action can not be undone."
+        presentAlert(title: title, message: message, actionTitle: "Delete", actionType: .primary) {
+            self.assessments.deleteAssessment(id: idToDelete)
+        }
+    }
+    
+    func presentActionSheet(_ actionSheet: UIAlertController) {
+        present(actionSheet, animated: true, completion: nil)
+    }
 }
