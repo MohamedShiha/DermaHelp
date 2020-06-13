@@ -9,7 +9,7 @@
 import struct Foundation.Date
 import class UIKit.UIImage
 
-struct AssessmentViewModel {
+class AssessmentViewModel {
     
     private var assessment: Assessment
     
