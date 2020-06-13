@@ -1,4 +1,3 @@
-
 //
 //  GenderSegmentedControl.swift
 //  DermaHelp
@@ -11,6 +10,21 @@ import UIKit
 
 class GenderSegmentedControl: UISegmentedControl {
 
+    // MARK: Properties
+    
+    var gender: User.Gender? {
+        switch selectedSegmentIndex {
+        case 0:
+            return .male
+        case 1:
+            return .female
+        default:
+            return nil
+        }
+    }
+    
+    // MARK: Initializers
+    
     init() {
         super.init(items: ["Male", "Female"])
         setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.mainTint], for: .selected)
