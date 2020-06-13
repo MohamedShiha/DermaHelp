@@ -32,9 +32,4 @@ extension UIImage {
         result = result?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         return result
     }
-    
-    func encodeToBase64(compressionQuality: CGFloat = 0.7) -> String {
-        let imgData = self.jpegData(compressionQuality: compressionQuality)
-        return (imgData?.base64EncodedString(options: .lineLength64Characters)) ?? String()
-    }
 }
