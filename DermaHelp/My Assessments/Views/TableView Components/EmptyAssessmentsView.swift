@@ -12,9 +12,9 @@ class EmptyAssessmentsView: UIView, LayoutController {
 
     // MARK: Views
         
-    private lazy var doctorImageView = UIImageView(image: UIImage(named: "DoctorArt"))
-    private lazy var mainLabel = Label(text: "No Assessment Found", font: .roundedSystemFont(ofSize: 20, weight: .semibold))
-    private lazy var hintLabel = Label(text: "Tap the add button to add an assessment.", font: .roundedSystemFont(ofSize: 14), color: .secondaryBlackLabel)
+    private let doctorImageView = UIImageView(image: UIImage(named: "DoctorArt"))
+    private let mainLabel = Label(text: "No Assessment Found", font: .roundedSystemFont(ofSize: 20, weight: .semibold))
+    private let hintLabel = Label(text: "Tap the add button to add an assessment.", font: .roundedSystemFont(ofSize: 14), color: .secondaryBlackLabel)
     
     // MARK: Initializers
     
