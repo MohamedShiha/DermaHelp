@@ -40,27 +40,28 @@ class Assessments {
         let group = DispatchGroup()
         group.enter()
         
-        var counter = 0
+        var counter = 1
         DispatchQueue.global(qos: .background).async {
             self.userVM.assessmentIds.forEach { (id) in
-                FirestoreManager.shared.getAssessmentBy(id: id) { (result) in
+                FirestoreManager.shared.getAssessmentBy(id: id) { [weak self] (result) in
                     switch result {
                     case .success(let assessment):
-                        self.viewModels.append(AssessmentViewModel(assessment: assessment))
+                        self?.viewModels.append(AssessmentViewModel(assessment: assessment))
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
+                    if counter == self?.userVM.assessmentIds.count {
+                        group.leave()
+                    }
                     counter += 1
-                    group.leave()
                 }
             }
         }
         
         group.notify(queue: .global(qos: .background)) {
-            if counter == self.userVM.assessmentIds.count {
-                DispatchQueue.main.async {
-                    self.delegate?.didFetchAssessments()
-                }
+            self.viewModels.sort(by: { !($0.date < $1.date) })
+            DispatchQueue.main.async {
+                self.delegate?.didFetchAssessments()
             }
         }
     }
