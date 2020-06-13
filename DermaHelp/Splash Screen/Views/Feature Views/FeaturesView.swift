@@ -12,8 +12,8 @@ class FeaturesView: UIView, LayoutController {
 
     // MARK: Views
     
-    private lazy var collectionView = FeaturesCollectionView()
-    private lazy var pageControl = PageControl(numberOfPages: Features.list.count)
+    private let collectionView = FeaturesCollectionView()
+    private let pageControl = PageControl(numberOfPages: Features.list.count)
 
     // MARK: Initializers
     
@@ -23,15 +23,11 @@ class FeaturesView: UIView, LayoutController {
         setupLayout()
         collectionView.scrollingDelegate = self
         clipsToBounds = true
+        layer.cornerRadius = 16
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.cornerRadius = 16
     }
     
     // MARK: Setup UI
