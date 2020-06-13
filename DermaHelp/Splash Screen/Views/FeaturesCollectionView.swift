@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ScrollingDelegate {
+protocol ScrollingDelegate: class {
     func didScroll()
 }
 
@@ -16,7 +16,7 @@ class FeaturesCollectionView: UICollectionView {
     
     // MARK: Properties
     
-    var scrollingDelegate: ScrollingDelegate?
+    weak var scrollingDelegate: ScrollingDelegate?
     
     // MARK: Initializers
     
