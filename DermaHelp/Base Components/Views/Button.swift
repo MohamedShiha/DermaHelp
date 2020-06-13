@@ -14,19 +14,25 @@ class Button: UIButton {
     
     override var isHighlighted: Bool {
         didSet {
-            animateAlpha(self.isHighlighted ? 0.5 : 1)
+            if isEnabled {
+                if isHighlighted {
+                    alpha = 0.5
+                } else {
+                    animateAlpha(1)
+                }
+            }
         }
     }
     
     override var isEnabled: Bool {
         didSet {
-            animateAlpha(self.isEnabled ? 1 : 0.5)
+            alpha = isEnabled ? 1 : 0.5
         }
     }
     
-    typealias buttonHandler = (Button) -> ()
+    typealias ButtonHandler = (Button) -> Void
     
-    var didTapButton: buttonHandler? {
+    var didTapButton: ButtonHandler? {
         didSet {
             if didTapButton != nil {
                 addTarget(self, action: #selector(didTapButton(sender:)), for: .touchUpInside)
@@ -36,10 +42,10 @@ class Button: UIButton {
         }
     }
 
-    
     // MARK: Initializers
     
-    init(title: String?, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular), titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
+    init(title: String?, font: UIFont = .roundedSystemFont(ofSize: 16, weight: .regular),
+         titleColor: UIColor? = .mainTint, backColor: UIColor = .clear) {
         super.init(frame: .zero)
         setTitle(title, for: .normal)
         titleLabel?.font = font
