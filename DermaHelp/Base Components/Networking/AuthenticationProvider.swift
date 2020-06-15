@@ -19,11 +19,7 @@ class AuthenticationProvider {
     @discardableResult
     func userLoginState(completion: @escaping UserCompletion) -> AuthStateDidChangeListenerHandle {
         return Auth.auth().addStateDidChangeListener { (_, user) in
-            if user == nil {
-                completion(false)
-            } else {
-                completion(true)
-            }
+            completion(user == nil ? false : true)
         }
     }
 }

@@ -15,11 +15,7 @@ extension AuthenticationProvider {
     func continueWithGoogle(user: GIDGoogleUser!, _ completion: @escaping OperationCompletion) {
         let authCredentials = GoogleAuthenticationProvider.credential(authentication: user.authentication)
         Auth.auth().signIn(with: authCredentials) { (_, error) in
-            guard error == nil else {
-                completion(error)
-                return
-            }
-            completion(nil)
+            completion(error)
         }
     }
     
