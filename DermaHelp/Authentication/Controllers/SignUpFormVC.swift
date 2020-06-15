@@ -26,6 +26,8 @@ class SignUpFormVC: BaseAuthenticationVC {
         super.viewDidLoad()
         passwordInputView.textFieldDelegate = self
         repeatPwInputView.textFieldDelegate = self
+        headingLabel.text = "Join Us"
+        subHeadingLabel.text = "For a Skin Cancer-Free World"
     }
     
     // MARK: Setup UI

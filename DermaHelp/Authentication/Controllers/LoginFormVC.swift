@@ -23,6 +23,8 @@ class LoginFormVC: BaseAuthenticationVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordInputView.textFieldDelegate = self
+        headingLabel.text = "Welcome Back"
+        subHeadingLabel.text = "We have been waiting for you"
     }
 
     // MARK: Setup UI

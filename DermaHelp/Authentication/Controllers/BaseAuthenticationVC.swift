@@ -18,8 +18,8 @@ class BaseAuthenticationVC: ViewController, LayoutController, BaseAuthentication
     
     // MARK: Views
     
-    let headingLabel = Label(text: "Welcome Back", font: .roundedSystemFont(ofSize: 32, weight: .heavy), color: .mainTint)
-    let subHeadingLabel = Label(text: "We have been waiting for you", font: .roundedSystemFont(ofSize: 20, weight: .bold), color: .secondaryBlackLabel)
+    let headingLabel = Label(text: "Heading", font: .roundedSystemFont(ofSize: 32, weight: .heavy), color: .mainTint)
+    let subHeadingLabel = Label(text: "SubHeading", font: .roundedSystemFont(ofSize: 20, weight: .bold), color: .secondaryBlackLabel)
     let googleButton = GoogleButton()
     let separator = UISeparator()
     let emailTextField = TextField(placeholder: "Email address", type: .email)
