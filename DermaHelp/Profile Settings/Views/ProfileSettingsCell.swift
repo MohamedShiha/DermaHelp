@@ -21,12 +21,7 @@ class ProfileSettingsCell: UITableViewCell, LayoutController {
     var option: SettingsListItem! {
         didSet {
             optionLabel.text = option?.name
-            if option?.data == nil {
-                dataLabel.isHidden = true
-            } else {
-                dataLabel.text = option?.data
-                dataLabel.isHidden = false
-            }
+            dataLabel.text = option?.data
         }
     }
     
@@ -50,10 +45,9 @@ class ProfileSettingsCell: UITableViewCell, LayoutController {
     }
     
     func setupLayout() {
-        optionLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        optionLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         [optionLabel, dataLabel].centerVertically()
         optionLabel.layLeftInSuperView(constant: 16)
-        dataLabel.layRight(to: optionLabel, constant: 16)
         dataLabel.layRightInSuperView(constant: 2)
     }
 }
