@@ -25,11 +25,7 @@ extension AuthenticationProvider {
     
     func login(withEmail email: String, password: String, _ completion: @escaping OperationCompletion) {
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
-            guard error == nil else {
-                completion(error)
-                return
-            }
-            completion(nil)
+            completion(error)
         }
     }
     
