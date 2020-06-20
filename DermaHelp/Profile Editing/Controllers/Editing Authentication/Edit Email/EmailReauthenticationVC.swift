@@ -14,9 +14,9 @@ class EmailReauthenticationVC: BaseReauthenticationVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Email"
-        saveButton.setTitle("CONFIRM", for: .normal)
-        hint = "For your security, please enter your password."
+        navigationItem.title = .localized(key: "email address")
+        saveButton.setTitle(.localized(key: "confirm"), for: .normal)
+        hint = .localized(key: "auth hint")
     }
     
     override func updateViewModel() {

@@ -15,7 +15,7 @@ class ProfileVC: ViewController {
     // MARK: Views
     
     private let profileImageView = ProfileImageView()
-    private let editImageButton = Button(title: "Change photo")
+    private let editImageButton = Button(title: .localized(key: "change photo"))
     private let settingsTableView: ProfileSettingsTableView
 
     // MARK: Properties
@@ -55,6 +55,7 @@ class ProfileVC: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hidesBottomBarWhenPushed = false
+        navigationController?.navigationBar.isHidden = true
         showUserData()
     }
     

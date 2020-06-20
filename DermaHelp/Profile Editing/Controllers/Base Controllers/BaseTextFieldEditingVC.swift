@@ -20,7 +20,6 @@ class BaseTextFieldEditingVC: BaseEditingVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
-        hidesBottomBarWhenPushed = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

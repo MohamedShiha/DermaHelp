@@ -22,7 +22,7 @@ extension PasswordTextFieldDelegate {
 
 class PasswordInputView: UIView, LayoutController {
     
-    private let showButton = Button(title: "show", font: .roundedSystemFont(ofSize: 15),titleColor: .mainTint)
+    private let showButton = Button(title: .localized(key: "show"), font: .roundedSystemFont(ofSize: 15),titleColor: .mainTint)
     let textField: TextField
     weak var textFieldDelegate: PasswordTextFieldDelegate?
     
@@ -37,11 +37,12 @@ class PasswordInputView: UIView, LayoutController {
     }
     
     required init?(coder: NSCoder) {
-        textField = TextField(placeholder: "Password", type: .password)
+        textField = TextField(placeholder: .localized(key: "password"), type: .password)
         super.init(coder: coder)
     }
     
     func setupViews() {
+        textField.localizingKey = textField.placeholder ?? "Password"
         addSubViews([textField, showButton])
     }
     
@@ -54,12 +55,12 @@ class PasswordInputView: UIView, LayoutController {
     @objc
     private func didTapShowButton() {
         textField.isSecureTextEntry = !textField.isSecureTextEntry
-        showButton.setTitle(textField.isSecureTextEntry ? "show" : "hide", for: .normal)
+        showButton.localizingKey = textField.isSecureTextEntry ? "show" : "hide"
     }
     
     private func setStateToDefault() {
         textField.isSecureTextEntry = true
-        showButton.setTitle("show", for: .normal)
+        showButton.localizingKey = "show"
     }
 }
 

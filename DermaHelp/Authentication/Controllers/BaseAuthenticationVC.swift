@@ -44,6 +44,7 @@ class BaseAuthenticationVC: ViewController, LayoutController, BaseAuthentication
     // MARK: Setup UI
     
     func setupViews() {
+        emailTextField.localizingKey = "email address"
         view.addSubViews([
             headingLabel, subHeadingLabel, googleButton, separator,
             emailTextField, passwordInputView

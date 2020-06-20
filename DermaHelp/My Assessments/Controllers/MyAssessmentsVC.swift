@@ -61,6 +61,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
+        headingLabel.localizingKey = "my assessments"
         view.addSubViews([headingLabel, addButton, assessmentsTableView])
     }
     

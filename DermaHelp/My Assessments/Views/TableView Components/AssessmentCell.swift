@@ -96,26 +96,26 @@ class AssessmentCell: UITableViewCell, LayoutController {
 
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.view.tintColor = .black
-        let attachedPhotoAction = UIAlertAction(title: "Attached Photo", style: .default) { [weak self] _ in
+        let attachedPhotoAction = UIAlertAction(title: .localized(key: "attached photo"), style: .default) { [weak self] _ in
             self?.actionDelegate?.didTapAttachedImage(image: self?.assessmentViewModel.attachedImage)
         }
         actionSheet.addAction(attachedPhotoAction)
         
-        let shareAction = UIAlertAction(title: "Share", style: .default) { [weak self] _ in
+        let shareAction = UIAlertAction(title: .localized(key: "share"), style: .default) { [weak self] _ in
             if let vm = self?.assessmentViewModel {
                 self?.actionDelegate?.didTapShareAction(imageToShare: vm.attachedImage)
             }
         }
         actionSheet.addAction(shareAction)
         
-        let deleteAction = UIAlertAction(title: "Delete record", style: .destructive) { [weak self] _ in
+        let deleteAction = UIAlertAction(title: .localized(key: "delete"), style: .destructive) { [weak self] _ in
             if let id = self?.assessmentViewModel.id {
                 self?.actionDelegate?.didTapDeleteAction(idToDelete: id)
             }
         }
         actionSheet.addAction(deleteAction)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: .localized(key: "cancel"), style: .cancel, handler: nil))
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             actionSheet.popoverPresentationController?.sourceView = assessmentView.menuButton

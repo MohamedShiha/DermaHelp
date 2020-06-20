@@ -18,8 +18,8 @@ class BaseReauthenticationVC: BasePasswordEditingVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordInputView.textField.placeholder = "Old Password"
-        hidesBottomBarWhenPushed = true
+        passwordInputView.textField.placeholder = .localized(key: "confirm password")
+        forgotPwButton.setTitle(.localized(key: "forgot?"), for: .normal)
     }
     
     // MARK: Setup UI
@@ -50,7 +50,7 @@ class BaseReauthenticationVC: BasePasswordEditingVC {
                 self?.didReauthenticateWith(error)
             }
         } else {
-            presentDismissingAlert(title: "The password you entered is invalid.")
+            presentDismissingAlert(title: .localized(key: "invalid password"))
         }
     }
     

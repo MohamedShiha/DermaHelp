@@ -11,8 +11,8 @@ import UIKit
 struct User: Codable {
     
     enum Gender : String, Codable {
-        case male = "Male"
-        case female = "Female"
+        case male
+        case female
     }
     
     let id: String

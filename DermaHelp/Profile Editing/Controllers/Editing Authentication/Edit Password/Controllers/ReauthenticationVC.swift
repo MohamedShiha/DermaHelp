@@ -13,9 +13,9 @@ class ReauthenticationVC: BaseReauthenticationVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Password"
-        saveButton.setTitle("CONTINUE", for: .normal)
-        hint = "To set a new password, please enter your current password first."
+        navigationItem.title = .localized(key: "password")
+        saveButton.setTitle(.localized(key: "continue"), for: .normal)
+        hint = .localized(key: "password auth hint")
     }
     
     override func didReauthenticateWith(_ error: Error?) {

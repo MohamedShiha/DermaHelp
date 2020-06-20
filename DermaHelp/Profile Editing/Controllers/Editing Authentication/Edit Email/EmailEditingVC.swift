@@ -12,10 +12,10 @@ class EmailEditingVC: BaseTextFieldEditingVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Email"
+        navigationItem.title = .localized(key: "email address")
         textField.placeholder = viewModel.email
-        saveButton.setTitle("CONTINUE", for: .normal)
-        hint = "This make it easier for you to recover your account, and more."
+        saveButton.setTitle(.localized(key: "continue"), for: .normal)
+        hint = .localized(key: "email hint")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +29,7 @@ class EmailEditingVC: BaseTextFieldEditingVC {
                 vc.email = self.textField.text ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
-                self.presentDismissingAlert(title: "The email you entered is invalid.")
+                self.presentDismissingAlert(title: .localized(key: "invalid email"))
             }
             self.saveButton.hideLoadingIndicator()
         }

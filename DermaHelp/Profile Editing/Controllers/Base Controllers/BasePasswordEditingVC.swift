@@ -20,7 +20,6 @@ class BasePasswordEditingVC: BaseEditingVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordInputView.textFieldDelegate = self
-        hidesBottomBarWhenPushed = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,9 +57,8 @@ class BasePasswordEditingVC: BaseEditingVC {
 // MARK: Password TextField Delegate
 
 extension BasePasswordEditingVC: PasswordTextFieldDelegate {
-    func didTapReturn() {
-        print("Did Tap Return")
-    }
+    
+    func didTapReturn() { }
     
     func didBeginEditing(_ sender: UITextField) {
         saveButton.frame = CGRect(origin: .zero, size: CGSize(width: view.bounds.width, height: 44))

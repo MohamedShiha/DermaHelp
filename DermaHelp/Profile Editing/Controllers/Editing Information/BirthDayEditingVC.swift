@@ -23,8 +23,8 @@ class BirthDayEditingVC: BaseEditingVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Birthday"
-        hint = "Your birthdate affects the analysis result as it is different between different ages and generations."
+        navigationItem.title = .localized(key: "birthday")
+        hint = .localized(key: "birthday hint")
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -80,6 +80,6 @@ class BirthDayEditingVC: BaseEditingVC {
     }
     
     override func updateViewModel() {
-//        viewModel.birthDate = datePicker.date
+        viewModel.birthDate = datePicker.date
     }
 }

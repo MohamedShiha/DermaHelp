@@ -26,7 +26,7 @@ class GenderSegmentedControl: UISegmentedControl {
     // MARK: Initializers
     
     init() {
-        super.init(items: ["Male", "Female"])
+        super.init(items: [String.localized(key: "male"), .localized(key: "female")])
         setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.mainTint], for: .selected)
     }
     

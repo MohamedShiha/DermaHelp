@@ -1,0 +1,146 @@
+/* 
+  Localizable.strings
+  DermaHelp
+
+  Created by Mohamed Shiha on 6/19/20.
+  Copyright © 2020 Mohamed Shiha. All rights reserved.
+*/
+
+
+// Splash Screen
+
+"sign up" = "إنشاء حساب";
+"login" = "تسجيل دخول";
+"feature1" = "افحص و قيم";
+"feature2" = "احفظ سجلات الطبيه";
+"feature3" = "تواصل مع الأطباء";
+
+// Login Screen
+
+"welcome" = "نرحب بعودتك";
+"welcome status" = "لقد كنا بانتظارك";
+"email address" = "البريد الإلكتروني";
+"password" = "كلمة المرور";
+"show" = "إظهار";
+"hide" = "إخفاء";
+"forgot?" = "نسيت كلمة المرور؟";
+"not member?" = "لست عضوا؟";
+
+// Sign Up Screen
+
+"join us" = "إنضم إلينا";
+"joining purpose" = "من أجل عالم خالي من السرطان";
+"new password" = "كلمة المرور الجديدة";
+"confirm password" = "تأكيد كلمة المرور";
+"terms" = ".بإنشائك حساب، انت توافق على الشروط و الأحكام";
+"member?" = "لديك حساب بالفعل؟";
+
+// My Assessments Screen
+
+"assessments" = "التقييمات";
+"my assessments" = "تقييماتي";
+"empty assessment" = "لا يوجد تقييمات";
+"empty assessment hint" = "اضغط على زر + لإضافة تقييم جديد.";
+
+// Begin Assessment Screen
+
+"begin assessment" = "بدء التقييم";
+"how it works" = "كيف يعمل التطبيق";
+"manual" = "التطبيق يحلل الصورة التي تلتقطها بطريقه ذكية جدا لإمدادك بنتائج دقيقة و زيادة توعيتك حول السرطان و أيضا يساعدكم في ايجاد اقرب أخصائي أمراض جلدية على الخريطة.";
+"take photo" = "إلتقط صورة";
+"choose photo" = "البوم الصور";
+
+// Profile Screen
+
+"me" = "أنا";
+"change photo" = "تغيير الصورة";
+// My Account
+"my account" = "حسابي";
+"name" = "الإسم";
+"gender" = "النوع";
+"male" = "ذكر";
+"female" = "أنثى";
+"birthday" = "تاريخ الميلاد";
+// Account Actions
+"account actions" = "اجراءات الحساب";
+"clear assessments" = "امسح تقييماتي";
+"log out" = "تسجيل الخروج";
+
+// Name Editing Screen
+
+"save" = "حفظ";
+"name hint" = "هكذا تظهر على DermaHelp. هذا الاسم خاص بك و ليس لأحد أولوية أن يراه ولن يتم استخدامه في أي من تقييماتك.";
+
+// Gender Editing Screen
+
+"gender hint" = "هذا شيئ مرتبط فقط بملف الشخصي وسوف يتم استخدامه من أجل عمل احصائات شاملة.";
+
+// Birthday Editing Screen
+
+"birthday hint" = "يؤثر تاريخ ميلادك بشكل غير مباشر على الإحصائات العامة.";
+
+// Email Editing Screen
+
+"email hint" = "هكذا يكون من الأسهل لك استرجاع حسابك و أكثر من ذلك.";
+"continue" = "متابعه";
+
+// Email Reauthentication Screen
+
+"auth hint" = "من أجل أمانك، أدخل كلمة مرورك.";
+"confirm" = "تأكيد";
+
+// Password Editing Screen
+
+"password auth hint" = "لتغيير كلمة المرور، أدخل كلمة المرور الحالية.";
+
+// Password Editing Screen
+
+"password hint" = "أدخل كلمة المرور الجديدة. DermaHelp يستخدم شروط قوية لضمان سرية معلوماتك الشخصية.";
+"password rule" = "كلمة المرور يجب أن:";
+"count rule" = "- تتراوح ما بين ٨ إلى ٢٤ حرف.";
+"uppercase rule" = "- تحتوي على حرف كبير على الأقل.";
+"digit rule" = "- تحتوي على رقم على الأقل.";
+"no blacklisted rule" = "- لا تحتوي على مسافات أو حروف خاصة.";
+
+// Alert Controllers
+
+// Assessment Action Sheet
+
+"attached photo" = "الصورة المرفقة";
+"share" = "مشاركة";
+"delete" = "مسح التقييم";
+"cancel" = "إلغاء";
+"try again" = "حاول مجددا";
+
+// Error Messages
+
+"okay" = "حسنا";
+"profile" = "الملف الشخصي";
+"oops" = "عذرا!";
+
+"empty assessment alert" = "لا يوجد لديك أي تقييمات حتى الآن.";
+"verify clearing assessments" = "هل أنت متأكد أنك تريد مسح تقييماتك؟";
+"verify clearing message" = "سوف يتم  مسح التقييمات المرتبطة بحسابك ولكن سيتم إبقاؤها من أجل عمل إحصاىيات.\n\nلا يمكنك التراجع في هذا القرار.";
+"verify log out" = "هل تريد تسجيل الخروج من حسابك";
+"invalid password" = "كلمة المرور التي أدخلتها غير مطابقة للشروط.";
+"successful update" = "تم تحديث %1$@ بنجاح.";
+"invalid email" = "البريد الإلكتروني الذي آدخلته غير مناسب.";
+"password mismatch" = "كلمات المرور غير متطابقة.";
+"invalid password rules" = "كلمة المرور لا تستوفي الشروط.";
+"credentials alert" = "أدخل المعلومات السرية لتسجيل الدخول.";
+"password rules list" = "كلمة المرور التي أدخلتها لا تستوفي الشروط.
+
+كلمة المرور يجب أن:
+تتراوح ما بين ٨ إلى ٢٤ حرف.
+تحتوي على حرف كبير على الأقل.
+تحتوي على رقم على الأقل.
+لا تحتوي على مسافات أو حروف خاصة.
+";
+
+// Image Picker Alerts
+
+"camera roll" = "ألبوم الصور";
+"no camera error" = "عفوا، هذا الجهاز لا يدعم إلتقاط صور بالكاميرا حاليا.";
+"settings" = "الإعدادات";
+"library source" = "مكتبة الصور أو الفيديوهات";
+"camera and photo access error" = "%1$@ ليس لديه إمكانية الدخول على %2$@, إذهب إلى الإعدادات ومكن التطبيق من استخدام الكاميرا و مكتبة الصور";

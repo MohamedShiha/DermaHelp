@@ -1,0 +1,146 @@
+/* 
+  Localizable.strings
+  DermaHelp
+
+  Created by Mohamed Shiha on 6/19/20.
+  Copyright © 2020 Mohamed Shiha. All rights reserved.
+*/
+
+
+// Splash Screen
+
+"sign up" = "Sign up";
+"login" = "Login";
+"feature1" = "Scan and assess";
+"feature2" = "Save medical records";
+"feature3" = "Connect with doctors";
+
+// Login Screen
+
+"welcome" = "Welcome Back";
+"welcome status" = "We have been waiting for you";
+"use google" = "Continue with Google";
+"email address" = "Email Address";
+"password" = "Password";
+"forgot?" = "Forgot password?";
+"not member?" = "Not a member?";
+
+// Sign Up Screen
+
+"join us" = "Join Us";
+"joining purpose" = "For a Skin Cancer-Free World";
+"new password" = "New password";
+"confirm password" = "Confirm password";
+"show" = "show";
+"hide" = "hide";
+"terms" = "By signing up, you agree to our Terms and Conditions";
+"member?" = "Already a member?";
+
+// My Assessments Screen
+
+"assessments" = "Assessments";
+"my assessments" = "My Assessments";
+"empty assessment" = "No Assessment Found";
+"empty assessment hint" = "Tap the + button to add an assessment.";
+
+// Begin Assessment Screen
+
+"begin assessment" = "Begin Assessment";
+"how it works" = "How it works";
+"manual" = "DermaHelp analyses your captured photos in a highly intelligent way to provide you with accurate results, raises your awareness, and shows you the nearest dermatologist on the map.";
+"take photo" = "Take Photo";
+"choose photo" = "Photo Library";
+
+// Profile Screen
+
+"me" = "Me";
+"change photo" = "Change photo";
+// My Account
+"my account" = "MY ACCOUNT";
+"name" = "Name";
+"gender" = "Gender";
+"male" = "Male";
+"female" = "Female";
+"birthday" = "Birthday";
+// Account Actions
+"account actions" = "ACCOUNT ACTIONS";
+"clear assessments" = "Clear my assessments";
+"log out" = "Log out";
+
+// Name Editing Screen
+
+"save" = "SAVE";
+"name hint" = "This is how you appear on DermaHelp. This name is private and will not be shared among other users neither used in medical analysis.";
+
+// Gender Editing Screen
+
+"gender hint" = "This is just something related to you profile to identify you and will be used for analysis purpose.";
+
+// Birthday Editing Screen
+
+"birthday hint" = "Your birthdate affects the general analysis results.";
+
+// Email Editing Screen
+
+"email hint" = "This make it easier for you to recover your account, and more.";
+"continue" = "CONTINUE";
+
+// Email Reauthentication Screen
+
+"auth hint" = "For your security, please enter your password.";
+"confirm" = "CONFIRM";
+
+// Password Editing Screen
+
+"password auth hint" = "To set a new password, please enter your current password first.";
+
+// Password Editing Screen
+
+"password hint" = "Please choose a new password. DermaHelp uses strong password rules to ensure that your data and personal information are secure.";
+"password rule" = "Your password should:";
+"count rule" = "- range between 8 and 24 characters.";
+"uppercase rule" = "- contain 1 uppercase letter at least.";
+"digit rule" = "- contain 1 number at least.";
+"no blacklisted rule" = "- not contain whitespaces or special characters.";
+
+// Alert Controllers
+
+// Assessment Action Sheet
+
+"attached photo" = "Attached photo";
+"share" = "Share";
+"delete" = "Delete assessment";
+"cancel" = "Cancel";
+"try again" = "Try Again";
+
+// Error Messages
+
+"okay" = "Okay";
+"oops" = "Oops!";
+
+"empty assessment alert" = "You have not conducted any assessments yet.";
+"verify clearing assessments" = "Are you sure you want to clear all you assessments?";
+"verify clearing message" = "Assessments will be removed from your profile but they will be kept for analysis purpose.\n\nThis action can not be undone.";
+"verify log out" = "Are you sure you want to log out?";
+"invalid password" = "The password you entered is invalid.";
+"successful update" = "Your %1$@ has been updated successfully.";
+"invalid email" = "The email you entered is invalid.";
+"password mismatch" = "Passwords do not match.";
+"invalid password rules" = "Your password does not match the specified rules.";
+"credentials alert" = "Enter your credentials to login.";
+"password rules list" = "The password you entered does not match our security rules.
+
+Your password should:
+range between 8 and 24 characters.
+contain 1 uppercase letter at least.
+contain 1 number at least.
+not contain whitespaces or special characters.
+";
+
+// Image Picker Alerts
+
+"camera roll" = "Camera Roll";
+"no camera error" = "This device currently does not support taking photos with a camera.";
+"settings" = "Settings";
+"library source" = "photo library or videos";
+"camera and photo access error" = "%1$@ does not have access to your %2$@, tap Settings and turn on photos and camera access.";

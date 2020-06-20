@@ -58,6 +58,7 @@ class BaseEditingVC: ViewController, LayoutController, BaseEditingHandlers {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hidesBottomBarWhenPushed = true
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
@@ -73,6 +74,7 @@ class BaseEditingVC: ViewController, LayoutController, BaseEditingHandlers {
     // MARK: Setup UI
     
     func setupViews() {
+        saveButton.setTitle(.localized(key: "save"), for: .normal)
         view.addSubview(hintLabel)
     }
     
@@ -92,7 +94,7 @@ class BaseEditingVC: ViewController, LayoutController, BaseEditingHandlers {
         saveButton.showLoadingIndicator()
         // This trivial delay is made just to have the feel of loading
         // as the request is trivial and doesn't need much time to execute.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.didTapSaveBtnHandler()
         }
     }
@@ -111,8 +113,9 @@ extension BaseEditingVC: UserViewModelDelegate {
             presentDismissingAlert(title: error.localizedDescription)
         } else {
             updateViewModel()
-            let alert = AlertController(title: "Your profile has been updated successfully.", message: "", buttonStackAxis: .horizontal)
-            alert.createAlert(title: "Okay", action: .secondary, alertStyle: .cancel) {
+            let title = String.localizedStringWithFormat(.localized(key: "successful update"), String.localized(key: "profile"))
+            let alert = AlertController(title: title, message: "", buttonStackAxis: .horizontal)
+            alert.createAlert(title: .localized(key: "okay"), action: .secondary, alertStyle: .cancel) {
                 alert.dismiss(animated: true, completion: nil)
                 self.navigationController?.popToRootViewController(animated: true)
             }
