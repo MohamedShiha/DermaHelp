@@ -49,14 +49,14 @@ class ImagePicker: NSObject {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.view.tintColor = .black
-        if let action = self.action(for: .camera, title: "Take photo") {
+        if let action = self.action(for: .camera, title: .localized(key: "take photo")) {
             alertController.addAction(action)
         }
-        if let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
+        if let action = self.action(for: .savedPhotosAlbum, title: .localized(key: "camera roll")) {
             alertController.addAction(action)
         }
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: .localized(key: "cancel"), style: .cancel, handler: nil))
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             alertController.popoverPresentationController?.sourceView = sourceView
@@ -71,8 +71,8 @@ class ImagePicker: NSObject {
     
     public func presentCamera() {
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            let msg = "This device currently does not support taking photos with a camera."
-            let alertController = AlertController.dismissingAlert(title: msg, message: nil, dismissingTitle: "Cancel")
+            let msg = String.localized(key: "no camera error")
+            let alertController = AlertController.dismissingAlert(title: msg, message: nil, dismissingTitle: .localized(key: "cancel"))
             presentationController?.present(alertController, animated: true, completion: nil)
             return
         }
@@ -138,11 +138,12 @@ class ImagePicker: NSObject {
     
     private func alertForAuthorization() {
         let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "The app"
-        let source = pickerController.sourceType == .camera ? "camera" : "photo library or videos"
-        let message = "\(appName) does not have access to your \(source), tap Settings and turn on Photos."
-        let alertController = AlertController.dismissingAlert(title: message, message: "", dismissingTitle: "Cancel")
+        let source = pickerController.sourceType == .camera ? String.localized(key: "camera") : .localized(key: "library source")
+        let message = String.localizedStringWithFormat(.localized(key: "camera and photo access error"), appName, source)
+//        let message = "\(appName) does not have access to your \(source), tap Settings and turn on Photos."
+        let alertController = AlertController.dismissingAlert(title: message, message: "", dismissingTitle: .localized(key: "cancel"))
         // Settings Action
-        alertController.createAlert(title: "Settings", action: .secondary, alertStyle: .default) {
+        alertController.createAlert(title: .localized(key: "settings"), action: .secondary, alertStyle: .default) {
             self.openSettings()
         }
         self.presentationController?.present(alertController, animated: true, completion: nil)

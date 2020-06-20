@@ -15,5 +15,6 @@ class NavigationController: UINavigationController {
         navigationBar.isHidden = true
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.mainTint]
         navigationBar.tintColor = .mainTint
+        view.backgroundColor = .systemBackground
     }
 }
