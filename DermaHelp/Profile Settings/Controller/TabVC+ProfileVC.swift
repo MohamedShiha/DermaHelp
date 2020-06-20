@@ -11,8 +11,9 @@ import UIKit
 extension TabController {
     func profileTab() {
         let vc = ProfileVC(viewModel: UserViewModel(user: User()))
+        let title = String.localized(key: "me")
         let image = UIImage.profilePlaceholder
-        vc.tabBarItem = UITabBarItem(title: "Me", image: image?.roundedImageWithBorder(width: 0),
+        vc.tabBarItem = UITabBarItem(title: title, image: image?.roundedImageWithBorder(width: 0),
                                      selectedImage: image?.roundedImageWithBorder(width: 2, color: .mainTint))
         let nav = vc.embedInNavigationController()
         var vcArray = viewControllers

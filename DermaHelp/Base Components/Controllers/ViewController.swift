@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        removeNavigationBackButton()
     }
     
     func embedInNavigationController(hiddenNavBar: Bool = true) -> UINavigationController {
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
     }
     
-    func presentDismissingAlert(title: String, message: String? = nil, dismissingText: String = "Try Again") {
+    func presentDismissingAlert(title: String, message: String? = nil, dismissingText: String = .localized(key: "try again")) {
         let alert = AlertController.dismissingAlert(title: title, message: message, dismissingTitle: dismissingText)
         present(alert, animated: true, completion: nil)
     }
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
                       actionTitle: String, actionType type: AlertController.Action = .secondary,
                       alertStyle style: UIAlertAction.Style = .cancel, handler: (() -> Void)? = nil) {
 
-        let alert = AlertController.dismissingAlert(title: title, message: message, dismissingTitle: "Cancel")
+        let alert = AlertController.dismissingAlert(title: title, message: message, dismissingTitle: .localized(key: "cancel"))
         alert.buttonStackAxis = axis
         alert.createAlert(title: actionTitle, action: type, alertStyle: style) {
             alert.dismiss(animated: true, completion: nil)

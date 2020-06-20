@@ -12,6 +12,7 @@ class GoogleButton: FormButton {
 
     init() {
         super.init(title: "Continue with Google", titleColor: UIColor(white: 0.1, alpha: 0.6), backColor: .systemFill)
+        semanticContentAttribute = .forceLeftToRight
         setImage(UIImage(named: "Google"), for: .normal)
         imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 32)
         adjustsImageWhenHighlighted = false

@@ -13,4 +13,8 @@ extension String {
         let segments = split(separator: "@")
         return segments.count > 1 ? String(segments.first ?? "") : ""
     }
+    
+    static func localized(key: String, comment: String = "") -> String {
+        return NSLocalizedString(key, comment: comment)
+    }
 }

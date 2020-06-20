@@ -61,7 +61,7 @@ extension TabController: UITabBarControllerDelegate {
         // Position toView off screen (to the left/right of fromView)
         let screenWidth = UIScreen.main.bounds.size.width
         let scrollRight = toIndex > fromIndex
-        let offset = (scrollRight ? screenWidth : -screenWidth)
+        let offset = scrollRight ? screenWidth : -screenWidth
         toView.center = CGPoint(x: fromView.center.x + offset, y: toView.center.y)
         
         // Disable interaction during animation
@@ -74,8 +74,13 @@ extension TabController: UITabBarControllerDelegate {
                        options: .curveEaseOut,
                        animations: {
                         // Slide the views by -offset
-                        fromView.center = CGPoint(x: fromView.center.x - offset, y: fromView.center.y)
-                        toView.center = CGPoint(x: toView.center.x - offset, y: toView.center.y)
+                        if self.view.effectiveUserInterfaceLayoutDirection == .leftToRight {
+                            fromView.center = CGPoint(x: fromView.center.x - offset, y: fromView.center.y)
+                            toView.center = CGPoint(x: toView.center.x - offset, y: toView.center.y)
+                        } else {
+                            fromView.center = CGPoint(x: fromView.center.x + offset, y: fromView.center.y)
+                            toView.center = CGPoint(x: toView.center.x + offset, y: toView.center.y)
+                        }
                         
         }, completion: { _ in
             // Remove the old view from the tabBar view.

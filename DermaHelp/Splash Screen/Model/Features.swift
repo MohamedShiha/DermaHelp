@@ -6,15 +6,15 @@
 //  Copyright © 2020 Mohamed Shiha. All rights reserved.
 //
 
-import class UIKit.UIImage
+import UIKit
 
 // This is a fixed list of the features displayed in the splash screen
 
 struct Features {
  
     static let list: [(image: UIImage?, name: String)] = [
-        (image: UIImage(systemName: "magnifyingglass"), name: "Scan and assess"),
-        (image: UIImage(named: "Record"), name: "Save medical record"),
-        (image: UIImage(named: "Doctor"), name: "Connect with doctors")
+        (image: UIImage(systemName: "magnifyingglass"), name: .localized(key: "feature1")),
+        (image: UIImage(named: "Record"), name: .localized(key: "feature2")),
+        (image: UIImage(named: "Doctor"), name: .localized(key: "feature3"))
     ]
 }

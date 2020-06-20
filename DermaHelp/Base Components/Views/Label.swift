@@ -8,7 +8,11 @@
 
 import UIKit
 
-class Label: UILabel {
+protocol LocalizableControl {
+    var localizingKey: String { get set }
+}
+
+class Label: UILabel, LocalizableControl {
     
     override var text: String? {
         didSet {
@@ -18,6 +22,11 @@ class Label: UILabel {
         }
     }
     var padding: UIEdgeInsets
+    var localizingKey = "" {
+        didSet {
+            text = .localized(key: localizingKey)
+        }
+    }
     
     init(text: String? = nil,
          font: UIFont = .roundedSystemFont(ofSize: UIFont.labelFontSize, weight: .regular),
@@ -30,6 +39,11 @@ class Label: UILabel {
         self.textColor = color
         self.textAlignment = alignment
         self.numberOfLines = numberOfLines
+        if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            self.padding = UIEdgeInsets(top: padding.top, left: padding.right, bottom: padding.bottom, right: padding.left)
+        } else {
+            self.padding = padding
+        }
     }
     
     required init?(coder: NSCoder) {

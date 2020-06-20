@@ -37,6 +37,7 @@
 		536D71D12495635800418A73 /* UserViewModel+Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536D71D02495635800418A73 /* UserViewModel+Updating.swift */; };
 		536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC424646B9F00392234 /* SignUpFormVC.swift */; };
 		537DC73B246D8DC300DB7342 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537DC73A246D8DC200DB7342 /* User.swift */; };
+		53814187249E6DF200162103 /* LocalizingNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53814186249E6DF200162103 /* LocalizingNumbers.swift */; };
 		538B4515248EA68500CAE101 /* EmailEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4514248EA68500CAE101 /* EmailEditingVC.swift */; };
 		538B4518248EB1B000CAE101 /* ReauthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4517248EB1B000CAE101 /* ReauthenticationVC.swift */; };
 		538B451A248EB85800CAE101 /* NewPasswordEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4519248EB85800CAE101 /* NewPasswordEditingVC.swift */; };
@@ -65,6 +66,7 @@
 		539CD1E4246841D5001E94E5 /* BeginAssessmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */; };
 		539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E72468505F001E94E5 /* MediaOptionButton.swift */; };
 		539CD1EA24685655001E94E5 /* ManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E924685655001E94E5 /* ManualView.swift */; };
+		539DF53B249CE57200250DD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 539DF53D249CE57200250DD7 /* Localizable.strings */; };
 		53A0502D246D3B7400097664 /* GoogleAuthenticationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0502C246D3B7400097664 /* GoogleAuthenticationProvider.swift */; };
 		53A0502F246D43EC00097664 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A0502E246D43EC00097664 /* NavigationController.swift */; };
 		53A05C0E246AF6BA00802615 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53A05C0D246AF6BA00802615 /* GoogleService-Info.plist */; };
@@ -85,7 +87,6 @@
 		53B3EFA7248AAB910008C416 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3EFA6248AAB910008C416 /* ImagePicker.swift */; };
 		53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */; };
 		53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */; };
-		53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C833245FAB0B0044C9AD /* Main.storyboard */; };
 		53C0C837245FAB0C0044C9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C836245FAB0C0044C9AD /* Assets.xcassets */; };
 		53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */; };
 		53CE4DDD248BE65500720C01 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE4DDC248BE65500720C01 /* AlertController.swift */; };
@@ -129,6 +130,7 @@
 		536D71D02495635800418A73 /* UserViewModel+Updating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserViewModel+Updating.swift"; sourceTree = "<group>"; };
 		536ECDC424646B9F00392234 /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
 		537DC73A246D8DC200DB7342 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		53814186249E6DF200162103 /* LocalizingNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizingNumbers.swift; sourceTree = "<group>"; };
 		538B4514248EA68500CAE101 /* EmailEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditingVC.swift; sourceTree = "<group>"; };
 		538B4517248EB1B000CAE101 /* ReauthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationVC.swift; sourceTree = "<group>"; };
 		538B4519248EB85800CAE101 /* NewPasswordEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordEditingVC.swift; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginAssessmentVC.swift; sourceTree = "<group>"; };
 		539CD1E72468505F001E94E5 /* MediaOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionButton.swift; sourceTree = "<group>"; };
 		539CD1E924685655001E94E5 /* ManualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualView.swift; sourceTree = "<group>"; };
+		539DF53C249CE57200250DD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		539DF53F249CE7C600250DD7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		53A0502C246D3B7400097664 /* GoogleAuthenticationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationProvider.swift; sourceTree = "<group>"; };
 		53A0502E246D43EC00097664 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		53A05C0D246AF6BA00802615 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -178,7 +182,6 @@
 		53C0C82A245FAB0B0044C9AD /* DermaHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DermaHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C0C82D245FAB0B0044C9AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53C0C82F245FAB0B0044C9AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53C0C834245FAB0B0044C9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53C0C836245FAB0C0044C9AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53C0C839245FAB0C0044C9AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53C0C83B245FAB0C0044C9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -278,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				53A73C1824940D95008E953B /* PasswordRulesEvaluator.swift */,
+				53814186249E6DF200162103 /* LocalizingNumbers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,6 +633,7 @@
 				53AD436B2493B5770043864A /* Profile Settings */,
 				53FECB8B245FC61C00E706D0 /* Design */,
 				53FECB8A245FC61300E706D0 /* Supporting Files */,
+				539DF53D249CE57200250DD7 /* Localizable.strings */,
 			);
 			path = DermaHelp;
 			sourceTree = "<group>";
@@ -733,7 +738,6 @@
 		53FECB8B245FC61C00E706D0 /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				53C0C833245FAB0B0044C9AD /* Main.storyboard */,
 				53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */,
 			);
 			path = Design;
@@ -794,6 +798,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 53C0C821245FAB0A0044C9AD;
 			productRefGroup = 53C0C82B245FAB0B0044C9AD /* Products */;
@@ -810,10 +815,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				539DF53B249CE57200250DD7 /* Localizable.strings in Resources */,
 				53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */,
 				53A05C0E246AF6BA00802615 /* GoogleService-Info.plist in Resources */,
 				53C0C837245FAB0C0044C9AD /* Assets.xcassets in Resources */,
-				53C0C835245FAB0B0044C9AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,6 +914,7 @@
 				53A73C082493D457008E953B /* EditingDBInformation.swift in Sources */,
 				53241A362466467000F1DC31 /* MenuButton.swift in Sources */,
 				533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */,
+				53814187249E6DF200162103 /* LocalizingNumbers.swift in Sources */,
 				53241A3024662BD200F1DC31 /* StatusView.swift in Sources */,
 				53901BBD2462BAB600336820 /* ViewController.swift in Sources */,
 				53266AE22467B8D20023B13D /* GetHelpButton.swift in Sources */,
@@ -992,12 +998,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		53C0C833245FAB0B0044C9AD /* Main.storyboard */ = {
+		539DF53D249CE57200250DD7 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				53C0C834245FAB0B0044C9AD /* Base */,
+				539DF53C249CE57200250DD7 /* en */,
+				539DF53F249CE7C600250DD7 /* ar */,
 			);
-			name = Main.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */ = {
@@ -1015,6 +1022,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1075,6 +1083,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

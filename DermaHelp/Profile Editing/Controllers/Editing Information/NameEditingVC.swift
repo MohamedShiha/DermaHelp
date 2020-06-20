@@ -12,9 +12,9 @@ class NameEditingVC: BaseTextFieldEditingVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Name"
+        navigationItem.title = .localized(key: "name")
         textField.placeholder = viewModel.name
-        hint = "This is how you appear on DermaHelp. This name is private and will not be shared among other users neither used in medical analysis."
+        hint = .localized(key: "name hint")
     }
     
     override func didTapSaveBtnHandler() {

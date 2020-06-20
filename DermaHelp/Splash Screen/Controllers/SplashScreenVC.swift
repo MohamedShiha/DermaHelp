@@ -46,6 +46,8 @@ class SplashScreenVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
+        loginButton.setTitle(.localized(key: "login"), for: .normal)
+        signUpButton.setTitle(.localized(key: "sign up"), for: .normal)
         view.addSubViews([
             logoImageView, solidLogoImageView, logoLabel,
             featuresView, loginButton, signUpButton

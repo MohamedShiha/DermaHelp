@@ -26,18 +26,24 @@ class SignUpFormVC: BaseAuthenticationVC {
         super.viewDidLoad()
         passwordInputView.textFieldDelegate = self
         repeatPwInputView.textFieldDelegate = self
-        headingLabel.text = "Join Us"
-        subHeadingLabel.text = "For a Skin Cancer-Free World"
     }
     
     // MARK: Setup UI
     
     override func setupViews() {
         super.setupViews()
+        headingLabel.localizingKey = "join us"
+        subHeadingLabel.localizingKey = "joining purpose"
+        passwordInputView.textField.localizingKey = "new password"
+        repeatPwInputView.textField.localizingKey = "confirm password"
+        termsLabel.localizingKey = "terms"
+        loginQueLabel.localizingKey = "member?"
+        signUpButton.localizingKey = "sign up"
+        loginButton.localizingKey = "login"
+        signUpButton.isEnabled = false
         view.addSubViews([
             repeatPwInputView, termsLabel, signUpButton, loginQueLabel, loginButton
         ])
-        signUpButton.isEnabled = false
     }
     
     override func setupLayout() {
@@ -85,26 +91,18 @@ class SignUpFormVC: BaseAuthenticationVC {
         let repeatedPw = repeatPwInputView.textField.text ?? ""
         
         guard NSRegularExpression.evaluate(email: email) else {
-            presentSignUpAlert(message: "The email you entered is invalid.")
+            presentSignUpAlert(message: .localized(key: "invalid email"))
             return
         }
         
         guard NSRegularExpression.evaluate(password: password) else {
-            let message = """
-                The password you entered does not match our security rules.
-
-                Your password should:
-                range between 8 and 24 characters.
-                contain 1 uppercase letter at least.
-                contain 1 number at least.
-                not contain whitespaces or special characters.
-            """
+            let message = String.localized(key: "password rules list")
             presentSignUpAlert(message: message)
             return
         }
         
-        guard NSRegularExpression.evaluate(password: repeatedPw) else {
-            presentSignUpAlert(message: "Passwords do not match.")
+        guard NSRegularExpression.evaluate(password: repeatedPw) && repeatedPw == password else {
+            presentSignUpAlert(message: .localized(key: "password mismatch"))
             return
         }
         
@@ -123,7 +121,7 @@ class SignUpFormVC: BaseAuthenticationVC {
     }
     
     private func presentSignUpAlert(message: String) {
-        presentDismissingAlert(title: "Oops!", message: message)
+        presentDismissingAlert(title: .localized(key: "oops"), message: message)
         signUpButton.hideLoadingIndicator()
     }
     

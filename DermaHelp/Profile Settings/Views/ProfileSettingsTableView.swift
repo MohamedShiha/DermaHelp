@@ -51,31 +51,31 @@ class ProfileSettingsTableView: UITableView {
     private func setupContent() {
         options = [
             [
-                SettingsListItem(name: "Name", data: viewModel.name, handler: {
+                SettingsListItem(name: .localized(key: "name"), data: viewModel.name, handler: {
                     self.navigate(to: NameEditingVC(viewModel: self.viewModel))
                 }),
-                SettingsListItem(name: "Gender", data: viewModel.gender?.rawValue, handler: {
+                SettingsListItem(name: .localized(key: "gender"), data: viewModel.gender?.rawValue, handler: {
                     self.navigate(to: GenderEditingVC(viewModel: self.viewModel))
                 }),
-                SettingsListItem(name: "Birthday", data: viewModel.birthDate?.formattedWithMonthName, handler: {
+                SettingsListItem(name: .localized(key: "birthday"), data: viewModel.birthDate?.formattedWithMonthName, handler: {
                     self.navigate(to: BirthDayEditingVC(viewModel: self.viewModel))
                 }),
-                SettingsListItem(name: "Email", data: viewModel.email, handler: {
+                SettingsListItem(name: .localized(key: "email address"), data: viewModel.email, handler: {
                     self.navigate(to: EmailEditingVC(viewModel: self.viewModel))
                 }),
-                SettingsListItem(name: "Password", data: nil, handler: {
+                SettingsListItem(name: .localized(key: "password"), data: nil, handler: {
                     self.navigate(to: ReauthenticationVC(viewModel: self.viewModel))
                 })
             ],
             [
-                SettingsListItem(name: "Clear my assessments", data: "\(viewModel.assessmentIds.count)", handler: {
+                SettingsListItem(name: .localized(key: "clear assessments"), data: viewModel.assessmentIds.count.localized(), handler: {
                     if !self.viewModel.assessmentIds.isEmpty {
                         self.verifyClearingAssessments()
                     } else {
-                        self.parentDelegate?.presentAlert(title: "You have not conducted any assessments yet.", message: nil, dismissingTitle: "Okay")
+                        self.parentDelegate?.presentAlert(title: .localized(key: "empty assessment alert"), message: nil, dismissingTitle: "Okay")
                     }
                 }),
-                SettingsListItem(name: "Log Out", data: nil, handler: {
+                SettingsListItem(name: .localized(key: "log out"), data: nil, handler: {
                     self.verifyLogOut()
                 })
             ]
@@ -84,10 +84,10 @@ class ProfileSettingsTableView: UITableView {
     
     private func updateUserData() {
         options[0][0].data = viewModel.name
-        options[0][1].data = viewModel.gender?.rawValue
+        options[0][1].data = .localized(key: viewModel.gender?.rawValue ?? "")
         options[0][2].data = viewModel.birthDate?.formattedWithMonthName
         options[0][3].data = viewModel.email
-        options[1][0].data = "\(viewModel.assessmentIds.count)"
+        options[1][0].data = viewModel.assessmentIds.count.localized()
     }
     
     private func navigate(to vc: UIViewController) {
@@ -95,9 +95,9 @@ class ProfileSettingsTableView: UITableView {
     }
     
     private func verifyClearingAssessments() {
-        let title = "Are you sure you want clear all you assessments?"
-        let message = "Assessments will be removed from your profile but they will be kept for analysis purpose.\n\nThis action can not be undone."
-        let action = "Clear Assessments"
+        let title = String.localized(key: "verify clearing assessments")
+        let message = String.localized(key: "verify clearing message")
+        let action = String.localized(key: "clear assessments")
         parentDelegate?.presentAlertWithHandler(title: title, message: message,
                                                 buttonsStackAxis: .vertical, actionTitle: action,
                                                 actionType: .primary, alertStyle: .cancel, {
@@ -106,9 +106,10 @@ class ProfileSettingsTableView: UITableView {
     }
     
     private func verifyLogOut() {
-        let title = "Are you sure you want to log out?"
+        let title = String.localized(key: "verify log out")
+        let actionTitle = String.localized(key: "log out")
         parentDelegate?.presentAlertWithHandler(title: title, message: nil,
-                                                buttonsStackAxis: .horizontal, actionTitle: "Log Out",
+                                                buttonsStackAxis: .horizontal, actionTitle: actionTitle,
                                                 actionType: .primary, alertStyle: .cancel, {
             self.parentDelegate?.logOut()
         })
@@ -154,9 +155,9 @@ extension ProfileSettingsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         var sectionTitle = ""
-        if section == 0 { sectionTitle = "MY ACCOUNT" }
-        else if section == 1 { sectionTitle = "ACCOUNT ACTIONS" }
-        let label = Label(text: sectionTitle.capitalized,
+        if section == 0 { sectionTitle = .localized(key: "my account") }
+        else if section == 1 { sectionTitle = .localized(key: "account actions") }
+        let label = Label(text: sectionTitle,
                           font: .roundedSystemFont(ofSize: 13, weight: .semibold), color: .mainTint,
                           padding: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0))
         label.backgroundColor = .secondarySystemBackground

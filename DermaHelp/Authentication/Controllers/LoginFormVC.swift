@@ -23,18 +23,22 @@ class LoginFormVC: BaseAuthenticationVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordInputView.textFieldDelegate = self
-        headingLabel.text = "Welcome Back"
-        subHeadingLabel.text = "We have been waiting for you"
     }
 
     // MARK: Setup UI
     
     override func setupViews() {
         super.setupViews()
+        headingLabel.localizingKey = "welcome"
+        subHeadingLabel.localizingKey = "welcome status"
+        forgotPwButton.localizingKey = "forgot?"
+        loginButton.localizingKey = "login"
+        signUpQueLabel.localizingKey = "not member?"
+        signUpButton.localizingKey = "sign up"
+        loginButton.isEnabled = false
         view.addSubViews([
             forgotPwButton, loginButton, signUpQueLabel, signUpButton
         ])
-        loginButton.isEnabled = false
     }
     
     override func setupLayout() {
@@ -82,17 +86,17 @@ class LoginFormVC: BaseAuthenticationVC {
         let password = passwordInputView.textField.text ?? ""
         
         guard !email.isEmpty && !password.isEmpty else {
-            presentLoginAlert(message: "Enter your credentials to login.")
+            presentLoginAlert(message: .localized(key: "credentials alert"))
             return
         }
         
         guard NSRegularExpression.evaluate(email: email) else {
-            presentLoginAlert(message: "The email you entered is invalid.")
+            presentLoginAlert(message: .localized(key: "invalid email"))
             return
         }
         
         guard NSRegularExpression.evaluate(password: password) else {
-            presentLoginAlert(message: "The password you entered is invalid.")
+            presentLoginAlert(message: .localized(key: "invalid password"))
             return
         }
         
@@ -111,7 +115,7 @@ class LoginFormVC: BaseAuthenticationVC {
     }
     
     private func presentLoginAlert(message: String) {
-        presentDismissingAlert(title: "Oops!", message: message)
+        presentDismissingAlert(title: .localized(key: "oops"), message: message)
         loginButton.hideLoadingIndicator()
     }
     

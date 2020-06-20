@@ -21,7 +21,7 @@ extension Date {
 extension DateFormatter {
     static var shortFormat: DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d/M/yyyy"
+        dateFormatter.dateFormat = Locale.current.languageCode == "ar" ? "yyyy/M/d" : "d/M/yyyy"
         return dateFormatter
     }
     

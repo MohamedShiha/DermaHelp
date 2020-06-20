@@ -46,6 +46,9 @@ class BeginAssessmentVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
+        headingLabel.localizingKey = "begin assessment"
+        cameraButton.localizingKey = "take photo"
+        libraryButton.localizingKey = "choose photo"
         view.addSubViews([
             headingLabel, dismissButton, manualView,
             cameraButton, libraryButton

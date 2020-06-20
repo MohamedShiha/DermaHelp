@@ -22,8 +22,8 @@ class GenderEditingVC: BaseEditingVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Gender"
-        hint = "Your gender affects the analysis result as it is different between different genders."
+        navigationItem.title = .localized(key: "gender")
+        hint = .localized(key: "gender hint")
     }
     
     override func viewSafeAreaInsetsDidChange() {

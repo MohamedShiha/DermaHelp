@@ -12,21 +12,21 @@ class NewPasswordEditingVC: BasePasswordEditingVC {
     
     // MARK: Views
     
-    private let repeatPwInputView = PasswordInputView(placeholder: "Confirm Password")
-    private let rulesLabel = PasswordRulesLabel(text: "Your password should:")
-    private let eightCharRuleLabel = PasswordRulesLabel(text: "- range between 8 and 24 characters.")
-    private let upperCharRuleLabel = PasswordRulesLabel(text: "- contain 1 uppercase letter at least.")
-    private let numericRuleLabel = PasswordRulesLabel(text: "- contain 1 number at least.")
-    private let blackListedRuleLabel = PasswordRulesLabel(text: "- not contain whitespaces or special characters.")
+    private let repeatPwInputView = PasswordInputView(placeholder: .localized(key: "confirm password"))
+    private let rulesLabel = PasswordRulesLabel(text: .localized(key: "password rule"))
+    private let eightCharRuleLabel = PasswordRulesLabel(text: .localized(key: "count rule"))
+    private let upperCharRuleLabel = PasswordRulesLabel(text: .localized(key: "uppercase rule"))
+    private let numericRuleLabel = PasswordRulesLabel(text: .localized(key: "digit rule"))
+    private let blackListedRuleLabel = PasswordRulesLabel(text: .localized(key: "no blacklisted rule"))
     
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "New Password"
-        passwordInputView.textField.placeholder = "New Password"
-        saveButton.setTitle("CONFIRM", for: .normal)
-        hint = "Please choose a new password. DermaHelp uses strong password rules to ensure that your data and personal information are secure."
+        navigationItem.title = .localized(key: "new password")
+        passwordInputView.textField.placeholder = .localized(key: "new password")
+        saveButton.setTitle(.localized(key: "confirm"), for: .normal)
+        hint = .localized(key: "password hint")
         repeatPwInputView.textFieldDelegate = self
     }
     
@@ -93,8 +93,9 @@ class NewPasswordEditingVC: BasePasswordEditingVC {
                 if let error = error {
                     self?.presentDismissingAlert(title: error.localizedDescription)
                 } else {
-                    let alert = AlertController(title: "Your password has been updated successfully.", message: "", buttonStackAxis: .horizontal)
-                    alert.createAlert(title: "Okay", action: .secondary, alertStyle: .cancel) {
+                    let title = String.localizedStringWithFormat(.localized(key: "successful update"), String.localized(key: "password"))
+                    let alert = AlertController(title: title, message: "", buttonStackAxis: .horizontal)
+                    alert.createAlert(title: .localized(key: "okay"), action: .secondary, alertStyle: .cancel) {
                         alert.dismiss(animated: true, completion: nil)
                         self?.navigationController?.popToRootViewController(animated: true)
                     }
@@ -105,9 +106,9 @@ class NewPasswordEditingVC: BasePasswordEditingVC {
             
             var title = ""
             
-            if !areMatching { title = "Your passwords do not match." }
+            if !areMatching { title = .localized(key: "password mismatch") }
             if !NSRegularExpression.evaluate(password: pw) {
-                title = "Your password does not match the specified rules."
+                title = .localized(key: "invalid password rules")
             }
             
             presentDismissingAlert(title: title)

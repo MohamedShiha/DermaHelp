@@ -14,9 +14,16 @@ class MediaOptionButton: Button {
         super.init(title: title, font: .roundedSystemFont(ofSize: UIFont.buttonFontSize, weight: .bold), titleColor: .label, backColor: .systemFill)
         tintColor = .label
         setImage(image, for: .normal)
-        contentHorizontalAlignment = .left
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            contentHorizontalAlignment = .right
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
+        } else {
+            contentHorizontalAlignment = .left
+            titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+            contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        }
+        
         adjustsImageWhenHighlighted = false
     }
     
