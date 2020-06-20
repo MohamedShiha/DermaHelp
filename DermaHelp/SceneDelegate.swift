@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GIDSignInDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UIViewController()
+        window?.rootViewController = rootNavigation
         setupGoogleSignIn()
         handleUserLoginStatus()
     }
