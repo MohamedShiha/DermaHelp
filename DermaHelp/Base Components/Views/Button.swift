@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Button: UIButton {
+class Button: UIButton, LocalizableControl {
 
     // MARK: Properties
     
@@ -27,6 +27,12 @@ class Button: UIButton {
     override var isEnabled: Bool {
         didSet {
             alpha = isEnabled ? 1 : 0.5
+        }
+    }
+    
+    var localizingKey = "" {
+        didSet {
+            setTitle(.localized(key: localizingKey), for: .normal)
         }
     }
     

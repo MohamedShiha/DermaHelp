@@ -9,11 +9,11 @@
 import UIKit
 import EZConstraints
 
-class TextField: UITextField {
+class TextField: UITextField, LocalizableControl {
 
     // MARK: Properties
     
-    private let padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
+    private var padding = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 0)
     override var placeholder: String? {
         didSet {
             let attributes = [NSAttributedString.Key.foregroundColor : UIColor.lightGray]
@@ -27,6 +27,11 @@ class TextField: UITextField {
             }
         }
     }
+    var localizingKey = "" {
+        didSet {
+            placeholder = .localized(key: localizingKey)
+        }
+    }
     
     // MARK: Initializers
     
@@ -38,6 +43,9 @@ class TextField: UITextField {
         setupTextView(type: type)
         clearButtonMode = .whileEditing
         autocapitalizationType = .none
+        if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            padding = UIEdgeInsets(top: padding.top, left: padding.right, bottom: padding.bottom, right: padding.left)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +53,11 @@ class TextField: UITextField {
     }
     
     override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
-        return super.clearButtonRect(forBounds: CGRect(x: -8, y: bounds.origin.y, width: bounds.width, height: bounds.height))
+        var rect = CGRect(x: -4, y: bounds.origin.y, width: bounds.width, height: bounds.height)
+        if effectiveUserInterfaceLayoutDirection == .rightToLeft {
+            rect = CGRect(x: -rect.origin.x, y: rect.origin.y, width: rect.width, height: rect.height)
+        }
+        return super.clearButtonRect(forBounds: rect)
     }
     
     // MARK: Padding
