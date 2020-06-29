@@ -13,16 +13,31 @@ class BeginAssessmentVC: ViewController, LayoutController {
     
     // MARK: Views
     
-    private let headingLabel = Label(text: "Begin Assessment", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
-    private let dismissButton = AddButton()
+    private let headingLabel = Label(text: .localized(key: "begin assessment"), font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
+    private let dismissButton = PlusButton()
     private let manualView = ManualView()
-    private let cameraButton = MediaOptionButton(image: UIImage(systemName: "camera.fill"), title: "Take Photo")
-    private let libraryButton = MediaOptionButton(image: UIImage(systemName: "photo"), title: "Choose Photo")
+    private let cameraButton = MediaOptionButton(image: UIImage(systemName: "camera.fill"), title: .localized(key: "take photo"))
+    private let libraryButton = MediaOptionButton(image: UIImage(systemName: "photo"), title: .localized(key: "choose photo"))
+    private var loadingView: LoadingView?
     
     // MARK: Properties
     
     var imagePicker: ImagePicker!
     weak var topConstraint: EZConstraint!
+    var viewModel: Assessments
+    
+    // MARK: Initializers
+    
+    init(viewModel: Assessments) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        viewModel = Assessments(userVM: UserViewModel(user: User()))
+        super.init(coder: coder)
+    }
     
     // MARK: View controller lifecycle
     
@@ -46,9 +61,6 @@ class BeginAssessmentVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
-        headingLabel.localizingKey = "begin assessment"
-        cameraButton.localizingKey = "take photo"
-        libraryButton.localizingKey = "choose photo"
         view.addSubViews([
             headingLabel, dismissButton, manualView,
             cameraButton, libraryButton
@@ -80,6 +92,21 @@ class BeginAssessmentVC: ViewController, LayoutController {
         libraryButton.addTarget(self, action: #selector(didTapLibraryButton), for: .touchUpInside)
     }
     
+    private func showLoadingIndicator() {
+        loadingView = LoadingView()
+        view.addSubview(loadingView!)
+        loadingView?.squareSizeWith(sideLengthOf: 70)
+        loadingView?.center()
+        loadingView?.startLoading()
+    }
+    
+    private func hideLoadingIndicator() {
+        if loadingView != nil {
+            loadingView?.stopLoading()
+            loadingView = nil
+        }
+    }
+    
     // MARK: Actions
     
     @objc
@@ -98,8 +125,26 @@ class BeginAssessmentVC: ViewController, LayoutController {
     }
 }
 
+// MARK: ViewModel Delegate
+
+extension BeginAssessmentVC: AssessmentsViewModelDelegate {
+    func didAnalyzeImage(error: Error?) {
+        hideLoadingIndicator()
+        if error == nil {
+            dismiss(animated: true, completion: nil)
+        } else {
+            presentDismissingAlert(title: .localized(key: "analyzing error"))
+        }
+    }
+}
+
+// MARK: ImagePicker Delegate
+
 extension BeginAssessmentVC: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        // TODO: Use the image for analysis
+        if let image = image {
+            showLoadingIndicator()
+            viewModel.analyze(image: image)
+        }
     }
 }
