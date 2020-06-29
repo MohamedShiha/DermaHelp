@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddButton: Button {
+class PlusButton: Button {
 
     init() {
         super.init(image: UIImage(systemName: "plus"), configuration: .init(pointSize: 18, weight: .bold, scale: .medium))

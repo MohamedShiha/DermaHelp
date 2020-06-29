@@ -68,7 +68,6 @@ class LoginFormVC: BaseAuthenticationVC {
     
     @objc
     private func didTapForgotPwButton() {
-        // TODO: Recover password functionality
         print("Forgot Password")
     }
     

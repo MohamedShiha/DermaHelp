@@ -13,15 +13,11 @@ class AssessmentView: UIView, LayoutController {
 
     // MARK: Views
     
-    let organNameLabel = Label(font: .roundedSystemFont(ofSize: 19, weight: .bold))
     let statusView = StatusView()
-    let riskStatusScale = StatusScaleView(metricsLabel: "Risk")
-    let nevusStatusScale = StatusScaleView(metricsLabel: "Nevus")
-    let melanomaStatusScale = StatusScaleView(metricsLabel: "Melanoma")
-    let colorStatusScale = StatusScaleView(metricsLabel: "Color")
-    let dateLabel = Label(color: .secondaryLabel)
+    let imageView = UIImageView()
+    let riskStatusScale = StatusScaleView(metricsLabel: .localized(key: "risk"))
+    let dateLabel = Label(font: .roundedSystemFont(ofSize: 16), color: .secondaryLabel)
     let menuButton = MenuButton()
-//    let getHelpButton = GetHelpButton()
     
     // MARK: Initializers
     
@@ -40,6 +36,7 @@ class AssessmentView: UIView, LayoutController {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        imageView.layer.cornerRadius = 12
         layer.cornerRadius = 16
         layer.shadowPath = UIBezierPath(rect: CGRect(x: -2, y: 4, width: frame.width + 4, height: frame.height)).cgPath
     }
@@ -47,37 +44,30 @@ class AssessmentView: UIView, LayoutController {
     // MARK: Setup UI
 
     func setupViews() {
+        imageView.clipsToBounds = true
         addSubViews([
-            organNameLabel, statusView, dateLabel, menuButton,
-            riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale/*, getHelpButton*/
+            imageView, statusView, dateLabel, menuButton, riskStatusScale
         ])
     }
 
     func setupLayout() {
         
-        organNameLabel.edgesToSuperView(including: [.top, .left], insets: .top(16) + .left(16))
-        statusView.layRight(to: organNameLabel, constant: 16)
-        statusView.alignCenterVertically(with: organNameLabel, constant: 0)
+        imageView.edgesToSuperView(including: [.top, .left], insets: .top(16) + .left(16))
+        imageView.sizeAnchor(CGSize(width: 52, height: 52))
+        
+        statusView.layRight(to: imageView, constant: 16)
+        statusView.alignTop(with: imageView, constant: 8)
+        
+        dateLabel.alignLeft(with: statusView, constant: 0)
+        dateLabel.layBelow(statusView, constant: 4)
         
         menuButton.layRightInSuperView(constant: 8)
         menuButton.squareSizeWith(sideLengthOf: 26)
-        dateLabel.layLeft(to: menuButton, constant: 8)
-        [menuButton, dateLabel].alignCenterVertically(with: organNameLabel, constant: 0)
+        menuButton.alignTop(with: imageView, constant: 4)
         
-        [riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale].alignRight(with: dateLabel, constant: 0)
-        [riskStatusScale, nevusStatusScale, melanomaStatusScale,
-            colorStatusScale].alignLeft(with: organNameLabel, constant: 0)
-        
-        riskStatusScale.layBelow(organNameLabel, constant: 16)
-        nevusStatusScale.layBelow(riskStatusScale, constant: 8)
-        melanomaStatusScale.layBelow(nevusStatusScale, constant: 8)
-        colorStatusScale.layBelow(melanomaStatusScale, constant: 8)
-        
-//        getHelpButton.layRightInSuperView(constant: 16)
-//        getHelpButton.layRight(to: colorStatusScale, constant: 16)
-//        getHelpButton.alignCenterVertically(with: colorStatusScale, constant: 0)
+        riskStatusScale.widthAnchor(with: self, multiplier: 0.75)
+        riskStatusScale.alignLeft(with: imageView, constant: 6)
+        riskStatusScale.layBelow(imageView, constant: 16)
     }
     
     private func dropShadow() {

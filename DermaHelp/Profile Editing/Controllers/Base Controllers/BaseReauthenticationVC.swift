@@ -39,7 +39,6 @@ class BaseReauthenticationVC: BasePasswordEditingVC {
     
     @objc
     private func didTapForgotPwButton() {
-        // TODO: Recover password functionality
         print("Forgot Password")
     }
     

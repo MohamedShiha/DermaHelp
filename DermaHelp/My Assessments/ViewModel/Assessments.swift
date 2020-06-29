@@ -6,11 +6,20 @@
 //  Copyright © 2020 Mohamed Shiha. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AssessmentsViewModelDelegate: class {
     func didFetchAssessments()
     func didDeleteAssessment(at index: Int, _ error: Error?)
+    func didAnalyzeImage(error: Error?)
+    func didFinishAssessing(assessment: AssessmentViewModel?)
+}
+
+extension AssessmentsViewModelDelegate {
+    func didFetchAssessments() { }
+    func didDeleteAssessment(at index: Int, _ error: Error?) { }
+    func didAnalyzeImage(error: Error?) { }
+    func didFinishAssessing(assessment: AssessmentViewModel?) { }
 }
 
 class Assessments {
@@ -33,6 +42,10 @@ class Assessments {
     
     var count: Int {
         return viewModels.count
+    }
+    
+    func firstIndex(of viewModel: AssessmentViewModel) -> Int? {
+        return viewModels.firstIndex(where: { $0.id == viewModel.id })
     }
     
     func fetch() {
@@ -59,23 +72,69 @@ class Assessments {
         }
         
         group.notify(queue: .global(qos: .background)) {
-            self.viewModels.sort(by: { !($0.date < $1.date) })
+            self.viewModels.sort(by: { $0.date.timeIntervalSinceReferenceDate > $1.date.timeIntervalSinceReferenceDate })
             DispatchQueue.main.async {
-                self.delegate?.didFetchAssessments()
+                 self.delegate?.didFetchAssessments()
             }
         }
     }
     
+    private func uploadAssessment(_ assessment: Assessment, _ completion: @escaping (Error?) -> Void) {
+        FirestoreManager.shared.uploadAssessment(assessment) { (error) in
+            completion(error)
+        }
+    }
+    
+    private func updateAssessments(ids: [String], _ completion: @escaping (Error?) -> Void) {
+        FirestoreManager.shared.updateAssessments(userId: userVM.id, ids: ids) { (error) in
+            completion(error)
+        }
+    }
+    
     func deleteAssessment(id: String) {
-        var assessmentsId = userVM.assessmentIds
-        if let index = assessmentsId.firstIndex(of: id) {
-            assessmentsId.remove(at: index)
-            FirestoreManager.shared.updateAssessments(userId: userVM.id, ids: assessmentsId) { (error) in
+        var assessmentIds = userVM.assessmentIds
+        if var index = assessmentIds.firstIndex(of: id) {
+            assessmentIds.remove(at: index)
+            updateAssessments(ids: assessmentIds) { [weak self] (error) in
                 if error == nil {
-                    self.userVM.assessmentIds = assessmentsId
-                    self.viewModels.remove(at: index)
+                    self?.userVM.assessmentIds = assessmentIds
+                    if let indexToDelete = self?.viewModels.firstIndex(where: { $0.id == id }) {
+                        index = indexToDelete
+                        self?.viewModels.remove(at: indexToDelete)
+                    }
                 }
-                self.delegate?.didDeleteAssessment(at: index, error)
+                self?.delegate?.didDeleteAssessment(at: index, error)
+            }
+        }
+    }
+    
+    private func addAssessment(assessment: Assessment) {
+        viewModels.append(AssessmentViewModel(assessment: assessment))
+        viewModels.sort(by: { $0.date.timeIntervalSinceReferenceDate > $1.date.timeIntervalSinceReferenceDate })
+        userVM.assessmentIds.insert(assessment.id, at: 0)
+        updateAssessments(ids: userVM.assessmentIds) { [weak self] (error) in
+            if error == nil {
+                self?.uploadAssessment(assessment) { (error) in
+                    let viewModel = error == nil ? AssessmentViewModel(assessment: assessment) : nil
+                    self?.delegate?.didFinishAssessing(assessment: viewModel)
+                }
+            }
+        }
+    }
+    
+    func analyze(image: UIImage) {
+        MachineLearningServerAPI.analyze(image: image) { [weak self] (result) in
+            switch result {
+            case .success(let classified):
+                let assessment = Assessment(id: UUID().uuidString, date: Date(), className: classified.className, attachedImage: image)
+                self?.addAssessment(assessment: assessment)
+                DispatchQueue.main.async {
+                    self?.delegate?.didAnalyzeImage(error: nil)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.delegate?.didAnalyzeImage(error: error)
+                }
             }
         }
     }

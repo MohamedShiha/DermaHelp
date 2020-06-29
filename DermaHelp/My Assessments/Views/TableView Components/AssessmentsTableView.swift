@@ -51,6 +51,6 @@ class AssessmentsTableView: UITableView, LayoutController {
 
 extension AssessmentsTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 208
+        return 152
     }
 }

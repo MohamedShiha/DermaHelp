@@ -21,35 +21,23 @@ class AssessmentViewModel {
         return assessment.id
     }
     
-    var organ: String {
-        return assessment.organ
+    var className: ClassifiedCancerClass.ClassIndex {
+        return assessment.className
     }
     
-    var status: Assessment.Severity {
+    var severity: Assessment.Severity {
         return assessment.severity
-    }
-    
-    var date: Date {
-        return assessment.date
     }
     
     var riskRate: Float {
         return assessment.riskRate
     }
     
-    var nevusRate: Float {
-        return assessment.nevusRate
+    var date: Date {
+        return assessment.date
     }
     
-    var melanomaRate: Float {
-        return assessment.melanomaRate
-    }
-    
-    var colorRate: Float {
-        return assessment.colorRate
-    }
-    
-    var attachedImage: UIImage {
+    var image: UIImage {
         return assessment.image
     }
 }

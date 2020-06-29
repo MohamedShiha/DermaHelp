@@ -34,17 +34,21 @@
 		533A6DAA24697C94002038ED /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DA924697C94002038ED /* UIImage+Extensions.swift */; };
 		533A6DAE24699114002038ED /* GenderSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533A6DAD24699114002038ED /* GenderSegmentedControl.swift */; };
 		5348D08F24955C06003CE798 /* ButtonWithLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5348D08E24955C06003CE798 /* ButtonWithLoadingActivity.swift */; };
+		534D93DD24A81A6D003E8858 /* DetailedAssessmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534D93DC24A81A6D003E8858 /* DetailedAssessmentVC.swift */; };
+		535EA24024A7E45C00BC8FAF /* CancerClassIndices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535EA23F24A7E45C00BC8FAF /* CancerClassIndices.swift */; };
 		536D71D12495635800418A73 /* UserViewModel+Updating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536D71D02495635800418A73 /* UserViewModel+Updating.swift */; };
 		536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536ECDC424646B9F00392234 /* SignUpFormVC.swift */; };
 		537DC73B246D8DC300DB7342 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537DC73A246D8DC200DB7342 /* User.swift */; };
 		53814187249E6DF200162103 /* LocalizingNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53814186249E6DF200162103 /* LocalizingNumbers.swift */; };
+		5386ED3F24A6A740004846DD /* ClassifiedCancerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386ED3E24A6A740004846DD /* ClassifiedCancerClass.swift */; };
+		5386ED4124A6ABEA004846DD /* MachineLearningServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386ED4024A6ABEA004846DD /* MachineLearningServerAPI.swift */; };
+		5386ED4424A6AC37004846DD /* MultipartData+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5386ED4324A6AC37004846DD /* MultipartData+String.swift */; };
 		538B4515248EA68500CAE101 /* EmailEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4514248EA68500CAE101 /* EmailEditingVC.swift */; };
 		538B4518248EB1B000CAE101 /* ReauthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4517248EB1B000CAE101 /* ReauthenticationVC.swift */; };
 		538B451A248EB85800CAE101 /* NewPasswordEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B4519248EB85800CAE101 /* NewPasswordEditingVC.swift */; };
 		538B451C248EC26200CAE101 /* BasePasswordEditingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B451B248EC26100CAE101 /* BasePasswordEditingVC.swift */; };
 		538B451E248EC9DA00CAE101 /* PasswordRulesLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B451D248EC9DA00CAE101 /* PasswordRulesLabel.swift */; };
 		538B4520248ED8DB00CAE101 /* NSRegularExpression+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538B451F248ED8DB00CAE101 /* NSRegularExpression+Extensions.swift */; };
-		538D5B6224918CD300EFAC56 /* AttachedImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D5B6124918CD300EFAC56 /* AttachedImageVC.swift */; };
 		53901BBC2462BAB600336820 /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BA92462BAB600336820 /* Features.swift */; };
 		53901BBD2462BAB600336820 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAB2462BAB600336820 /* ViewController.swift */; };
 		53901BBE2462BAB600336820 /* SplashScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53901BAC2462BAB600336820 /* SplashScreenVC.swift */; };
@@ -62,7 +66,7 @@
 		5394533924660FD900D8ED65 /* MyAssessmentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */; };
 		5394533E2466100300D8ED65 /* EmptyAssessmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */; };
 		5394533F2466100300D8ED65 /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5394533D2466100300D8ED65 /* FeaturesView.swift */; };
-		539453412466101500D8ED65 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539453402466101500D8ED65 /* AddButton.swift */; };
+		539453412466101500D8ED65 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539453402466101500D8ED65 /* PlusButton.swift */; };
 		539CD1E4246841D5001E94E5 /* BeginAssessmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */; };
 		539CD1E82468505F001E94E5 /* MediaOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E72468505F001E94E5 /* MediaOptionButton.swift */; };
 		539CD1EA24685655001E94E5 /* ManualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539CD1E924685655001E94E5 /* ManualView.swift */; };
@@ -91,6 +95,8 @@
 		53C0C83A245FAB0C0044C9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C0C838245FAB0C0044C9AD /* LaunchScreen.storyboard */; };
 		53CE4DDD248BE65500720C01 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CE4DDC248BE65500720C01 /* AlertController.swift */; };
 		53D325DE248FCDAE0094E764 /* EmailReauthenticationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D325DD248FCDAE0094E764 /* EmailReauthenticationVC.swift */; };
+		53D5A13D24A91F17003964B9 /* CardAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5A13C24A91F17003964B9 /* CardAnimationController.swift */; };
+		53D5A13F24A98CC6003964B9 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D5A13E24A98CC6003964B9 /* LoadingView.swift */; };
 		53DCCE53246EFAF500919AD5 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCCE52246EFAF500919AD5 /* String+Extensions.swift */; };
 		53E80077248E735B006D0AD3 /* SettingsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E80076248E735B006D0AD3 /* SettingsListItem.swift */; };
 		53F82CCE24680463006E38E8 /* Assessments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F82CCD24680463006E38E8 /* Assessments.swift */; };
@@ -127,17 +133,21 @@
 		533A6DA924697C94002038ED /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		533A6DAD24699114002038ED /* GenderSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSegmentedControl.swift; sourceTree = "<group>"; };
 		5348D08E24955C06003CE798 /* ButtonWithLoadingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithLoadingActivity.swift; sourceTree = "<group>"; };
+		534D93DC24A81A6D003E8858 /* DetailedAssessmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedAssessmentVC.swift; sourceTree = "<group>"; };
+		535EA23F24A7E45C00BC8FAF /* CancerClassIndices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancerClassIndices.swift; sourceTree = "<group>"; };
 		536D71D02495635800418A73 /* UserViewModel+Updating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserViewModel+Updating.swift"; sourceTree = "<group>"; };
 		536ECDC424646B9F00392234 /* SignUpFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormVC.swift; sourceTree = "<group>"; };
 		537DC73A246D8DC200DB7342 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53814186249E6DF200162103 /* LocalizingNumbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizingNumbers.swift; sourceTree = "<group>"; };
+		5386ED3E24A6A740004846DD /* ClassifiedCancerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedCancerClass.swift; sourceTree = "<group>"; };
+		5386ED4024A6ABEA004846DD /* MachineLearningServerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningServerAPI.swift; sourceTree = "<group>"; };
+		5386ED4324A6AC37004846DD /* MultipartData+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MultipartData+String.swift"; sourceTree = "<group>"; };
 		538B4514248EA68500CAE101 /* EmailEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailEditingVC.swift; sourceTree = "<group>"; };
 		538B4517248EB1B000CAE101 /* ReauthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationVC.swift; sourceTree = "<group>"; };
 		538B4519248EB85800CAE101 /* NewPasswordEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordEditingVC.swift; sourceTree = "<group>"; };
 		538B451B248EC26100CAE101 /* BasePasswordEditingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePasswordEditingVC.swift; sourceTree = "<group>"; };
 		538B451D248EC9DA00CAE101 /* PasswordRulesLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRulesLabel.swift; sourceTree = "<group>"; };
 		538B451F248ED8DB00CAE101 /* NSRegularExpression+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Extensions.swift"; sourceTree = "<group>"; };
-		538D5B6124918CD300EFAC56 /* AttachedImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachedImageVC.swift; sourceTree = "<group>"; };
 		53901BA92462BAB600336820 /* Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Features.swift; sourceTree = "<group>"; };
 		53901BAB2462BAB600336820 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		53901BAC2462BAB600336820 /* SplashScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenVC.swift; sourceTree = "<group>"; };
@@ -155,7 +165,7 @@
 		5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAssessmentsVC.swift; sourceTree = "<group>"; };
 		5394533C2466100300D8ED65 /* EmptyAssessmentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyAssessmentsView.swift; sourceTree = "<group>"; };
 		5394533D2466100300D8ED65 /* FeaturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturesView.swift; sourceTree = "<group>"; };
-		539453402466101500D8ED65 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		539453402466101500D8ED65 /* PlusButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		539CD1E3246841D5001E94E5 /* BeginAssessmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginAssessmentVC.swift; sourceTree = "<group>"; };
 		539CD1E72468505F001E94E5 /* MediaOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOptionButton.swift; sourceTree = "<group>"; };
 		539CD1E924685655001E94E5 /* ManualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualView.swift; sourceTree = "<group>"; };
@@ -187,6 +197,8 @@
 		53C0C83B245FAB0C0044C9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53CE4DDC248BE65500720C01 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		53D325DD248FCDAE0094E764 /* EmailReauthenticationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailReauthenticationVC.swift; sourceTree = "<group>"; };
+		53D5A13C24A91F17003964B9 /* CardAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAnimationController.swift; sourceTree = "<group>"; };
+		53D5A13E24A98CC6003964B9 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		53DCCE52246EFAF500919AD5 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		53E80076248E735B006D0AD3 /* SettingsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsListItem.swift; sourceTree = "<group>"; };
 		53F82CCD24680463006E38E8 /* Assessments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assessments.swift; sourceTree = "<group>"; };
@@ -235,6 +247,14 @@
 				536D71D02495635800418A73 /* UserViewModel+Updating.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5386ED4224A6AC23004846DD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5386ED4324A6AC37004846DD /* MultipartData+String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		538B4516248EA8AF00CAE101 /* Edit Password */ = {
@@ -411,6 +431,7 @@
 				53AD43662493B2910043864A /* ViewModel */,
 				53AD43672493B3A70043864A /* Views */,
 				53AD43682493B4FB0043864A /* Controllers */,
+				5386ED4224A6AC23004846DD /* Extensions */,
 			);
 			path = "My Assessments";
 			sourceTree = "<group>";
@@ -419,6 +440,8 @@
 			isa = PBXGroup;
 			children = (
 				53266ADB2467B05A0023B13D /* Assessment.swift */,
+				5386ED3E24A6A740004846DD /* ClassifiedCancerClass.swift */,
+				535EA23F24A7E45C00BC8FAF /* CancerClassIndices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -435,7 +458,7 @@
 		53AD43672493B3A70043864A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				539453402466101500D8ED65 /* AddButton.swift */,
+				539453402466101500D8ED65 /* PlusButton.swift */,
 				53FBF6B42493BB3200E52F04 /* TableView Components */,
 				53FBF6B22493BAE100E52F04 /* Assessment Container */,
 			);
@@ -447,7 +470,8 @@
 			children = (
 				53A73C112493D7BD008E953B /* TabVC+MyAssessments.swift */,
 				5394533724660FD900D8ED65 /* MyAssessmentsVC.swift */,
-				538D5B6124918CD300EFAC56 /* AttachedImageVC.swift */,
+				534D93DC24A81A6D003E8858 /* DetailedAssessmentVC.swift */,
+				53D5A13C24A91F17003964B9 /* CardAnimationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -589,6 +613,7 @@
 			children = (
 				539CD1E924685655001E94E5 /* ManualView.swift */,
 				539CD1E72468505F001E94E5 /* MediaOptionButton.swift */,
+				53D5A13E24A98CC6003964B9 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -702,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				53A73C042493D29D008E953B /* FirestoreAssessmentsManager.swift */,
+				5386ED4024A6ABEA004846DD /* MachineLearningServerAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -908,6 +934,7 @@
 			files = (
 				53241A062466196D00F1DC31 /* AssessmentsTableView.swift in Sources */,
 				532EE1062463113600A705D4 /* PasswordInputView.swift in Sources */,
+				535EA24024A7E45C00BC8FAF /* CancerClassIndices.swift in Sources */,
 				53A73C122493D7BD008E953B /* TabVC+MyAssessments.swift in Sources */,
 				53266AE42467BDCB0023B13D /* Date+Extensions.swift in Sources */,
 				538B451E248EC9DA00CAE101 /* PasswordRulesLabel.swift in Sources */,
@@ -922,6 +949,7 @@
 				538B451A248EB85800CAE101 /* NewPasswordEditingVC.swift in Sources */,
 				53901BBF2462BAB600336820 /* FeatureCell.swift in Sources */,
 				533A6DAA24697C94002038ED /* UIImage+Extensions.swift in Sources */,
+				53D5A13D24A91F17003964B9 /* CardAnimationController.swift in Sources */,
 				53266ADE2467B5790023B13D /* UIView+Extensions.swift in Sources */,
 				53901BBC2462BAB600336820 /* Features.swift in Sources */,
 				533998BE248D4F44005AAB4F /* ProfileSettingsCell.swift in Sources */,
@@ -933,6 +961,7 @@
 				532EE1032462EAA300A705D4 /* GoogleButton.swift in Sources */,
 				53C0C82E245FAB0B0044C9AD /* AppDelegate.swift in Sources */,
 				53A73C032493CCA2008E953B /* BaseAuthenticationVC.swift in Sources */,
+				5386ED4424A6AC37004846DD /* MultipartData+String.swift in Sources */,
 				53901BC42462BAB600336820 /* FeaturesCollectionView.swift in Sources */,
 				53A0502D246D3B7400097664 /* GoogleAuthenticationProvider.swift in Sources */,
 				53B3EFA7248AAB910008C416 /* ImagePicker.swift in Sources */,
@@ -948,11 +977,12 @@
 				533998C7248D9431005AAB4F /* BaseTextFieldEditingVC.swift in Sources */,
 				53FECBAE245FD43E00E706D0 /* UIFont+Extensions.swift in Sources */,
 				53241A0C24661A8E00F1DC31 /* StatusSlider.swift in Sources */,
+				53D5A13F24A98CC6003964B9 /* LoadingView.swift in Sources */,
 				53901BC12462BAB600336820 /* Button.swift in Sources */,
 				5393316424695953006A8ACC /* ProfileVC.swift in Sources */,
 				53241A342466446E00F1DC31 /* AssessmentView.swift in Sources */,
 				53A0502F246D43EC00097664 /* NavigationController.swift in Sources */,
-				539453412466101500D8ED65 /* AddButton.swift in Sources */,
+				539453412466101500D8ED65 /* PlusButton.swift in Sources */,
 				53A73C102493D6B4008E953B /* FirestoreUserManager.swift in Sources */,
 				536ECDC524646B9F00392234 /* SignUpFormVC.swift in Sources */,
 				53FBF6BC2493C4E000E52F04 /* AuthenticationOperations.swift in Sources */,
@@ -964,6 +994,7 @@
 				53A73C052493D29D008E953B /* FirestoreAssessmentsManager.swift in Sources */,
 				536D71D12495635800418A73 /* UserViewModel+Updating.swift in Sources */,
 				53A73C1E24940EEC008E953B /* CredentialsEvaluator.swift in Sources */,
+				5386ED3F24A6A740004846DD /* ClassifiedCancerClass.swift in Sources */,
 				53DCCE53246EFAF500919AD5 /* String+Extensions.swift in Sources */,
 				530E421D248FD09C00346D1D /* BaseReauthenticationVC.swift in Sources */,
 				5394533F2466100300D8ED65 /* FeaturesView.swift in Sources */,
@@ -983,6 +1014,7 @@
 				53023991247015B200F21E98 /* FirestoreManager.swift in Sources */,
 				53901BCB2462BE7100336820 /* LoginFormVC.swift in Sources */,
 				53266ADC2467B05A0023B13D /* Assessment.swift in Sources */,
+				534D93DD24A81A6D003E8858 /* DetailedAssessmentVC.swift in Sources */,
 				533998C3248D8FD0005AAB4F /* BaseEditingVC.swift in Sources */,
 				53266AE72467DE9C0023B13D /* AssessmentViewModel.swift in Sources */,
 				53C0C830245FAB0B0044C9AD /* SceneDelegate.swift in Sources */,
@@ -991,7 +1023,7 @@
 				5302399D247094A100F21E98 /* UserViewModel.swift in Sources */,
 				53FCDD4E248A3C80003A0ADE /* ErrorHandling.swift in Sources */,
 				53E80077248E735B006D0AD3 /* SettingsListItem.swift in Sources */,
-				538D5B6224918CD300EFAC56 /* AttachedImageVC.swift in Sources */,
+				5386ED4124A6ABEA004846DD /* MachineLearningServerAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

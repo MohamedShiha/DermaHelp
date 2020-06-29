@@ -13,7 +13,7 @@ import FirebaseFirestoreSwift
 extension FirestoreManager {
     
     typealias AssessmentCompletion =  (Result<Assessment,DHError>) -> Void
-    typealias AssessmentUpdatingCompletion = (Error?) -> Void
+    typealias AssessmentOperationCompletion = (Error?) -> Void
     
     private func assessmentsCollection() -> CollectionReference {
         return fireStore.collection(Paths.assessments.rawValue)
@@ -42,8 +42,18 @@ extension FirestoreManager {
             }
         }
     }
+    
+    func uploadAssessment(_ assessment: Assessment, _ completion: @escaping AssessmentOperationCompletion) {
+        do {
+            try assessmentsCollection().document(assessment.id).setData(from: assessment)
+            completion(nil)
+        } catch let error {
+            print("Error writing user to Firestore: \(error)")
+            completion(error)
+        }
+    }
 
-    func updateAssessments(userId: String, ids assessmentIds: [String], _ completion: @escaping AssessmentUpdatingCompletion) {
+    func updateAssessments(userId: String, ids assessmentIds: [String], _ completion: @escaping AssessmentOperationCompletion) {
         let key = User.CodingKeys.assessmentIds.rawValue
         let value = assessmentIds
         usersCollection().document(userId).updateData([key:value]) { (error) in
