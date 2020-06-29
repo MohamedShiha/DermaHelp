@@ -14,8 +14,8 @@ class MyAssessmentsVC: ViewController, LayoutController {
 
     // MARK: Views
     
-    private let headingLabel = Label(text: "My Assessments", font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
-    private let addButton = AddButton()
+    private let headingLabel = Label(text: .localized(key: "my assessments"), font: .roundedSystemFont(ofSize: 30, weight: .bold), color: .mainTint)
+    private let addButton = PlusButton()
     private let assessmentsTableView = AssessmentsTableView()
     
     // MARK: Properties
@@ -24,9 +24,14 @@ class MyAssessmentsVC: ViewController, LayoutController {
     var assessments: Assessments {
         didSet {
             assessments.delegate = self
+            beginAssessmentVC?.viewModel = assessments
             assessments.fetch()
         }
     }
+    var beginAssessmentVC: BeginAssessmentVC?
+    private var indexToPresent: Int?
+    
+    // MARK: Initializers
     
     init(viewModel: Assessments) {
         assessments = viewModel
@@ -38,7 +43,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
         super.init(coder: coder)
     }
     
-    // MARK: View controller lifecycle
+    // MARK: View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +51,14 @@ class MyAssessmentsVC: ViewController, LayoutController {
         setupLayout()
         setupActions()
         assessmentsTableView.dataSource = self
+        transitioningDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         assessmentsTableView.reloadData()
         assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
+        assessments.delegate = self
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -61,7 +68,6 @@ class MyAssessmentsVC: ViewController, LayoutController {
     // MARK: Setup UI
     
     func setupViews() {
-        headingLabel.localizingKey = "my assessments"
         view.addSubViews([headingLabel, addButton, assessmentsTableView])
     }
     
@@ -83,9 +89,11 @@ class MyAssessmentsVC: ViewController, LayoutController {
     
     @objc
     private func didTapAddButton() {
-        let vc = BeginAssessmentVC()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        beginAssessmentVC = BeginAssessmentVC(viewModel: assessments)
+        beginAssessmentVC?.modalPresentationStyle = .fullScreen
+        if let vc = beginAssessmentVC {
+            present(vc, animated: true, completion: nil)
+        }
     }
 }
 
@@ -127,20 +135,29 @@ extension MyAssessmentsVC: AssessmentsViewModelDelegate {
             assessmentsTableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .fade)
             assessmentsTableView.handleBackgroundViewIf(emptyCondition: assessments.isEmpty)
         } else {
-            presentDismissingAlert(title: "Unable to delete the assessment.")
+            presentDismissingAlert(title: .localized(key: "deleting error"))
         }
+    }
+    
+    func didFinishAssessing(assessment: AssessmentViewModel?) {
+        if let viewModel = assessment {
+            presentDetailedVC(viewModel: viewModel)
+        }
+    }
+    
+    private func presentDetailedVC(viewModel: AssessmentViewModel) {
+        let vc = DetailedAssessmentVC(viewModel: viewModel)
+        vc.transitioningDelegate = self
+        present(vc, animated: true, completion: nil)
     }
 }
 
 // MARK: Cell Delegate
 
 extension MyAssessmentsVC: AssessmentCellDelegate {
-    
-    func didTapAttachedImage(image: UIImage?) {
-        let vc = AttachedImageVC()
-        vc.image = image
-        let nav = vc.embedInNavigationController()
-        present(nav, animated: true, completion: nil)
+
+    func presentDetailedView(viewModel: AssessmentViewModel) {
+        presentDetailedVC(viewModel: viewModel)
     }
     
     func didTapShareAction(imageToShare: UIImage?) {
@@ -151,14 +168,59 @@ extension MyAssessmentsVC: AssessmentCellDelegate {
     }
     
     func didTapDeleteAction(idToDelete: String) {
-        let title = "Are you sure you want to delete this assessment?"
-        let message = "This action can not be undone."
-        presentAlert(title: title, message: message, actionTitle: "Delete", actionType: .primary) {
+        let title = String.localized(key: "verify clearing an assessment")
+        let message = String.localized(key: "verify clearing an assessment message")
+        presentAlert(title: title, message: message, actionTitle: .localized(key: "delete"), actionType: .primary) {
             self.assessments.deleteAssessment(id: idToDelete)
         }
     }
     
     func presentActionSheet(_ actionSheet: UIAlertController) {
         present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func isTappingAssessment(in cell: AssessmentCell) {
+        if assessmentsTableView.visibleCells.contains(cell) {
+            for i in 0..<assessmentsTableView.visibleCells.count {
+                if assessmentsTableView.visibleCells[i] == cell {
+                    indexToPresent = i
+                } else {
+                    UIView.animate(withDuration: 0.2) {
+                        self.assessmentsTableView.visibleCells[i].alpha = 0.5
+                    }
+                }
+            }
+        }
+    }
+    
+    func didReleaseTap() {
+        for cell in assessmentsTableView.visibleCells {
+            UIView.animate(withDuration: 0.2) {
+                cell.alpha = 1
+            }
+        }
+    }
+}
+
+extension MyAssessmentsVC: UIViewControllerTransitioningDelegate {
+ 
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        var assessmentView = AssessmentView()
+        if let index = indexToPresent {
+            if let view = (assessmentsTableView.visibleCells[index] as? AssessmentCell)?.assessmentView {
+                assessmentView = view
+            }
+        }
+        return CardAnimationController(assessmentView: assessmentView, duration: 0.70, type: .present)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        var assessmentView = AssessmentView()
+        if let index = indexToPresent {
+            if let view = (assessmentsTableView.visibleCells[index] as? AssessmentCell)?.assessmentView {
+                assessmentView = view
+            }
+        }
+        return CardAnimationController(assessmentView: assessmentView, duration: 0.70, type: .dismiss)
     }
 }
