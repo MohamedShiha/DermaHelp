@@ -19,7 +19,7 @@ class StatusView: UIView, LayoutController {
 
     var severity: Assessment.Severity = .low {
         didSet {
-            label.text = severity.rawValue
+            label.text = .localized(key: severity.rawValue)
             setAppearance(by: severity)
         }
     }
@@ -60,7 +60,7 @@ class StatusView: UIView, LayoutController {
         switch severity {
         case .low:
             color = .systemGreen
-        case .medium:
+        case .lowMedium, .medium, .highMedium:
             color = .systemYellow
         case .hazardous:
             color = .systemRed
