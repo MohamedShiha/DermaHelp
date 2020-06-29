@@ -205,22 +205,24 @@ extension MyAssessmentsVC: AssessmentCellDelegate {
 extension MyAssessmentsVC: UIViewControllerTransitioningDelegate {
  
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        var assessmentView = AssessmentView()
-        if let index = indexToPresent {
-            if let view = (assessmentsTableView.visibleCells[index] as? AssessmentCell)?.assessmentView {
-                assessmentView = view
-            }
-        }
-        return CardAnimationController(assessmentView: assessmentView, duration: 0.70, type: .present)
+        return customTransition(for: .present)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customTransition(for: .dismiss)
+    }
+    
+    private func customTransition(for type: CardAnimationController.AnimationType) -> UIViewControllerAnimatedTransitioning? {
+        return CardAnimationController(assessmentView: getActiveAssessmentView(), duration: 0.70, type: type)
+    }
+    
+    private func getActiveAssessmentView() -> AssessmentView {
         var assessmentView = AssessmentView()
         if let index = indexToPresent {
             if let view = (assessmentsTableView.visibleCells[index] as? AssessmentCell)?.assessmentView {
                 assessmentView = view
             }
         }
-        return CardAnimationController(assessmentView: assessmentView, duration: 0.70, type: .dismiss)
+        return assessmentView
     }
 }
