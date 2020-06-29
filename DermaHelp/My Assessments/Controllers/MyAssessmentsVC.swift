@@ -78,7 +78,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
         addButton.alignCenterVertically(with: headingLabel, constant: 0)
         addButton.squareSizeWith(sideLengthOf: 30)
         assessmentsTableView.layBelow(headingLabel, constant: 16)
-        assessmentsTableView.edgesToSuperView(including: [.left, .bottom, .right])
+        assessmentsTableView.edgesToSuperView(including: [.left, .bottom, .right], insets: .bottom(8))
     }
     
     private func setupActions() {
