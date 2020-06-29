@@ -141,6 +141,7 @@ extension MyAssessmentsVC: AssessmentsViewModelDelegate {
     
     func didFinishAssessing(assessment: AssessmentViewModel?) {
         if let viewModel = assessment {
+            indexToPresent = 0 // As the new assessment is always added on top
             presentDetailedVC(viewModel: viewModel)
         }
     }
