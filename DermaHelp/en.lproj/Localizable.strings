@@ -43,6 +43,55 @@
 "empty assessment" = "No Assessment Found";
 "empty assessment hint" = "Tap the + button to add an assessment.";
 
+// Assessment Container
+"risk" = "Risk";
+// Severity levels
+"low" = "low";
+"low medium" = "low medium";
+"medium" = "medium";
+"high medium" = "high medium";
+"hazardous" = "hazardous";
+
+// Detailed Assessment Screen
+"info heading" = "More information";
+
+// ------ The following keys are affected by ClassifiedCancerClass.ClassIndex Enum
+// ------ So changes should be reflected here.
+"Actinic keratoses heading" = "Actinic Keratosis";
+"Actinic keratoses awareness" = "- Actinic keratosis is not cancerous, but rather a precancerous condition, and usually benign.
+- Only 10 percent of these spots will eventually become cancerous.
+- If not treated in a timely manner, actinic keratosis can turn into squamous cell carcinoma, which can metastasize and spread to other areas of the body.";
+
+"Basal cell carcinoma heading" = "Basal Cell Carcinoma";
+"Basal cell carcinoma awareness" = "- Basal cell carcinoma is mostly a benign form of skin cancer.
+- Therapies that are currently used for basal cell carcinoma offer an 85 to 95 percent recurrence-free cure rate.
+- Most are curable and cause minimal damage when caught and treated early.";
+
+"Benign keratosis-like lesion heading" = "Benign Keratosis-Like Lesions";
+"Benign keratosis-like lesion awareness" = "- Benign keratosis (also called seborrheic keratosis) are noncancerous (benign) skin growths.
+- Following the first treatment, complete healing was detected in 68-100% of the lesions.
+- Seborrheic keratosis can be unsightly, but the growths aren't harmful.";
+
+"dermatofibroma heading" = "Dermatofibroma";
+"dermatofibroma awareness" = "- Dermatofibromas are noncancerous (benign) skin growths that can develop anywhere on the body but most often appear on the lower legs, upper arms or upper back.
+- As they are harmless and do not turn into cancer, no treatment is usually needed.
+- Dermatofibromas do not go away by themselves, but they can be removed under local anaesthetic if there is doubt about their diagnosis.";
+
+"Melanocytic nevus heading" = "Melanocytic Nevus";
+"Melanocytic nevus awareness" = "- If diagnosed properly, melanocytic nevi are biologically stable, completely benign lesions.
+-Patients with multiple melanocytic nevi or sizable ones appear to have an increased lifetime risk of melanoma.
+- Melanocytic nevi can be surgically removed for cosmetic considerations or because of concern regarding the potential of melanoma.";
+
+"Melanoma heading" = "Melanoma";
+"Melanoma awareness" = "- Melanoma is the most dangerous type of skin cancer. It may appear as a new spot or as a change in an existing mole or freckle.
+- Over 95 per cent of skin cancers can be successfully treated if they are found early.
+- Once melanoma has spread deeper into the skin or other parts of the body, it becomes more difficult to treat and can be deadly.";
+
+"Vascular lesion heading" = "Vascular Lesions";
+"Vascular lesion awareness" = "- Vascular tumors may be benign (not cancer) or malignant (cancer) and can occur anywhere in the body.
+- For example, angioma is a benign tumor made up of blood vessels, whereas angiosarcoma is a cancerous growth of the same cells, but is malignant.
+- Infantile hemangiomas are the most common type of vascular lesion, They are benign tumors of the cells that line blood vessels.";
+
 // Begin Assessment Screen
 
 "begin assessment" = "Begin Assessment";
@@ -107,9 +156,9 @@
 
 // Assessment Action Sheet
 
-"attached photo" = "Attached photo";
+"more info" = "More Information";
 "share" = "Share";
-"delete" = "Delete assessment";
+"delete" = "Delete";
 "cancel" = "Cancel";
 "try again" = "Try Again";
 
@@ -121,6 +170,8 @@
 "empty assessment alert" = "You have not conducted any assessments yet.";
 "verify clearing assessments" = "Are you sure you want to clear all you assessments?";
 "verify clearing message" = "Assessments will be removed from your profile but they will be kept for analysis purpose.\n\nThis action can not be undone.";
+"verify clearing an assessment" = "Are you sure you want to delete this assessment?";
+"verify clearing an assessment message" = "This action can not be undone.";
 "verify log out" = "Are you sure you want to log out?";
 "invalid password" = "The password you entered is invalid.";
 "successful update" = "Your %1$@ has been updated successfully.";
@@ -136,6 +187,8 @@ contain 1 uppercase letter at least.
 contain 1 number at least.
 not contain whitespaces or special characters.
 ";
+"analyzing error" = "Unable to analyze the image.";
+"deleting error" = "Unable to delete the assessment.";
 
 // Image Picker Alerts
 
