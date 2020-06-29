@@ -10,17 +10,19 @@ import UIKit
 import EZConstraints
 
 protocol AssessmentCellDelegate: class {
-    func didTapAttachedImage(image: UIImage?)
+    func presentDetailedView(viewModel: AssessmentViewModel)
     func didTapShareAction(imageToShare: UIImage?)
     func didTapDeleteAction(idToDelete: String)
     func presentActionSheet(_ actionSheet: UIAlertController)
+    func isTappingAssessment(in cell: AssessmentCell)
+    func didReleaseTap()
 }
 
 class AssessmentCell: UITableViewCell, LayoutController {
     
     // MARK: Views
     
-    private let assessmentView = AssessmentView()
+    let assessmentView = AssessmentView()
     
     // MARK: Properties
     
@@ -28,14 +30,10 @@ class AssessmentCell: UITableViewCell, LayoutController {
     weak var actionDelegate: AssessmentCellDelegate?
     var assessmentViewModel: AssessmentViewModel! {
         didSet {
-            assessmentView.organNameLabel.text = assessmentViewModel.organ
-            assessmentView.statusView.severity = assessmentViewModel.status
+            assessmentView.imageView.image = assessmentViewModel.image
+            assessmentView.statusView.severity = assessmentViewModel.severity
             assessmentView.dateLabel.text = assessmentViewModel.date.formatted
             assessmentView.riskStatusScale.rate = assessmentViewModel.riskRate
-            assessmentView.nevusStatusScale.rate = assessmentViewModel.nevusRate
-            assessmentView.melanomaStatusScale.rate = assessmentViewModel.melanomaRate
-            assessmentView.colorStatusScale.rate = assessmentViewModel.colorRate
-//            assessmentView.getHelpButton.isHidden = assessmentViewModel.status != .hazardous
         }
     }
     
@@ -60,12 +58,12 @@ class AssessmentCell: UITableViewCell, LayoutController {
     }
     
     func setupLayout() {
-        assessmentView.edgesToSuperView(insets: .top(8) + .left(16) + .bottom(8) + .right(16))
+        assessmentView.edgesToSuperView(insets: .top(4) + .left(16) + .bottom(4) + .right(16))
     }
     
     private func setupLongPressGesture() {
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(recognizer:)))
-        addGestureRecognizer(longPress)
+        assessmentView.addGestureRecognizer(longPress)
     }
     
     private func setupActions() {
@@ -84,26 +82,33 @@ class AssessmentCell: UITableViewCell, LayoutController {
         switch recognizer.state {
         case .began:
             scaleTo(point: CGPoint(x: 0.95, y: 0.95))
+            actionDelegate?.isTappingAssessment(in: self)
         case .ended:
             scaleToIdentity()
-            presentAssessmentActions()
+            presentDetailedAssessmentVC()
+            actionDelegate?.didReleaseTap()
         default:
             break
         }
+    }
+    
+    private func presentDetailedAssessmentVC() {
+        actionDelegate?.presentDetailedView(viewModel: assessmentViewModel)
     }
     
     private func presentAssessmentActions() {
 
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.view.tintColor = .black
-        let attachedPhotoAction = UIAlertAction(title: .localized(key: "attached photo"), style: .default) { [weak self] _ in
-            self?.actionDelegate?.didTapAttachedImage(image: self?.assessmentViewModel.attachedImage)
+        
+        let moreInfoAction = UIAlertAction(title: .localized(key: "more info"), style: .default) { [weak self] _ in
+            self?.presentDetailedAssessmentVC()
         }
-        actionSheet.addAction(attachedPhotoAction)
+        actionSheet.addAction(moreInfoAction)
         
         let shareAction = UIAlertAction(title: .localized(key: "share"), style: .default) { [weak self] _ in
             if let vm = self?.assessmentViewModel {
-                self?.actionDelegate?.didTapShareAction(imageToShare: vm.attachedImage)
+                self?.actionDelegate?.didTapShareAction(imageToShare: vm.image)
             }
         }
         actionSheet.addAction(shareAction)
