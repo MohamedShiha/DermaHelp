@@ -10,7 +10,7 @@ import UIKit
 import EZConstraints
 
 protocol AssessmentCellDelegate: class {
-    func presentDetailedView(viewModel: AssessmentViewModel)
+    func presentDetailedView(viewModel: AssessmentViewModel, sender: AssessmentCell)
     func didTapShareAction(imageToShare: UIImage?)
     func didTapDeleteAction(idToDelete: String)
     func presentActionSheet(_ actionSheet: UIAlertController)
@@ -93,7 +93,7 @@ class AssessmentCell: UITableViewCell, LayoutController {
     }
     
     private func presentDetailedAssessmentVC() {
-        actionDelegate?.presentDetailedView(viewModel: assessmentViewModel)
+        actionDelegate?.presentDetailedView(viewModel: assessmentViewModel, sender: self)
     }
     
     private func presentAssessmentActions() {
