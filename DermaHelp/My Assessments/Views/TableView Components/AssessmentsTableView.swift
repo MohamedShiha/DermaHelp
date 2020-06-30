@@ -39,6 +39,7 @@ class AssessmentsTableView: UITableView, LayoutController {
         backgroundView?.center(offset: CGPoint(x: 0, y: -40))
         backgroundView?.aspectRatio(multiplier: 1)
         backgroundView?.widthAnchor(with: self, multiplier: 0.9)
+        contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
     }
     
     func handleBackgroundViewIf(emptyCondition: Bool) {
