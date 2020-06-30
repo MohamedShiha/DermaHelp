@@ -102,7 +102,7 @@ class DetailedAssessmentVC: ViewController, LayoutController {
         dateLabel.layTopInSuperView(constant: 0)
         dateLabel.layLeftInSuperView(constant: 8)
         
-        [classNameLabel, severityLabel, riskRateView, infoHeadingLabel].alignLeft(with: dateLabel, constant: 6)
+        [classNameLabel, severityLabel, riskRateView, infoHeadingLabel].alignLeft(with: dateLabel, constant: 0)
 
         classNameLabel.layBelow(dateLabel, constant: 16)
 
