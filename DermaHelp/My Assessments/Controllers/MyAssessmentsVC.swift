@@ -63,6 +63,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
     
     override func viewSafeAreaInsetsDidChange() {
         topConstraint.constant = view.safeAreaInsets.top + 24
+        assessmentsTableView.layBottomToSafeArea(constant: 0)
     }
     
     // MARK: Setup UI
@@ -78,7 +79,7 @@ class MyAssessmentsVC: ViewController, LayoutController {
         addButton.alignCenterVertically(with: headingLabel, constant: 0)
         addButton.squareSizeWith(sideLengthOf: 30)
         assessmentsTableView.layBelow(headingLabel, constant: 16)
-        assessmentsTableView.edgesToSuperView(including: [.left, .bottom, .right], insets: .bottom(8))
+        assessmentsTableView.edgesToSuperView(including: [.left, .right])
     }
     
     private func setupActions() {
@@ -157,8 +158,14 @@ extension MyAssessmentsVC: AssessmentsViewModelDelegate {
 
 extension MyAssessmentsVC: AssessmentCellDelegate {
 
-    func presentDetailedView(viewModel: AssessmentViewModel) {
-        presentDetailedVC(viewModel: viewModel)
+    func presentDetailedView(viewModel: AssessmentViewModel, sender: AssessmentCell) {
+        if assessmentsTableView.visibleCells.contains(sender) {
+            for i in 0..<assessmentsTableView.visibleCells.count where assessmentsTableView.visibleCells[i] == sender {
+    
+                indexToPresent = i
+                presentDetailedVC(viewModel: viewModel)
+            }
+        }
     }
     
     func didTapShareAction(imageToShare: UIImage?) {
@@ -214,7 +221,7 @@ extension MyAssessmentsVC: UIViewControllerTransitioningDelegate {
     }
     
     private func customTransition(for type: CardAnimationController.AnimationType) -> UIViewControllerAnimatedTransitioning? {
-        return CardAnimationController(assessmentView: getActiveAssessmentView(), duration: 0.70, type: type)
+        return CardAnimationController(assessmentView: getActiveAssessmentView(), duration: 0.65, type: type)
     }
     
     private func getActiveAssessmentView() -> AssessmentView {
