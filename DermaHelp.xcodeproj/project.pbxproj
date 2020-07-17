@@ -602,6 +602,7 @@
 		53AD437E2493B73C0043864A /* Add Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				53C6F36524AF1BC7008F98F1 /* Networking */,
 				53AD437F2493B7410043864A /* Views */,
 				53AD43802493B7440043864A /* Controllers */,
 			);
@@ -661,6 +662,14 @@
 				539DF53D249CE57200250DD7 /* Localizable.strings */,
 			);
 			path = DermaHelp;
+			sourceTree = "<group>";
+		};
+		53C6F36524AF1BC7008F98F1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5386ED4024A6ABEA004846DD /* MachineLearningServerAPI.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		53D325DC248FCB620094E764 /* Edit Email */ = {
@@ -727,7 +736,6 @@
 			isa = PBXGroup;
 			children = (
 				53A73C042493D29D008E953B /* FirestoreAssessmentsManager.swift */,
-				5386ED4024A6ABEA004846DD /* MachineLearningServerAPI.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
