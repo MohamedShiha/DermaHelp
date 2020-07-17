@@ -44,6 +44,7 @@
 
 // Assessment Container
 "risk" = "الخطورة";
+"severity" = "الحدة";
 // Severity levels
 "low" = "منخفض";
 "low medium" = "اقل من متوسط";

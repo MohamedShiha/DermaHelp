@@ -45,6 +45,7 @@
 
 // Assessment Container
 "risk" = "Risk";
+"severity" = "Severity";
 // Severity levels
 "low" = "low";
 "low medium" = "low medium";
