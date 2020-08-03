@@ -40,9 +40,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>The app uses camera to take photo for assessments.</string>
+	<string>$(PRODUCT_NAME) uses camera to take photo for assessments.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The app uses saves photos to your photo library.</string>
+	<string>$(PRODUCT_NAME) saves photos to your photo library.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
