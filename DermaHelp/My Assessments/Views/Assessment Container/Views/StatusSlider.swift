@@ -32,11 +32,11 @@ class StatusSlider: UISlider {
     
     private func setMinimumTrackColor(by value: Float) {
         switch value {
-        case 0.0...0.35:
+        case 0.0..<0.40:
             minimumTrackTintColor = .systemGreen
-        case 0.35...0.75:
+        case 0.40..<0.81:
             minimumTrackTintColor = .systemYellow
-        case 0.75...1:
+        case 0.81...1:
             minimumTrackTintColor = .red
         default:
             break
