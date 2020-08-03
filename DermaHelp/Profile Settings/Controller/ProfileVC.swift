@@ -88,14 +88,15 @@ class ProfileVC: ViewController {
     }
     
     private func updateTabBar(with image: UIImage?) {
-        tabBarController?.tabBar.items?[1].image = image?.roundedImageWithBorder(width: 0)
-        tabBarController?.tabBar.items?[1].selectedImage = image?.roundedImageWithBorder(width: 2, color: .mainTint)
+        let avatar = image ?? UIImage.profilePlaceholder
+        tabBarController?.tabBar.items?[1].image = avatar?.roundedImageWithBorder(width: 0)
+        tabBarController?.tabBar.items?[1].selectedImage = avatar?.roundedImageWithBorder(width: 2, color: .mainTint)
     }
     
     private func showUserData() {
         settingsTableView.viewModel = viewModel
         settingsTableView.reloadData()
-        profileImageView.image = viewModel.picture
+        profileImageView.image = viewModel.picture ?? UIImage.profilePlaceholder
     }
     
     private func updateAssessments() {
