@@ -20,7 +20,7 @@ class SplashScreenVC: ViewController, LayoutController {
     
     private let logoImageView = UIImageView(image: UIImage(named: "Logo"))
     private let solidLogoImageView = UIImageView(image: UIImage(named: "Solid-logo"))
-    private let logoLabel = Label(text: "Derma Help", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
+    private let logoLabel = Label(text: "DermaHelp", font: .roundedSystemFont(ofSize: 34, weight: .heavy))
     private let featuresView = FeaturesView()
     private let loginButton = FormButton(title: "Login", titleColor: .label, backColor: .systemFill)
     private let signUpButton = FormButton(title: "Sign Up", titleColor: .white, backColor: .mainTint)
