@@ -69,7 +69,7 @@ class NewPasswordEditingVC: BasePasswordEditingVC {
         let repeated = repeatPwInputView.textField.text ?? ""
         saveButton.isEnabled = !pw.isEmpty && !repeated.isEmpty
         
-        let activeColor = UIColor.mainTint
+        let activeColor = UIColor.systemGreen
         let inactiveColor = UIColor.secondaryBlackLabel
         eightCharRuleLabel.animateTextColor(to: pw.count >= 8 && pw.count <= 24 ? activeColor : inactiveColor)
         upperCharRuleLabel.animateTextColor(to: NSRegularExpression.containsAnUpperCase(string: pw) ? activeColor : inactiveColor)
